@@ -1,0 +1,4308 @@
+{
+  "scope": "Distinct review IDs, same movie and source chunks, same top-k. Recall and MRR only use questions with judged relevant evidence. Rankings do not assess answer quality or abstention.",
+  "latency_scope": "Warmed single-query retrieval includes query encoding and ranking. Corpus preparation and generation are excluded. Timings are local to this run.",
+  "top_k": 5,
+  "corpus": "imdb_local.jsonl",
+  "questions": "imdb_eval.jsonl",
+  "counts": {
+    "movies": 12,
+    "reviews": 360,
+    "questions": 50,
+    "answerable": 40,
+    "unsupported": 10
+  },
+  "environment": {
+    "system": "Windows",
+    "python": "3.12.7",
+    "device": "CPU"
+  },
+  "embedding": {
+    "model": "sentence-transformers/multi-qa-MiniLM-L6-cos-v1",
+    "reference_revision": "b207367332321f8e44f96e224ef15bc607f4dbf0"
+  },
+  "preparation_ms": {
+    "bm25_build": 50.137,
+    "encoder_load": 6127.067,
+    "corpus_encoding_and_index": 12386.085
+  },
+  "methods": {
+    "bm25": {
+      "recall_at_5": 0.548585,
+      "mrr_at_5": 0.715,
+      "questions_with_relevant_hit": 38,
+      "retrieval_p50_ms": 0.216,
+      "retrieval_p95_ms": 0.345
+    },
+    "dense": {
+      "recall_at_5": 0.517834,
+      "mrr_at_5": 0.70375,
+      "questions_with_relevant_hit": 35,
+      "retrieval_p50_ms": 5.631,
+      "retrieval_p95_ms": 7.294,
+      "recall_vs_bm25": {
+        "improved": 9,
+        "unchanged": 18,
+        "worsened": 13
+      }
+    },
+    "hybrid": {
+      "recall_at_5": 0.522949,
+      "mrr_at_5": 0.759167,
+      "questions_with_relevant_hit": 36,
+      "retrieval_p50_ms": 5.688,
+      "retrieval_p95_ms": 7.685,
+      "recall_vs_bm25": {
+        "improved": 7,
+        "unchanged": 23,
+        "worsened": 10
+      }
+    }
+  },
+  "cases": [
+    {
+      "qid": "imdb-01",
+      "movie_id": "tt0156934",
+      "question": "Did the jazzy soundtrack suit the film's mood, or did viewers find it distracting?",
+      "relevant_review_ids": [
+        "test-neg-2648",
+        "test-neg-2657",
+        "test-pos-9821",
+        "test-pos-9831",
+        "test-pos-9834"
+      ],
+      "best_methods": [
+        "bm25",
+        "dense",
+        "hybrid"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-9821",
+            "test-pos-9831",
+            "test-neg-2648",
+            "test-pos-9824",
+            "test-pos-9834"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-9821:7",
+            "test-pos-9831:1",
+            "test-neg-2648:2",
+            "test-pos-9824:9",
+            "test-pos-9834:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-9821",
+            "test-pos-9831",
+            "test-neg-2648",
+            "test-pos-9834"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.8,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 0.1525
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-2657",
+            "test-pos-9834",
+            "test-neg-2648",
+            "test-pos-9821",
+            "test-neg-2652"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-2657:1",
+            "test-pos-9834:2",
+            "test-neg-2648:3",
+            "test-pos-9821:7",
+            "test-neg-2652:1"
+          ],
+          "matched_review_ids": [
+            "test-neg-2657",
+            "test-pos-9834",
+            "test-neg-2648",
+            "test-pos-9821"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.8,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 6.2949
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-9821",
+            "test-neg-2648",
+            "test-pos-9834",
+            "test-pos-9831",
+            "test-pos-9824"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-9821:7",
+            "test-neg-2648:2",
+            "test-pos-9834:2",
+            "test-pos-9831:1",
+            "test-pos-9824:9"
+          ],
+          "matched_review_ids": [
+            "test-pos-9821",
+            "test-neg-2648",
+            "test-pos-9834",
+            "test-pos-9831"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.8,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 5.2331
+        }
+      }
+    },
+    {
+      "qid": "imdb-02",
+      "movie_id": "tt0156934",
+      "question": "What did reviewers think the police-corruption subplot added to the central romance?",
+      "relevant_review_ids": [
+        "test-neg-2653",
+        "test-neg-2658",
+        "test-pos-9821",
+        "test-pos-9823",
+        "test-pos-9824",
+        "test-pos-9834"
+      ],
+      "best_methods": [
+        "dense"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-9821",
+            "test-pos-9833",
+            "test-pos-9824",
+            "test-pos-9832",
+            "test-pos-9823"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-9821:5",
+            "test-pos-9833:2",
+            "test-pos-9824:3",
+            "test-pos-9832:4",
+            "test-pos-9823:4"
+          ],
+          "matched_review_ids": [
+            "test-pos-9821",
+            "test-pos-9824",
+            "test-pos-9823"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 0.1752
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-2658",
+            "test-pos-9821",
+            "test-pos-9824",
+            "test-neg-2653",
+            "test-neg-2656"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-2658:1",
+            "test-pos-9821:5",
+            "test-pos-9824:4",
+            "test-neg-2653:2",
+            "test-neg-2656:1"
+          ],
+          "matched_review_ids": [
+            "test-neg-2658",
+            "test-pos-9821",
+            "test-pos-9824",
+            "test-neg-2653"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.6666666666666666,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 4.9772
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-9821",
+            "test-pos-9824",
+            "test-pos-9832",
+            "test-pos-9823",
+            "test-pos-9833"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-9821:5",
+            "test-pos-9824:3",
+            "test-pos-9832:4",
+            "test-pos-9823:4",
+            "test-pos-9833:2"
+          ],
+          "matched_review_ids": [
+            "test-pos-9821",
+            "test-pos-9824",
+            "test-pos-9823"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 5.0872
+        }
+      }
+    },
+    {
+      "qid": "imdb-03",
+      "movie_id": "tt0156934",
+      "question": "What detail about the seating on the crashed flight starts the plot?",
+      "relevant_review_ids": [
+        "test-pos-9833"
+      ],
+      "best_methods": [
+        "bm25",
+        "dense",
+        "hybrid"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-neg-2660",
+            "test-pos-9824",
+            "test-pos-9823",
+            "test-neg-2661",
+            "test-neg-2653"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-2660:3",
+            "test-pos-9824:7",
+            "test-pos-9823:4",
+            "test-neg-2661:1",
+            "test-neg-2653:2"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": 0.0,
+          "reciprocal_rank": 0.0,
+          "latency_ms": 0.123
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-9831",
+            "test-pos-9823",
+            "test-neg-2653",
+            "test-pos-9832",
+            "test-neg-2658"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-9831:2",
+            "test-pos-9823:2",
+            "test-neg-2653:1",
+            "test-pos-9832:2",
+            "test-neg-2658:1"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": 0.0,
+          "reciprocal_rank": 0.0,
+          "latency_ms": 4.9594
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-9823",
+            "test-neg-2653",
+            "test-pos-9824",
+            "test-neg-2658",
+            "test-pos-9831"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-9823:2",
+            "test-neg-2653:1",
+            "test-pos-9824:7",
+            "test-neg-2658:1",
+            "test-pos-9831:2"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": 0.0,
+          "reciprocal_rank": 0.0,
+          "latency_ms": 4.8961
+        }
+      }
+    },
+    {
+      "qid": "imdb-04",
+      "movie_id": "tt0156934",
+      "question": "How much did the production pay to use the airport for filming?",
+      "relevant_review_ids": [],
+      "best_methods": [],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-neg-2661",
+            "test-neg-2654",
+            "test-pos-9826",
+            "test-neg-2663",
+            "test-pos-9823"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-2661:1",
+            "test-neg-2654:2",
+            "test-pos-9826:2",
+            "test-neg-2663:1",
+            "test-pos-9823:1"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 0.1673
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-9831",
+            "test-neg-2648",
+            "test-neg-2659",
+            "test-pos-9832",
+            "test-pos-9834"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-9831:2",
+            "test-neg-2648:4",
+            "test-neg-2659:2",
+            "test-pos-9832:4",
+            "test-pos-9834:4"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 5.136
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-neg-2654",
+            "test-pos-9832",
+            "test-neg-2648",
+            "test-neg-2661",
+            "test-neg-2658"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-2654:2",
+            "test-pos-9832:4",
+            "test-neg-2648:4",
+            "test-neg-2661:1",
+            "test-neg-2658:2"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 5.1929
+        }
+      }
+    },
+    {
+      "qid": "imdb-05",
+      "movie_id": "tt0159365",
+      "question": "Did the farewell kiss make Ada and Inman's romance believable to the reviewers?",
+      "relevant_review_ids": [
+        "test-neg-1753",
+        "test-neg-1763",
+        "test-pos-6651",
+        "test-pos-6656",
+        "test-pos-6657"
+      ],
+      "best_methods": [
+        "bm25"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-6657",
+            "test-pos-6656",
+            "test-neg-1753",
+            "test-pos-6662",
+            "test-pos-6650"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-6657:1",
+            "test-pos-6656:2",
+            "test-neg-1753:1",
+            "test-pos-6662:3",
+            "test-pos-6650:2"
+          ],
+          "matched_review_ids": [
+            "test-pos-6657",
+            "test-pos-6656",
+            "test-neg-1753"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.6,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 0.2364
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-6657",
+            "test-pos-6664",
+            "test-pos-6650",
+            "test-pos-6662",
+            "test-pos-6659"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-6657:1",
+            "test-pos-6664:7",
+            "test-pos-6650:2",
+            "test-pos-6662:7",
+            "test-pos-6659:2"
+          ],
+          "matched_review_ids": [
+            "test-pos-6657"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.2,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 4.7209
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-6657",
+            "test-pos-6664",
+            "test-pos-6650",
+            "test-pos-6662",
+            "test-neg-1753"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-6657:1",
+            "test-pos-6664:7",
+            "test-pos-6650:2",
+            "test-pos-6662:3",
+            "test-neg-1753:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-6657",
+            "test-neg-1753"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.4,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 5.2839
+        }
+      }
+    },
+    {
+      "qid": "imdb-06",
+      "movie_id": "tt0159365",
+      "question": "How did viewers disagree about the effectiveness of the opening Civil War battle?",
+      "relevant_review_ids": [
+        "test-neg-1760",
+        "test-neg-1765",
+        "test-pos-6653",
+        "test-pos-6664"
+      ],
+      "best_methods": [
+        "bm25",
+        "dense",
+        "hybrid"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-neg-1760",
+            "test-neg-1753",
+            "test-pos-6664",
+            "test-pos-6662",
+            "test-pos-6651"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-1760:3",
+            "test-neg-1753:1",
+            "test-pos-6664:2",
+            "test-pos-6662:1",
+            "test-pos-6651:1"
+          ],
+          "matched_review_ids": [
+            "test-neg-1760",
+            "test-pos-6664"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 0.19
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-6664",
+            "test-pos-6653",
+            "test-neg-1759",
+            "test-pos-6660",
+            "test-neg-1753"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-6664:6",
+            "test-pos-6653:4",
+            "test-neg-1759:2",
+            "test-pos-6660:4",
+            "test-neg-1753:6"
+          ],
+          "matched_review_ids": [
+            "test-pos-6664",
+            "test-pos-6653"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 5.1144
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-6664",
+            "test-neg-1753",
+            "test-pos-6653",
+            "test-pos-6651",
+            "test-neg-1759"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-6664:6",
+            "test-neg-1753:1",
+            "test-pos-6653:4",
+            "test-pos-6651:1",
+            "test-neg-1759:2"
+          ],
+          "matched_review_ids": [
+            "test-pos-6664",
+            "test-pos-6653"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 4.9287
+        }
+      }
+    },
+    {
+      "qid": "imdb-07",
+      "movie_id": "tt0159365",
+      "question": "How did reviewers react to Renée Zellweger's portrayal of Ruby?",
+      "relevant_review_ids": [
+        "test-neg-1759",
+        "test-neg-1760",
+        "test-neg-1761",
+        "test-neg-1766",
+        "test-pos-6650",
+        "test-pos-6659",
+        "test-pos-6663"
+      ],
+      "best_methods": [
+        "dense"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-6661",
+            "test-pos-6664",
+            "test-pos-6662",
+            "test-neg-1759",
+            "test-pos-6659"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-6661:2",
+            "test-pos-6664:4",
+            "test-pos-6662:5",
+            "test-neg-1759:1",
+            "test-pos-6659:1"
+          ],
+          "matched_review_ids": [
+            "test-neg-1759",
+            "test-pos-6659"
+          ],
+          "first_relevant_rank": 4,
+          "recall": 0.2857142857142857,
+          "reciprocal_rank": 0.25,
+          "latency_ms": 0.1889
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-6662",
+            "test-pos-6661",
+            "test-pos-6650",
+            "test-pos-6659",
+            "test-neg-1760"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-6662:5",
+            "test-pos-6661:2",
+            "test-pos-6650:2",
+            "test-pos-6659:1",
+            "test-neg-1760:4"
+          ],
+          "matched_review_ids": [
+            "test-pos-6650",
+            "test-pos-6659",
+            "test-neg-1760"
+          ],
+          "first_relevant_rank": 3,
+          "recall": 0.42857142857142855,
+          "reciprocal_rank": 0.3333333333333333,
+          "latency_ms": 5.7765
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-6661",
+            "test-pos-6662",
+            "test-pos-6664",
+            "test-pos-6650",
+            "test-pos-6659"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-6661:2",
+            "test-pos-6662:5",
+            "test-pos-6664:4",
+            "test-pos-6650:2",
+            "test-pos-6659:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-6650",
+            "test-pos-6659"
+          ],
+          "first_relevant_rank": 4,
+          "recall": 0.2857142857142857,
+          "reciprocal_rank": 0.25,
+          "latency_ms": 6.1108
+        }
+      }
+    },
+    {
+      "qid": "imdb-08",
+      "movie_id": "tt0159365",
+      "question": "What focal length was the camera lens set to for the opening battle sequence?",
+      "relevant_review_ids": [],
+      "best_methods": [],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-neg-1760",
+            "test-pos-6664",
+            "test-pos-6662",
+            "test-pos-6650",
+            "test-pos-6653"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-1760:3",
+            "test-pos-6664:2",
+            "test-pos-6662:1",
+            "test-pos-6650:3",
+            "test-pos-6653:1"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 0.1782
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-1760",
+            "test-pos-6660",
+            "test-pos-6664",
+            "test-neg-1756",
+            "test-neg-1765"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-1760:3",
+            "test-pos-6660:4",
+            "test-pos-6664:3",
+            "test-neg-1756:1",
+            "test-neg-1765:2"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 5.0771
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-neg-1760",
+            "test-pos-6664",
+            "test-neg-1753",
+            "test-pos-6662",
+            "test-pos-6653"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-1760:3",
+            "test-pos-6664:2",
+            "test-neg-1753:1",
+            "test-pos-6662:1",
+            "test-pos-6653:1"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 5.3312
+        }
+      }
+    },
+    {
+      "qid": "imdb-09",
+      "movie_id": "tt0166924",
+      "question": "How do viewers interpret the film's origins as a rejected television pilot?",
+      "relevant_review_ids": [
+        "test-neg-2336",
+        "test-neg-2339",
+        "test-pos-8642",
+        "test-pos-8643"
+      ],
+      "best_methods": [
+        "bm25"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-8643",
+            "test-neg-2339",
+            "test-pos-8648",
+            "test-pos-8638",
+            "test-neg-2332"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-8643:1",
+            "test-neg-2339:1",
+            "test-pos-8648:2",
+            "test-pos-8638:3",
+            "test-neg-2332:2"
+          ],
+          "matched_review_ids": [
+            "test-pos-8643",
+            "test-neg-2339"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 0.2525
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-2339",
+            "test-pos-8646",
+            "test-neg-2338",
+            "test-pos-8640",
+            "test-neg-2334"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-2339:1",
+            "test-pos-8646:3",
+            "test-neg-2338:2",
+            "test-pos-8640:2",
+            "test-neg-2334:4"
+          ],
+          "matched_review_ids": [
+            "test-neg-2339"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.25,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 5.4147
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-neg-2339",
+            "test-pos-8646",
+            "test-pos-8648",
+            "test-neg-2338",
+            "test-pos-8640"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-2339:1",
+            "test-pos-8646:3",
+            "test-pos-8648:2",
+            "test-neg-2338:2",
+            "test-pos-8640:2"
+          ],
+          "matched_review_ids": [
+            "test-neg-2339"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.25,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 5.7594
+        }
+      }
+    },
+    {
+      "qid": "imdb-10",
+      "movie_id": "tt0166924",
+      "question": "What did viewers suggest doing after a first viewing to make sense of the story?",
+      "relevant_review_ids": [
+        "test-pos-8636",
+        "test-pos-8639",
+        "test-pos-8643",
+        "test-pos-8646",
+        "test-pos-8647"
+      ],
+      "best_methods": [
+        "hybrid"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-neg-2334",
+            "test-pos-8639",
+            "test-pos-8641",
+            "test-neg-2327",
+            "test-pos-8647"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-2334:2",
+            "test-pos-8639:4",
+            "test-pos-8641:13",
+            "test-neg-2327:4",
+            "test-pos-8647:5"
+          ],
+          "matched_review_ids": [
+            "test-pos-8639",
+            "test-pos-8647"
+          ],
+          "first_relevant_rank": 2,
+          "recall": 0.4,
+          "reciprocal_rank": 0.5,
+          "latency_ms": 0.4063
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-2340",
+            "test-pos-8647",
+            "test-pos-8648",
+            "test-neg-2325",
+            "test-neg-2341"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-2340:2",
+            "test-pos-8647:4",
+            "test-pos-8648:11",
+            "test-neg-2325:1",
+            "test-neg-2341:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-8647"
+          ],
+          "first_relevant_rank": 2,
+          "recall": 0.2,
+          "reciprocal_rank": 0.5,
+          "latency_ms": 5.4307
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-8647",
+            "test-pos-8639",
+            "test-neg-2327",
+            "test-neg-2334",
+            "test-neg-2341"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-8647:4",
+            "test-pos-8639:4",
+            "test-neg-2327:4",
+            "test-neg-2334:2",
+            "test-neg-2341:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-8647",
+            "test-pos-8639"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.4,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 5.6887
+        }
+      }
+    },
+    {
+      "qid": "imdb-11",
+      "movie_id": "tt0166924",
+      "question": "What gave the film a Hitchcock-like quality, according to viewers who made that comparison?",
+      "relevant_review_ids": [
+        "test-pos-8641",
+        "test-pos-8644"
+      ],
+      "best_methods": [
+        "dense"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-neg-2332",
+            "test-pos-8647",
+            "test-pos-8644",
+            "test-pos-8646",
+            "test-pos-8640"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-2332:1",
+            "test-pos-8647:3",
+            "test-pos-8644:1",
+            "test-pos-8646:7",
+            "test-pos-8640:4"
+          ],
+          "matched_review_ids": [
+            "test-pos-8644"
+          ],
+          "first_relevant_rank": 3,
+          "recall": 0.5,
+          "reciprocal_rank": 0.3333333333333333,
+          "latency_ms": 0.2895
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-8644",
+            "test-neg-2334",
+            "test-neg-2325",
+            "test-pos-8641",
+            "test-pos-8637"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-8644:1",
+            "test-neg-2334:4",
+            "test-neg-2325:2",
+            "test-pos-8641:15",
+            "test-pos-8637:2"
+          ],
+          "matched_review_ids": [
+            "test-pos-8644",
+            "test-pos-8641"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 6.6787
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-8644",
+            "test-neg-2334",
+            "test-neg-2332",
+            "test-pos-8647",
+            "test-neg-2341"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-8644:1",
+            "test-neg-2334:4",
+            "test-neg-2332:1",
+            "test-pos-8647:3",
+            "test-neg-2341:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-8644"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 5.4978
+        }
+      }
+    },
+    {
+      "qid": "imdb-12",
+      "movie_id": "tt0166924",
+      "question": "Which acting performances did even reviewers who disliked the film single out for praise?",
+      "relevant_review_ids": [
+        "test-neg-2327",
+        "test-neg-2328",
+        "test-neg-2334"
+      ],
+      "best_methods": [
+        "bm25"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-8647",
+            "test-neg-2341",
+            "test-neg-2325",
+            "test-neg-2328",
+            "test-neg-2333"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-8647:3",
+            "test-neg-2341:1",
+            "test-neg-2325:2",
+            "test-neg-2328:1",
+            "test-neg-2333:1"
+          ],
+          "matched_review_ids": [
+            "test-neg-2328"
+          ],
+          "first_relevant_rank": 4,
+          "recall": 0.3333333333333333,
+          "reciprocal_rank": 0.25,
+          "latency_ms": 0.3248
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-2325",
+            "test-pos-8643",
+            "test-pos-8647",
+            "test-pos-8644",
+            "test-neg-2327"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-2325:2",
+            "test-pos-8643:3",
+            "test-pos-8647:3",
+            "test-pos-8644:2",
+            "test-neg-2327:2"
+          ],
+          "matched_review_ids": [
+            "test-neg-2327"
+          ],
+          "first_relevant_rank": 5,
+          "recall": 0.3333333333333333,
+          "reciprocal_rank": 0.2,
+          "latency_ms": 5.0773
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-neg-2325",
+            "test-pos-8647",
+            "test-neg-2341",
+            "test-pos-8644",
+            "test-pos-8643"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-2325:2",
+            "test-pos-8647:3",
+            "test-neg-2341:1",
+            "test-pos-8644:2",
+            "test-pos-8643:3"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": 0.0,
+          "reciprocal_rank": 0.0,
+          "latency_ms": 5.4041
+        }
+      }
+    },
+    {
+      "qid": "imdb-13",
+      "movie_id": "tt0166924",
+      "question": "Which brand supplied the blue paint used on the key or box props?",
+      "relevant_review_ids": [],
+      "best_methods": [],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-8647",
+            "test-pos-8648",
+            "test-pos-8641",
+            "test-neg-2327",
+            "test-pos-8645"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-8647:26",
+            "test-pos-8648:8",
+            "test-pos-8641:10",
+            "test-neg-2327:6",
+            "test-pos-8645:3"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 0.2864
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-8647",
+            "test-pos-8648",
+            "test-pos-8641",
+            "test-pos-8646",
+            "test-neg-2341"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-8647:26",
+            "test-pos-8648:8",
+            "test-pos-8641:10",
+            "test-pos-8646:9",
+            "test-neg-2341:3"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 6.1478
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-8647",
+            "test-pos-8648",
+            "test-pos-8641",
+            "test-neg-2327",
+            "test-pos-8646"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-8647:26",
+            "test-pos-8648:8",
+            "test-pos-8641:10",
+            "test-neg-2327:6",
+            "test-pos-8646:9"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 5.651
+        }
+      }
+    },
+    {
+      "qid": "imdb-14",
+      "movie_id": "tt0182576",
+      "question": "Why did some viewers enjoy the cutaway flashbacks while others felt they broke up the plot?",
+      "relevant_review_ids": [
+        "test-neg-2596",
+        "test-neg-2599",
+        "test-neg-2600",
+        "test-neg-2603",
+        "test-pos-9669",
+        "test-pos-9683"
+      ],
+      "best_methods": [
+        "hybrid"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-9683",
+            "test-pos-9682",
+            "test-pos-9681",
+            "test-neg-2596",
+            "test-neg-2606"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-9683:1",
+            "test-pos-9682:9",
+            "test-pos-9681:1",
+            "test-neg-2596:1",
+            "test-neg-2606:4"
+          ],
+          "matched_review_ids": [
+            "test-pos-9683",
+            "test-neg-2596"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.3333333333333333,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 0.2925
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-2596",
+            "test-neg-2604",
+            "test-neg-2603",
+            "test-pos-9675",
+            "test-pos-9674"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-2596:1",
+            "test-neg-2604:1",
+            "test-neg-2603:2",
+            "test-pos-9675:2",
+            "test-pos-9674:1"
+          ],
+          "matched_review_ids": [
+            "test-neg-2596",
+            "test-neg-2603"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.3333333333333333,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 5.5891
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-neg-2596",
+            "test-pos-9683",
+            "test-neg-2604",
+            "test-pos-9681",
+            "test-neg-2603"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-2596:1",
+            "test-pos-9683:1",
+            "test-neg-2604:1",
+            "test-pos-9681:1",
+            "test-neg-2603:2"
+          ],
+          "matched_review_ids": [
+            "test-neg-2596",
+            "test-pos-9683",
+            "test-neg-2603"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 5.4366
+        }
+      }
+    },
+    {
+      "qid": "imdb-15",
+      "movie_id": "tt0182576",
+      "question": "Did reviewers treat the resemblance to The Simpsons as imitation or point to a different style of humor?",
+      "relevant_review_ids": [
+        "test-neg-2598",
+        "test-neg-2603",
+        "test-pos-9668",
+        "test-pos-9674",
+        "test-pos-9678",
+        "test-pos-9683"
+      ],
+      "best_methods": [
+        "dense"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-9676",
+            "test-pos-9684",
+            "test-neg-2600",
+            "test-pos-9683",
+            "test-neg-2596"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-9676:2",
+            "test-pos-9684:3",
+            "test-neg-2600:2",
+            "test-pos-9683:3",
+            "test-neg-2596:4"
+          ],
+          "matched_review_ids": [
+            "test-pos-9683"
+          ],
+          "first_relevant_rank": 4,
+          "recall": 0.16666666666666666,
+          "reciprocal_rank": 0.25,
+          "latency_ms": 0.2171
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-2596",
+            "test-pos-9683",
+            "test-pos-9676",
+            "test-neg-2606",
+            "test-neg-2605"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-2596:9",
+            "test-pos-9683:3",
+            "test-pos-9676:2",
+            "test-neg-2606:4",
+            "test-neg-2605:4"
+          ],
+          "matched_review_ids": [
+            "test-pos-9683"
+          ],
+          "first_relevant_rank": 2,
+          "recall": 0.16666666666666666,
+          "reciprocal_rank": 0.5,
+          "latency_ms": 5.631
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-9676",
+            "test-neg-2596",
+            "test-pos-9683",
+            "test-neg-2605",
+            "test-neg-2602"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-9676:2",
+            "test-neg-2596:9",
+            "test-pos-9683:3",
+            "test-neg-2605:4",
+            "test-neg-2602:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-9683"
+          ],
+          "first_relevant_rank": 3,
+          "recall": 0.16666666666666666,
+          "reciprocal_rank": 0.3333333333333333,
+          "latency_ms": 5.9831
+        }
+      }
+    },
+    {
+      "qid": "imdb-16",
+      "movie_id": "tt0182576",
+      "question": "Which parts of the show were easier and harder for the reviewer who did not speak English natively?",
+      "relevant_review_ids": [
+        "test-pos-9680"
+      ],
+      "best_methods": [
+        "bm25",
+        "dense",
+        "hybrid"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-9680",
+            "test-neg-2596",
+            "test-pos-9682",
+            "test-neg-2606",
+            "test-pos-9671"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-9680:1",
+            "test-neg-2596:5",
+            "test-pos-9682:9",
+            "test-neg-2606:6",
+            "test-pos-9671:2"
+          ],
+          "matched_review_ids": [
+            "test-pos-9680"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 0.2134
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-9680",
+            "test-pos-9673",
+            "test-neg-2600",
+            "test-neg-2605",
+            "test-pos-9682"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-9680:1",
+            "test-pos-9673:1",
+            "test-neg-2600:2",
+            "test-neg-2605:1",
+            "test-pos-9682:3"
+          ],
+          "matched_review_ids": [
+            "test-pos-9680"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 6.1431
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-9680",
+            "test-pos-9682",
+            "test-neg-2596",
+            "test-neg-2605",
+            "test-pos-9673"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-9680:1",
+            "test-pos-9682:9",
+            "test-neg-2596:5",
+            "test-neg-2605:1",
+            "test-pos-9673:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-9680"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 5.6526
+        }
+      }
+    },
+    {
+      "qid": "imdb-17",
+      "movie_id": "tt0182576",
+      "question": "What visual criticism did some reviewers make about the supporting characters and guest stars?",
+      "relevant_review_ids": [
+        "test-neg-2600",
+        "test-neg-2605"
+      ],
+      "best_methods": [
+        "dense"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-neg-2605",
+            "test-pos-9684",
+            "test-pos-9672",
+            "test-neg-2606",
+            "test-pos-9677"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-2605:1",
+            "test-pos-9684:1",
+            "test-pos-9672:1",
+            "test-neg-2606:5",
+            "test-pos-9677:1"
+          ],
+          "matched_review_ids": [
+            "test-neg-2605"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 0.2201
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-2605",
+            "test-neg-2606",
+            "test-pos-9669",
+            "test-neg-2600",
+            "test-neg-2597"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-2605:1",
+            "test-neg-2606:7",
+            "test-pos-9669:2",
+            "test-neg-2600:2",
+            "test-neg-2597:1"
+          ],
+          "matched_review_ids": [
+            "test-neg-2605",
+            "test-neg-2600"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 5.4939
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-neg-2605",
+            "test-neg-2606",
+            "test-pos-9669",
+            "test-neg-2595",
+            "test-pos-9682"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-2605:1",
+            "test-neg-2606:7",
+            "test-pos-9669:2",
+            "test-neg-2595:2",
+            "test-pos-9682:9"
+          ],
+          "matched_review_ids": [
+            "test-neg-2605"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 5.5444
+        }
+      }
+    },
+    {
+      "qid": "imdb-18",
+      "movie_id": "tt0187696",
+      "question": "What makes Paula suspect foul play when she begins working in the medical school's dissection lab?",
+      "relevant_review_ids": [
+        "test-neg-1832",
+        "test-neg-1835",
+        "test-neg-1836"
+      ],
+      "best_methods": [
+        "bm25",
+        "dense",
+        "hybrid"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-neg-1836",
+            "test-neg-1832",
+            "test-pos-6859",
+            "test-pos-6865",
+            "test-neg-1835"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-1836:1",
+            "test-neg-1832:1",
+            "test-pos-6859:1",
+            "test-pos-6865:1",
+            "test-neg-1835:3"
+          ],
+          "matched_review_ids": [
+            "test-neg-1836",
+            "test-neg-1832",
+            "test-neg-1835"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 0.2298
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-1832",
+            "test-neg-1835",
+            "test-neg-1836",
+            "test-pos-6859",
+            "test-pos-6865"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-1832:2",
+            "test-neg-1835:3",
+            "test-neg-1836:1",
+            "test-pos-6859:3",
+            "test-pos-6865:1"
+          ],
+          "matched_review_ids": [
+            "test-neg-1832",
+            "test-neg-1835",
+            "test-neg-1836"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 7.4034
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-neg-1832",
+            "test-neg-1836",
+            "test-neg-1835",
+            "test-pos-6859",
+            "test-pos-6865"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-1832:2",
+            "test-neg-1836:1",
+            "test-neg-1835:3",
+            "test-pos-6859:1",
+            "test-pos-6865:1"
+          ],
+          "matched_review_ids": [
+            "test-neg-1832",
+            "test-neg-1836",
+            "test-neg-1835"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 6.5767
+        }
+      }
+    },
+    {
+      "qid": "imdb-19",
+      "movie_id": "tt0187696",
+      "question": "What problems did reviewers notice in the English dub, especially with lip synchronization, voices, or tone?",
+      "relevant_review_ids": [
+        "test-neg-1827",
+        "test-pos-6853",
+        "test-pos-6856",
+        "test-pos-6860",
+        "test-pos-6865",
+        "test-pos-6867"
+      ],
+      "best_methods": [
+        "dense",
+        "hybrid"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-6867",
+            "test-pos-6853",
+            "test-pos-6859",
+            "test-pos-6858",
+            "test-pos-6860"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-6867:6",
+            "test-pos-6853:1",
+            "test-pos-6859:2",
+            "test-pos-6858:2",
+            "test-pos-6860:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-6867",
+            "test-pos-6853",
+            "test-pos-6860"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 0.1671
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-1827",
+            "test-pos-6867",
+            "test-pos-6860",
+            "test-pos-6865",
+            "test-pos-6858"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-1827:3",
+            "test-pos-6867:7",
+            "test-pos-6860:1",
+            "test-pos-6865:3",
+            "test-pos-6858:2"
+          ],
+          "matched_review_ids": [
+            "test-neg-1827",
+            "test-pos-6867",
+            "test-pos-6860",
+            "test-pos-6865"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.6666666666666666,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 6.3758
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-6867",
+            "test-pos-6860",
+            "test-neg-1827",
+            "test-pos-6858",
+            "test-pos-6853"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-6867:6",
+            "test-pos-6860:1",
+            "test-neg-1827:3",
+            "test-pos-6858:2",
+            "test-pos-6853:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-6867",
+            "test-pos-6860",
+            "test-neg-1827",
+            "test-pos-6853"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.6666666666666666,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 6.0787
+        }
+      }
+    },
+    {
+      "qid": "imdb-20",
+      "movie_id": "tt0187696",
+      "question": "How did reviewers differ on the film's handling of medical ethics?",
+      "relevant_review_ids": [
+        "test-neg-1833",
+        "test-pos-6856",
+        "test-pos-6864"
+      ],
+      "best_methods": [
+        "bm25"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-6856",
+            "test-neg-1836",
+            "test-neg-1827",
+            "test-pos-6864",
+            "test-neg-1833"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-6856:1",
+            "test-neg-1836:1",
+            "test-neg-1827:2",
+            "test-pos-6864:1",
+            "test-neg-1833:3"
+          ],
+          "matched_review_ids": [
+            "test-pos-6856",
+            "test-pos-6864",
+            "test-neg-1833"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 0.1125
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-1827",
+            "test-neg-1833",
+            "test-pos-6867",
+            "test-pos-6864",
+            "test-pos-6862"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-1827:2",
+            "test-neg-1833:3",
+            "test-pos-6867:2",
+            "test-pos-6864:1",
+            "test-pos-6862:1"
+          ],
+          "matched_review_ids": [
+            "test-neg-1833",
+            "test-pos-6864"
+          ],
+          "first_relevant_rank": 2,
+          "recall": 0.6666666666666666,
+          "reciprocal_rank": 0.5,
+          "latency_ms": 5.2537
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-neg-1827",
+            "test-neg-1833",
+            "test-pos-6864",
+            "test-neg-1836",
+            "test-pos-6856"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-1827:2",
+            "test-neg-1833:3",
+            "test-pos-6864:1",
+            "test-neg-1836:1",
+            "test-pos-6856:1"
+          ],
+          "matched_review_ids": [
+            "test-neg-1833",
+            "test-pos-6864",
+            "test-pos-6856"
+          ],
+          "first_relevant_rank": 2,
+          "recall": 1.0,
+          "reciprocal_rank": 0.5,
+          "latency_ms": 4.8329
+        }
+      }
+    },
+    {
+      "qid": "imdb-21",
+      "movie_id": "tt0187696",
+      "question": "When reviewers compared Anatomy with American slashers, what did they find derivative or distinctive?",
+      "relevant_review_ids": [
+        "test-neg-1825",
+        "test-neg-1831",
+        "test-neg-1832",
+        "test-neg-1835",
+        "test-neg-1837",
+        "test-pos-6859",
+        "test-pos-6863"
+      ],
+      "best_methods": [
+        "bm25",
+        "dense"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-6859",
+            "test-neg-1831",
+            "test-neg-1835",
+            "test-pos-6862",
+            "test-pos-6867"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-6859:4",
+            "test-neg-1831:1",
+            "test-neg-1835:1",
+            "test-pos-6862:2",
+            "test-pos-6867:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-6859",
+            "test-neg-1831",
+            "test-neg-1835"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.42857142857142855,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 0.1692
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-6859",
+            "test-pos-6867",
+            "test-pos-6855",
+            "test-neg-1825",
+            "test-neg-1835"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-6859:2",
+            "test-pos-6867:8",
+            "test-pos-6855:2",
+            "test-neg-1825:4",
+            "test-neg-1835:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-6859",
+            "test-neg-1825",
+            "test-neg-1835"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.42857142857142855,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 5.0215
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-6859",
+            "test-pos-6867",
+            "test-neg-1835",
+            "test-pos-6855",
+            "test-pos-6862"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-6859:2",
+            "test-pos-6867:8",
+            "test-neg-1835:1",
+            "test-pos-6855:2",
+            "test-pos-6862:2"
+          ],
+          "matched_review_ids": [
+            "test-pos-6859",
+            "test-neg-1835"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.2857142857142857,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 5.5697
+        }
+      }
+    },
+    {
+      "qid": "imdb-22",
+      "movie_id": "tt0187696",
+      "question": "How much of the production budget paid for the practical anatomy effects?",
+      "relevant_review_ids": [],
+      "best_methods": [],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-6859",
+            "test-neg-1828",
+            "test-pos-6864",
+            "test-pos-6867",
+            "test-pos-6855"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-6859:2",
+            "test-neg-1828:1",
+            "test-pos-6864:1",
+            "test-pos-6867:3",
+            "test-pos-6855:1"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 0.2037
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-6867",
+            "test-pos-6859",
+            "test-pos-6855",
+            "test-pos-6864",
+            "test-neg-1834"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-6867:1",
+            "test-pos-6859:2",
+            "test-pos-6855:2",
+            "test-pos-6864:1",
+            "test-neg-1834:2"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 4.7206
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-6859",
+            "test-pos-6867",
+            "test-pos-6864",
+            "test-pos-6855",
+            "test-neg-1828"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-6859:2",
+            "test-pos-6867:1",
+            "test-pos-6864:1",
+            "test-pos-6855:2",
+            "test-neg-1828:1"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 4.9373
+        }
+      }
+    },
+    {
+      "qid": "imdb-23",
+      "movie_id": "tt0203755",
+      "question": "Did the retelling from three points of view make the comedy more effective or more confusing?",
+      "relevant_review_ids": [
+        "test-neg-3193",
+        "test-pos-11863",
+        "test-pos-11870",
+        "test-pos-11872",
+        "test-pos-11875"
+      ],
+      "best_methods": [
+        "bm25",
+        "hybrid"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-11875",
+            "test-neg-3183",
+            "test-neg-3193",
+            "test-pos-11872",
+            "test-pos-11867"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-11875:2",
+            "test-neg-3183:4",
+            "test-neg-3193:1",
+            "test-pos-11872:1",
+            "test-pos-11867:2"
+          ],
+          "matched_review_ids": [
+            "test-pos-11875",
+            "test-neg-3193",
+            "test-pos-11872"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.6,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 0.2336
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-3190",
+            "test-pos-11869",
+            "test-pos-11875",
+            "test-neg-3193",
+            "test-neg-3191"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-3190:2",
+            "test-pos-11869:1",
+            "test-pos-11875:3",
+            "test-neg-3193:1",
+            "test-neg-3191:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-11875",
+            "test-neg-3193"
+          ],
+          "first_relevant_rank": 3,
+          "recall": 0.4,
+          "reciprocal_rank": 0.3333333333333333,
+          "latency_ms": 4.8708
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-11875",
+            "test-neg-3193",
+            "test-pos-11872",
+            "test-pos-11874",
+            "test-neg-3188"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-11875:2",
+            "test-neg-3193:1",
+            "test-pos-11872:1",
+            "test-pos-11874:2",
+            "test-neg-3188:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-11875",
+            "test-neg-3193",
+            "test-pos-11872"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.6,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 5.3058
+        }
+      }
+    },
+    {
+      "qid": "imdb-24",
+      "movie_id": "tt0203755",
+      "question": "Which listener hears each man's account of Jewel?",
+      "relevant_review_ids": [
+        "test-neg-3196",
+        "test-pos-11866",
+        "test-pos-11873",
+        "test-pos-11875"
+      ],
+      "best_methods": [
+        "bm25",
+        "dense",
+        "hybrid"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-neg-3196",
+            "test-pos-11875",
+            "test-neg-3195",
+            "test-pos-11872",
+            "test-neg-3183"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-3196:2",
+            "test-pos-11875:6",
+            "test-neg-3195:2",
+            "test-pos-11872:1",
+            "test-neg-3183:4"
+          ],
+          "matched_review_ids": [
+            "test-neg-3196",
+            "test-pos-11875"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 0.1599
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-11875",
+            "test-neg-3196",
+            "test-neg-3195",
+            "test-pos-11872",
+            "test-neg-3189"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-11875:6",
+            "test-neg-3196:2",
+            "test-neg-3195:2",
+            "test-pos-11872:1",
+            "test-neg-3189:3"
+          ],
+          "matched_review_ids": [
+            "test-pos-11875",
+            "test-neg-3196"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 4.9807
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-neg-3196",
+            "test-pos-11875",
+            "test-neg-3195",
+            "test-pos-11872",
+            "test-neg-3183"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-3196:2",
+            "test-pos-11875:6",
+            "test-neg-3195:2",
+            "test-pos-11872:1",
+            "test-neg-3183:4"
+          ],
+          "matched_review_ids": [
+            "test-neg-3196",
+            "test-pos-11875"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 5.6725
+        }
+      }
+    },
+    {
+      "qid": "imdb-25",
+      "movie_id": "tt0203755",
+      "question": "What material comforts does Jewel want, according to the reviewers?",
+      "relevant_review_ids": [
+        "test-neg-3183",
+        "test-neg-3195",
+        "test-pos-11861",
+        "test-pos-11864"
+      ],
+      "best_methods": [
+        "bm25"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-11875",
+            "test-neg-3195",
+            "test-pos-11864",
+            "test-neg-3183",
+            "test-pos-11861"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-11875:1",
+            "test-neg-3195:3",
+            "test-pos-11864:3",
+            "test-neg-3183:3",
+            "test-pos-11861:1"
+          ],
+          "matched_review_ids": [
+            "test-neg-3195",
+            "test-pos-11864",
+            "test-neg-3183",
+            "test-pos-11861"
+          ],
+          "first_relevant_rank": 2,
+          "recall": 1.0,
+          "reciprocal_rank": 0.5,
+          "latency_ms": 0.1892
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-3189",
+            "test-pos-11875",
+            "test-neg-3183",
+            "test-pos-11871",
+            "test-pos-11866"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-3189:3",
+            "test-pos-11875:7",
+            "test-neg-3183:2",
+            "test-pos-11871:2",
+            "test-pos-11866:2"
+          ],
+          "matched_review_ids": [
+            "test-neg-3183"
+          ],
+          "first_relevant_rank": 3,
+          "recall": 0.25,
+          "reciprocal_rank": 0.3333333333333333,
+          "latency_ms": 5.1119
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-11875",
+            "test-neg-3183",
+            "test-neg-3195",
+            "test-pos-11871",
+            "test-neg-3189"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-11875:1",
+            "test-neg-3183:2",
+            "test-neg-3195:3",
+            "test-pos-11871:2",
+            "test-neg-3189:3"
+          ],
+          "matched_review_ids": [
+            "test-neg-3183",
+            "test-neg-3195"
+          ],
+          "first_relevant_rank": 2,
+          "recall": 0.5,
+          "reciprocal_rank": 0.5,
+          "latency_ms": 5.0819
+        }
+      }
+    },
+    {
+      "qid": "imdb-26",
+      "movie_id": "tt0203755",
+      "question": "How did reviewers react to the YMCA song cue?",
+      "relevant_review_ids": [
+        "test-neg-3191",
+        "test-neg-3195",
+        "test-pos-11868",
+        "test-pos-11869"
+      ],
+      "best_methods": [
+        "bm25",
+        "hybrid"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-11868",
+            "test-pos-11869",
+            "test-neg-3191",
+            "test-neg-3195"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-11868:3",
+            "test-pos-11869:2",
+            "test-neg-3191:2",
+            "test-neg-3195:5"
+          ],
+          "matched_review_ids": [
+            "test-pos-11868",
+            "test-pos-11869",
+            "test-neg-3191",
+            "test-neg-3195"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 0.1264
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-3191",
+            "test-neg-3195",
+            "test-neg-3185",
+            "test-neg-3186",
+            "test-pos-11869"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-3191:2",
+            "test-neg-3195:5",
+            "test-neg-3185:3",
+            "test-neg-3186:3",
+            "test-pos-11869:2"
+          ],
+          "matched_review_ids": [
+            "test-neg-3191",
+            "test-neg-3195",
+            "test-pos-11869"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.75,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 5.107
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-neg-3191",
+            "test-neg-3195",
+            "test-pos-11869",
+            "test-pos-11868",
+            "test-neg-3185"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-3191:2",
+            "test-neg-3195:5",
+            "test-pos-11869:2",
+            "test-pos-11868:3",
+            "test-neg-3185:3"
+          ],
+          "matched_review_ids": [
+            "test-neg-3191",
+            "test-neg-3195",
+            "test-pos-11869",
+            "test-pos-11868"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 4.9361
+        }
+      }
+    },
+    {
+      "qid": "imdb-27",
+      "movie_id": "tt0264935",
+      "question": "What are the boys trying to prove by planning a murder they hope to get away with?",
+      "relevant_review_ids": [
+        "test-pos-5846",
+        "test-pos-5847",
+        "test-pos-5851",
+        "test-pos-5853",
+        "test-pos-5855",
+        "test-pos-5859",
+        "test-pos-5861"
+      ],
+      "best_methods": [
+        "bm25"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-5846",
+            "test-pos-5856",
+            "test-pos-5859",
+            "test-pos-5851",
+            "test-pos-5847"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-5846:5",
+            "test-pos-5856:1",
+            "test-pos-5859:4",
+            "test-pos-5851:2",
+            "test-pos-5847:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-5846",
+            "test-pos-5859",
+            "test-pos-5851",
+            "test-pos-5847"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.5714285714285714,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 0.2757
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-5860",
+            "test-pos-5851",
+            "test-neg-1543",
+            "test-pos-5862",
+            "test-pos-5861"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-5860:1",
+            "test-pos-5851:2",
+            "test-neg-1543:3",
+            "test-pos-5862:2",
+            "test-pos-5861:3"
+          ],
+          "matched_review_ids": [
+            "test-pos-5851",
+            "test-pos-5861"
+          ],
+          "first_relevant_rank": 2,
+          "recall": 0.2857142857142857,
+          "reciprocal_rank": 0.5,
+          "latency_ms": 5.2298
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-5851",
+            "test-pos-5846",
+            "test-pos-5859",
+            "test-pos-5856",
+            "test-neg-1543"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-5851:2",
+            "test-pos-5846:5",
+            "test-pos-5859:4",
+            "test-pos-5856:1",
+            "test-neg-1543:3"
+          ],
+          "matched_review_ids": [
+            "test-pos-5851",
+            "test-pos-5846",
+            "test-pos-5859"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.42857142857142855,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 6.2437
+        }
+      }
+    },
+    {
+      "qid": "imdb-28",
+      "movie_id": "tt0264935",
+      "question": "How did reviewers differ on whether Sandra Bullock was convincing as a hardened detective?",
+      "relevant_review_ids": [
+        "test-neg-1536",
+        "test-neg-1537",
+        "test-neg-1539",
+        "test-neg-1542",
+        "test-neg-1543",
+        "test-pos-5850",
+        "test-pos-5852",
+        "test-pos-5853",
+        "test-pos-5854",
+        "test-pos-5855",
+        "test-pos-5859",
+        "test-pos-5861",
+        "test-pos-5862"
+      ],
+      "best_methods": [
+        "hybrid"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-5861",
+            "test-neg-1536",
+            "test-pos-5851",
+            "test-pos-5862",
+            "test-pos-5859"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-5861:6",
+            "test-neg-1536:3",
+            "test-pos-5851:1",
+            "test-pos-5862:1",
+            "test-pos-5859:5"
+          ],
+          "matched_review_ids": [
+            "test-pos-5861",
+            "test-neg-1536",
+            "test-pos-5862",
+            "test-pos-5859"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.3076923076923077,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 0.2142
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-5859",
+            "test-pos-5857",
+            "test-pos-5856",
+            "test-pos-5846",
+            "test-pos-5852"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-5859:5",
+            "test-pos-5857:2",
+            "test-pos-5856:2",
+            "test-pos-5846:9",
+            "test-pos-5852:4"
+          ],
+          "matched_review_ids": [
+            "test-pos-5859",
+            "test-pos-5852"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.15384615384615385,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 5.2305
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-5859",
+            "test-pos-5861",
+            "test-pos-5862",
+            "test-pos-5852",
+            "test-neg-1536"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-5859:5",
+            "test-pos-5861:6",
+            "test-pos-5862:1",
+            "test-pos-5852:4",
+            "test-neg-1536:3"
+          ],
+          "matched_review_ids": [
+            "test-pos-5859",
+            "test-pos-5861",
+            "test-pos-5862",
+            "test-pos-5852",
+            "test-neg-1536"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.38461538461538464,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 5.509
+        }
+      }
+    },
+    {
+      "qid": "imdb-29",
+      "movie_id": "tt0264935",
+      "question": "What past attack shapes Cassie, and how does it affect her as a detective?",
+      "relevant_review_ids": [
+        "test-pos-5853",
+        "test-pos-5855",
+        "test-pos-5861"
+      ],
+      "best_methods": [
+        "dense"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-5855",
+            "test-pos-5859",
+            "test-pos-5862",
+            "test-pos-5851",
+            "test-pos-5850"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-5855:3",
+            "test-pos-5859:5",
+            "test-pos-5862:3",
+            "test-pos-5851:1",
+            "test-pos-5850:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-5855"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.3333333333333333,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 0.2455
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-5855",
+            "test-pos-5861",
+            "test-pos-5853",
+            "test-pos-5846",
+            "test-neg-1536"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-5855:1",
+            "test-pos-5861:4",
+            "test-pos-5853:2",
+            "test-pos-5846:8",
+            "test-neg-1536:2"
+          ],
+          "matched_review_ids": [
+            "test-pos-5855",
+            "test-pos-5861",
+            "test-pos-5853"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 6.1226
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-5855",
+            "test-pos-5861",
+            "test-pos-5851",
+            "test-pos-5862",
+            "test-pos-5846"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-5855:1",
+            "test-pos-5861:4",
+            "test-pos-5851:1",
+            "test-pos-5862:3",
+            "test-pos-5846:8"
+          ],
+          "matched_review_ids": [
+            "test-pos-5855",
+            "test-pos-5861"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.6666666666666666,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 7.6456
+        }
+      }
+    },
+    {
+      "qid": "imdb-30",
+      "movie_id": "tt0264935",
+      "question": "What was the insurance premium for filming the scenes at the bluff?",
+      "relevant_review_ids": [],
+      "best_methods": [],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-5847",
+            "test-pos-5849",
+            "test-neg-1543"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-5847:2",
+            "test-pos-5849:1",
+            "test-neg-1543:4"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 0.157
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-5849",
+            "test-neg-1537",
+            "test-neg-1542",
+            "test-pos-5848",
+            "test-pos-5852"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-5849:1",
+            "test-neg-1537:3",
+            "test-neg-1542:1",
+            "test-pos-5848:1",
+            "test-pos-5852:4"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 6.9937
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-5849",
+            "test-neg-1543",
+            "test-pos-5847",
+            "test-neg-1537",
+            "test-neg-1542"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-5849:1",
+            "test-neg-1543:4",
+            "test-pos-5847:2",
+            "test-neg-1537:3",
+            "test-neg-1542:1"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 8.1183
+        }
+      }
+    },
+    {
+      "qid": "imdb-31",
+      "movie_id": "tt0284953",
+      "question": "What did viewers miss about the TV interview format, and what did defenders like about the scripted movie?",
+      "relevant_review_ids": [
+        "test-neg-822",
+        "test-neg-825",
+        "test-neg-826",
+        "test-neg-828",
+        "test-neg-829",
+        "test-pos-3493",
+        "test-pos-3495",
+        "test-pos-3496",
+        "test-pos-3502",
+        "test-pos-3503"
+      ],
+      "best_methods": [
+        "hybrid"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-3502",
+            "test-pos-3501",
+            "test-pos-3497",
+            "test-neg-825",
+            "test-neg-818"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-3502:2",
+            "test-pos-3501:2",
+            "test-pos-3497:1",
+            "test-neg-825:2",
+            "test-neg-818:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-3502",
+            "test-neg-825"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.2,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 0.1935
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-3502",
+            "test-pos-3493",
+            "test-pos-3495",
+            "test-neg-824",
+            "test-pos-3503"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-3502:2",
+            "test-pos-3493:1",
+            "test-pos-3495:2",
+            "test-neg-824:3",
+            "test-pos-3503:2"
+          ],
+          "matched_review_ids": [
+            "test-pos-3502",
+            "test-pos-3493",
+            "test-pos-3495",
+            "test-pos-3503"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.4,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 7.5227
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-3502",
+            "test-pos-3495",
+            "test-pos-3493",
+            "test-pos-3503",
+            "test-neg-829"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-3502:2",
+            "test-pos-3495:2",
+            "test-pos-3493:1",
+            "test-pos-3503:2",
+            "test-neg-829:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-3502",
+            "test-pos-3495",
+            "test-pos-3493",
+            "test-pos-3503",
+            "test-neg-829"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 7.7176
+        }
+      }
+    },
+    {
+      "qid": "imdb-32",
+      "movie_id": "tt0284953",
+      "question": "What did David Carlton hope would happen if he backed Ali G, and how did his plan turn out?",
+      "relevant_review_ids": [
+        "test-pos-3489",
+        "test-pos-3500"
+      ],
+      "best_methods": [
+        "bm25",
+        "dense",
+        "hybrid"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-3500",
+            "test-pos-3489",
+            "test-neg-828",
+            "test-neg-823",
+            "test-neg-825"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-3500:1",
+            "test-pos-3489:3",
+            "test-neg-828:3",
+            "test-neg-823:1",
+            "test-neg-825:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-3500",
+            "test-pos-3489"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 0.2423
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-3500",
+            "test-pos-3489",
+            "test-neg-825",
+            "test-neg-821",
+            "test-pos-3492"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-3500:1",
+            "test-pos-3489:2",
+            "test-neg-825:2",
+            "test-neg-821:2",
+            "test-pos-3492:2"
+          ],
+          "matched_review_ids": [
+            "test-pos-3500",
+            "test-pos-3489"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 11.4521
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-3500",
+            "test-pos-3489",
+            "test-neg-825",
+            "test-pos-3492",
+            "test-neg-821"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-3500:1",
+            "test-pos-3489:2",
+            "test-neg-825:2",
+            "test-pos-3492:2",
+            "test-neg-821:2"
+          ],
+          "matched_review_ids": [
+            "test-pos-3500",
+            "test-pos-3489"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 9.4785
+        }
+      }
+    },
+    {
+      "qid": "imdb-33",
+      "movie_id": "tt0284953",
+      "question": "Does Borat appear in the film, and what did reviewers say about his appearance?",
+      "relevant_review_ids": [
+        "test-pos-3490",
+        "test-pos-3491",
+        "test-pos-3492"
+      ],
+      "best_methods": [
+        "dense",
+        "hybrid"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-3492",
+            "test-pos-3490",
+            "test-neg-828",
+            "test-neg-824",
+            "test-pos-3496"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-3492:3",
+            "test-pos-3490:1",
+            "test-neg-828:3",
+            "test-neg-824:3",
+            "test-pos-3496:3"
+          ],
+          "matched_review_ids": [
+            "test-pos-3492",
+            "test-pos-3490"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.6666666666666666,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 0.1365
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-3490",
+            "test-pos-3492",
+            "test-pos-3491",
+            "test-neg-824",
+            "test-neg-828"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-3490:1",
+            "test-pos-3492:3",
+            "test-pos-3491:1",
+            "test-neg-824:3",
+            "test-neg-828:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-3490",
+            "test-pos-3492",
+            "test-pos-3491"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 6.9889
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-3490",
+            "test-pos-3492",
+            "test-neg-828",
+            "test-neg-824",
+            "test-pos-3491"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-3490:1",
+            "test-pos-3492:3",
+            "test-neg-828:3",
+            "test-neg-824:3",
+            "test-pos-3491:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-3490",
+            "test-pos-3492",
+            "test-pos-3491"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 7.4712
+        }
+      }
+    },
+    {
+      "qid": "imdb-34",
+      "movie_id": "tt0284953",
+      "question": "How large was the Parliament set used for the political scenes?",
+      "relevant_review_ids": [],
+      "best_methods": [],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-3501",
+            "test-pos-3500",
+            "test-pos-3504",
+            "test-pos-3498",
+            "test-neg-830"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-3501:2",
+            "test-pos-3500:1",
+            "test-pos-3504:1",
+            "test-pos-3498:1",
+            "test-neg-830:1"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 0.1174
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-3500",
+            "test-neg-822",
+            "test-pos-3501",
+            "test-neg-828",
+            "test-pos-3489"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-3500:1",
+            "test-neg-822:2",
+            "test-pos-3501:2",
+            "test-neg-828:2",
+            "test-pos-3489:3"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 7.161
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-3500",
+            "test-pos-3501",
+            "test-neg-830",
+            "test-pos-3504",
+            "test-neg-821"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-3500:1",
+            "test-pos-3501:2",
+            "test-neg-830:1",
+            "test-pos-3504:1",
+            "test-neg-821:2"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 6.8214
+        }
+      }
+    },
+    {
+      "qid": "imdb-35",
+      "movie_id": "tt0340874",
+      "question": "What negative and positive reactions to the Northfork cinematography appear in the reviews?",
+      "relevant_review_ids": [
+        "test-neg-3003",
+        "test-pos-11219",
+        "test-pos-11227"
+      ],
+      "best_methods": [
+        "hybrid"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-11220",
+            "test-neg-3009",
+            "test-pos-11230",
+            "test-pos-11229",
+            "test-neg-3003"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-11220:3",
+            "test-neg-3009:1",
+            "test-pos-11230:10",
+            "test-pos-11229:3",
+            "test-neg-3003:1"
+          ],
+          "matched_review_ids": [
+            "test-neg-3003"
+          ],
+          "first_relevant_rank": 5,
+          "recall": 0.3333333333333333,
+          "reciprocal_rank": 0.2,
+          "latency_ms": 0.2074
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-11220",
+            "test-neg-2996",
+            "test-pos-11232",
+            "test-neg-3001",
+            "test-neg-3003"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-11220:1",
+            "test-neg-2996:1",
+            "test-pos-11232:1",
+            "test-neg-3001:1",
+            "test-neg-3003:1"
+          ],
+          "matched_review_ids": [
+            "test-neg-3003"
+          ],
+          "first_relevant_rank": 5,
+          "recall": 0.3333333333333333,
+          "reciprocal_rank": 0.2,
+          "latency_ms": 6.7966
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-11220",
+            "test-neg-3009",
+            "test-pos-11229",
+            "test-neg-3003",
+            "test-neg-2996"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-11220:1",
+            "test-neg-3009:1",
+            "test-pos-11229:3",
+            "test-neg-3003:1",
+            "test-neg-2996:1"
+          ],
+          "matched_review_ids": [
+            "test-neg-3003"
+          ],
+          "first_relevant_rank": 4,
+          "recall": 0.3333333333333333,
+          "reciprocal_rank": 0.25,
+          "latency_ms": 6.111
+        }
+      }
+    },
+    {
+      "qid": "imdb-36",
+      "movie_id": "tt0340874",
+      "question": "Why is the town being evacuated in Northfork?",
+      "relevant_review_ids": [
+        "test-neg-2996",
+        "test-pos-11223",
+        "test-pos-11228",
+        "test-pos-11233"
+      ],
+      "best_methods": [
+        "bm25",
+        "dense"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-neg-2996",
+            "test-pos-11233",
+            "test-pos-11232",
+            "test-pos-11230",
+            "test-pos-11231"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-2996:2",
+            "test-pos-11233:1",
+            "test-pos-11232:3",
+            "test-pos-11230:6",
+            "test-pos-11231:1"
+          ],
+          "matched_review_ids": [
+            "test-neg-2996",
+            "test-pos-11233"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 0.1693
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-2996",
+            "test-neg-3006",
+            "test-neg-3003",
+            "test-pos-11223",
+            "test-neg-3001"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-2996:2",
+            "test-neg-3006:1",
+            "test-neg-3003:1",
+            "test-pos-11223:1",
+            "test-neg-3001:1"
+          ],
+          "matched_review_ids": [
+            "test-neg-2996",
+            "test-pos-11223"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 5.2808
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-neg-2996",
+            "test-neg-3006",
+            "test-neg-3003",
+            "test-pos-11230",
+            "test-pos-11232"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-2996:2",
+            "test-neg-3006:1",
+            "test-neg-3003:1",
+            "test-pos-11230:6",
+            "test-pos-11232:3"
+          ],
+          "matched_review_ids": [
+            "test-neg-2996"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.25,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 5.3435
+        }
+      }
+    },
+    {
+      "qid": "imdb-37",
+      "movie_id": "tt0340874",
+      "question": "When Northfork played at Cannes, did the reviewer who called it very slow also find it boring?",
+      "relevant_review_ids": [
+        "test-pos-11232"
+      ],
+      "best_methods": [
+        "bm25",
+        "dense",
+        "hybrid"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-11232",
+            "test-pos-11220",
+            "test-pos-11222",
+            "test-pos-11223",
+            "test-pos-11230"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-11232:1",
+            "test-pos-11220:4",
+            "test-pos-11222:3",
+            "test-pos-11223:4",
+            "test-pos-11230:8"
+          ],
+          "matched_review_ids": [
+            "test-pos-11232"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 0.3031
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-11232",
+            "test-neg-3009",
+            "test-neg-3001",
+            "test-pos-11229",
+            "test-pos-11222"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-11232:1",
+            "test-neg-3009:1",
+            "test-neg-3001:1",
+            "test-pos-11229:3",
+            "test-pos-11222:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-11232"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 6.4291
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-11232",
+            "test-pos-11220",
+            "test-pos-11222",
+            "test-neg-2996",
+            "test-neg-3009"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-11232:1",
+            "test-pos-11220:4",
+            "test-pos-11222:3",
+            "test-neg-2996:1",
+            "test-neg-3009:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-11232"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 6.3881
+        }
+      }
+    },
+    {
+      "qid": "imdb-38",
+      "movie_id": "tt0340874",
+      "question": "Which camera make and model was used for the widescreen cinematography in Northfork?",
+      "relevant_review_ids": [],
+      "best_methods": [],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-11219",
+            "test-neg-3003",
+            "test-pos-11230",
+            "test-pos-11224",
+            "test-pos-11229"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-11219:1",
+            "test-neg-3003:1",
+            "test-pos-11230:1",
+            "test-pos-11224:1",
+            "test-pos-11229:3"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 0.2356
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-3001",
+            "test-pos-11219",
+            "test-pos-11229",
+            "test-pos-11227",
+            "test-pos-11220"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-3001:4",
+            "test-pos-11219:1",
+            "test-pos-11229:3",
+            "test-pos-11227:1",
+            "test-pos-11220:1"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 5.6514
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-11219",
+            "test-pos-11229",
+            "test-neg-3001",
+            "test-neg-3003",
+            "test-neg-2996"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-11219:1",
+            "test-pos-11229:3",
+            "test-neg-3001:4",
+            "test-neg-3003:1",
+            "test-neg-2996:1"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 5.4927
+        }
+      }
+    },
+    {
+      "qid": "imdb-39",
+      "movie_id": "tt0435687",
+      "question": "Did reviewers want more of the familiar television characters, or did some like the smaller set of main characters?",
+      "relevant_review_ids": [
+        "test-neg-1185",
+        "test-neg-1196",
+        "test-pos-4885",
+        "test-pos-4887"
+      ],
+      "best_methods": [
+        "hybrid"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-4894",
+            "test-neg-1186",
+            "test-neg-1196",
+            "test-pos-4891",
+            "test-pos-4892"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-4894:1",
+            "test-neg-1186:2",
+            "test-neg-1196:1",
+            "test-pos-4891:4",
+            "test-pos-4892:2"
+          ],
+          "matched_review_ids": [
+            "test-neg-1196"
+          ],
+          "first_relevant_rank": 3,
+          "recall": 0.25,
+          "reciprocal_rank": 0.3333333333333333,
+          "latency_ms": 0.3774
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-4888",
+            "test-pos-4891",
+            "test-pos-4895",
+            "test-neg-1188",
+            "test-neg-1190"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-4888:1",
+            "test-pos-4891:4",
+            "test-pos-4895:3",
+            "test-neg-1188:2",
+            "test-neg-1190:1"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": 0.0,
+          "reciprocal_rank": 0.0,
+          "latency_ms": 6.4643
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-4891",
+            "test-neg-1196",
+            "test-pos-4892",
+            "test-pos-4895",
+            "test-neg-1186"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-4891:4",
+            "test-neg-1196:1",
+            "test-pos-4892:2",
+            "test-pos-4895:3",
+            "test-neg-1186:2"
+          ],
+          "matched_review_ids": [
+            "test-neg-1196"
+          ],
+          "first_relevant_rank": 2,
+          "recall": 0.25,
+          "reciprocal_rank": 0.5,
+          "latency_ms": 6.2841
+        }
+      }
+    },
+    {
+      "qid": "imdb-40",
+      "movie_id": "tt0435687",
+      "question": "What made Geoff a comic standout even for a reviewer who disliked much of the movie?",
+      "relevant_review_ids": [
+        "test-neg-1193",
+        "test-pos-4886"
+      ],
+      "best_methods": [
+        "dense",
+        "hybrid"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-4891",
+            "test-pos-4896",
+            "test-pos-4894",
+            "test-neg-1194",
+            "test-pos-4886"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-4891:3",
+            "test-pos-4896:3",
+            "test-pos-4894:3",
+            "test-neg-1194:2",
+            "test-pos-4886:3"
+          ],
+          "matched_review_ids": [
+            "test-pos-4886"
+          ],
+          "first_relevant_rank": 5,
+          "recall": 0.5,
+          "reciprocal_rank": 0.2,
+          "latency_ms": 0.2285
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-1193",
+            "test-pos-4886",
+            "test-neg-1196",
+            "test-neg-1188",
+            "test-pos-4890"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-1193:2",
+            "test-pos-4886:2",
+            "test-neg-1196:1",
+            "test-neg-1188:2",
+            "test-pos-4890:3"
+          ],
+          "matched_review_ids": [
+            "test-neg-1193",
+            "test-pos-4886"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 6.5774
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-4886",
+            "test-neg-1196",
+            "test-neg-1193",
+            "test-pos-4894",
+            "test-pos-4895"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-4886:2",
+            "test-neg-1196:1",
+            "test-neg-1193:2",
+            "test-pos-4894:3",
+            "test-pos-4895:11"
+          ],
+          "matched_review_ids": [
+            "test-pos-4886",
+            "test-neg-1193"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 7.0129
+        }
+      }
+    },
+    {
+      "qid": "imdb-41",
+      "movie_id": "tt0435687",
+      "question": "What did fans say about how funny the film was compared with the three television series?",
+      "relevant_review_ids": [
+        "test-neg-1184",
+        "test-neg-1189",
+        "test-pos-4891",
+        "test-pos-4898"
+      ],
+      "best_methods": [
+        "bm25"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-neg-1196",
+            "test-pos-4891",
+            "test-neg-1189",
+            "test-pos-4895",
+            "test-pos-4894"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-1196:1",
+            "test-pos-4891:1",
+            "test-neg-1189:1",
+            "test-pos-4895:3",
+            "test-pos-4894:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-4891",
+            "test-neg-1189"
+          ],
+          "first_relevant_rank": 2,
+          "recall": 0.5,
+          "reciprocal_rank": 0.5,
+          "latency_ms": 0.2757
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-1196",
+            "test-neg-1188",
+            "test-neg-1194",
+            "test-neg-1192",
+            "test-pos-4887"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-1196:1",
+            "test-neg-1188:2",
+            "test-neg-1194:2",
+            "test-neg-1192:3",
+            "test-pos-4887:2"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": 0.0,
+          "reciprocal_rank": 0.0,
+          "latency_ms": 5.5876
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-neg-1196",
+            "test-neg-1192",
+            "test-pos-4895",
+            "test-neg-1188",
+            "test-neg-1184"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-1196:1",
+            "test-neg-1192:3",
+            "test-pos-4895:3",
+            "test-neg-1188:2",
+            "test-neg-1184:2"
+          ],
+          "matched_review_ids": [
+            "test-neg-1184"
+          ],
+          "first_relevant_rank": 5,
+          "recall": 0.25,
+          "reciprocal_rank": 0.2,
+          "latency_ms": 6.2282
+        }
+      }
+    },
+    {
+      "qid": "imdb-42",
+      "movie_id": "tt0435687",
+      "question": "What focal length was used to film the medieval scenes in The League of Gentlemen's Apocalypse?",
+      "relevant_review_ids": [],
+      "best_methods": [],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-4891",
+            "test-pos-4893",
+            "test-pos-4897",
+            "test-pos-4895",
+            "test-neg-1196"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-4891:2",
+            "test-pos-4893:1",
+            "test-pos-4897:1",
+            "test-pos-4895:11",
+            "test-neg-1196:2"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 0.2885
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-4897",
+            "test-neg-1184",
+            "test-neg-1190",
+            "test-pos-4893",
+            "test-neg-1186"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-4897:1",
+            "test-neg-1184:2",
+            "test-neg-1190:1",
+            "test-pos-4893:1",
+            "test-neg-1186:2"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 6.4874
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-4897",
+            "test-pos-4893",
+            "test-pos-4891",
+            "test-pos-4895",
+            "test-neg-1190"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-4897:1",
+            "test-pos-4893:1",
+            "test-pos-4891:2",
+            "test-pos-4895:11",
+            "test-neg-1190:1"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 6.1075
+        }
+      }
+    },
+    {
+      "qid": "imdb-43",
+      "movie_id": "tt0808151",
+      "question": "Which CERN director from the novel is missing in the film, and what does he do at the beginning of the book?",
+      "relevant_review_ids": [
+        "test-neg-412",
+        "test-neg-415",
+        "test-neg-420"
+      ],
+      "best_methods": [
+        "bm25"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-neg-421",
+            "test-neg-412",
+            "test-pos-1628",
+            "test-neg-415",
+            "test-neg-420"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-421:3",
+            "test-neg-412:1",
+            "test-pos-1628:1",
+            "test-neg-415:1",
+            "test-neg-420:2"
+          ],
+          "matched_review_ids": [
+            "test-neg-412",
+            "test-neg-415",
+            "test-neg-420"
+          ],
+          "first_relevant_rank": 2,
+          "recall": 1.0,
+          "reciprocal_rank": 0.5,
+          "latency_ms": 0.3319
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-418",
+            "test-neg-412",
+            "test-pos-1634",
+            "test-neg-415",
+            "test-neg-413"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-418:1",
+            "test-neg-412:1",
+            "test-pos-1634:3",
+            "test-neg-415:1",
+            "test-neg-413:2"
+          ],
+          "matched_review_ids": [
+            "test-neg-412",
+            "test-neg-415"
+          ],
+          "first_relevant_rank": 2,
+          "recall": 0.6666666666666666,
+          "reciprocal_rank": 0.5,
+          "latency_ms": 6.7322
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-neg-412",
+            "test-neg-421",
+            "test-neg-415",
+            "test-neg-418",
+            "test-neg-413"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-412:1",
+            "test-neg-421:3",
+            "test-neg-415:1",
+            "test-neg-418:1",
+            "test-neg-413:2"
+          ],
+          "matched_review_ids": [
+            "test-neg-412",
+            "test-neg-415"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.6666666666666666,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 6.2173
+        }
+      }
+    },
+    {
+      "qid": "imdb-44",
+      "movie_id": "tt0808151",
+      "question": "How did views differ about the film's visual depiction of Rome and the Vatican?",
+      "relevant_review_ids": [
+        "test-neg-421",
+        "test-pos-1627"
+      ],
+      "best_methods": [
+        "dense",
+        "hybrid"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-1624",
+            "test-neg-417",
+            "test-neg-421",
+            "test-pos-1635",
+            "test-pos-1634"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-1624:3",
+            "test-neg-417:4",
+            "test-neg-421:3",
+            "test-pos-1635:2",
+            "test-pos-1634:2"
+          ],
+          "matched_review_ids": [
+            "test-neg-421"
+          ],
+          "first_relevant_rank": 3,
+          "recall": 0.5,
+          "reciprocal_rank": 0.3333333333333333,
+          "latency_ms": 0.2261
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-421",
+            "test-pos-1635",
+            "test-neg-417",
+            "test-pos-1628",
+            "test-pos-1633"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-421:2",
+            "test-pos-1635:2",
+            "test-neg-417:4",
+            "test-pos-1628:2",
+            "test-pos-1633:6"
+          ],
+          "matched_review_ids": [
+            "test-neg-421"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 5.6304
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-neg-421",
+            "test-neg-417",
+            "test-pos-1635",
+            "test-pos-1624",
+            "test-pos-1630"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-421:2",
+            "test-neg-417:4",
+            "test-pos-1635:2",
+            "test-pos-1624:3",
+            "test-pos-1630:2"
+          ],
+          "matched_review_ids": [
+            "test-neg-421"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 6.1475
+        }
+      }
+    },
+    {
+      "qid": "imdb-45",
+      "movie_id": "tt0808151",
+      "question": "Was the music in Angels & Demons praised, or did it make the action harder to take in?",
+      "relevant_review_ids": [
+        "test-neg-417",
+        "test-pos-1627",
+        "test-pos-1628"
+      ],
+      "best_methods": [
+        "bm25",
+        "dense",
+        "hybrid"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-neg-414",
+            "test-pos-1635",
+            "test-pos-1633",
+            "test-neg-410",
+            "test-pos-1623"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-414:2",
+            "test-pos-1635:1",
+            "test-pos-1633:5",
+            "test-neg-410:3",
+            "test-pos-1623:1"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": 0.0,
+          "reciprocal_rank": 0.0,
+          "latency_ms": 0.3036
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-1633",
+            "test-neg-409",
+            "test-pos-1631",
+            "test-pos-1623",
+            "test-pos-1635"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-1633:5",
+            "test-neg-409:1",
+            "test-pos-1631:1",
+            "test-pos-1623:1",
+            "test-pos-1635:6"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": 0.0,
+          "reciprocal_rank": 0.0,
+          "latency_ms": 6.0397
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-1633",
+            "test-pos-1635",
+            "test-pos-1623",
+            "test-neg-410",
+            "test-pos-1631"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-1633:5",
+            "test-pos-1635:1",
+            "test-pos-1623:1",
+            "test-neg-410:3",
+            "test-pos-1631:1"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": 0.0,
+          "reciprocal_rank": 0.0,
+          "latency_ms": 7.2449
+        }
+      }
+    },
+    {
+      "qid": "imdb-46",
+      "movie_id": "tt0808151",
+      "question": "Who coordinated the vehicle stunts for the sequences racing across Rome?",
+      "relevant_review_ids": [],
+      "best_methods": [],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-1621",
+            "test-neg-417",
+            "test-pos-1623",
+            "test-pos-1629",
+            "test-pos-1634"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-1621:2",
+            "test-neg-417:3",
+            "test-pos-1623:1",
+            "test-pos-1629:5",
+            "test-pos-1634:4"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 0.215
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-413",
+            "test-pos-1621",
+            "test-pos-1635",
+            "test-neg-417",
+            "test-pos-1634"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-413:2",
+            "test-pos-1621:2",
+            "test-pos-1635:2",
+            "test-neg-417:4",
+            "test-pos-1634:6"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 5.473
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-1621",
+            "test-neg-417",
+            "test-neg-413",
+            "test-pos-1634",
+            "test-pos-1635"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-1621:2",
+            "test-neg-417:3",
+            "test-neg-413:2",
+            "test-pos-1634:4",
+            "test-pos-1635:2"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 5.7091
+        }
+      }
+    },
+    {
+      "qid": "imdb-47",
+      "movie_id": "tt0956038",
+      "question": "Did reviewers find Diane Lane and Richard Gere believable as a couple?",
+      "relevant_review_ids": [
+        "test-neg-871",
+        "test-neg-872",
+        "test-pos-3737",
+        "test-pos-3741"
+      ],
+      "best_methods": [
+        "bm25"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-3737",
+            "test-pos-3736",
+            "test-pos-3734",
+            "test-neg-873",
+            "test-pos-3741"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-3737:1",
+            "test-pos-3736:1",
+            "test-pos-3734:1",
+            "test-neg-873:2",
+            "test-pos-3741:1"
+          ],
+          "matched_review_ids": [
+            "test-pos-3737",
+            "test-pos-3741"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 0.3561
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-883",
+            "test-pos-3731",
+            "test-neg-875",
+            "test-pos-3736",
+            "test-neg-881"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-883:2",
+            "test-pos-3731:1",
+            "test-neg-875:1",
+            "test-pos-3736:1",
+            "test-neg-881:1"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": 0.0,
+          "reciprocal_rank": 0.0,
+          "latency_ms": 6.156
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-3736",
+            "test-neg-883",
+            "test-pos-3734",
+            "test-neg-875",
+            "test-neg-873"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-3736:1",
+            "test-neg-883:2",
+            "test-pos-3734:1",
+            "test-neg-875:1",
+            "test-neg-873:2"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": 0.0,
+          "reciprocal_rank": 0.0,
+          "latency_ms": 6.3403
+        }
+      }
+    },
+    {
+      "qid": "imdb-48",
+      "movie_id": "tt0956038",
+      "question": "What did reviewers say was missing from the buildup to the central romance?",
+      "relevant_review_ids": [
+        "test-neg-875",
+        "test-neg-884",
+        "test-neg-885"
+      ],
+      "best_methods": [
+        "hybrid"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-neg-878",
+            "test-neg-879",
+            "test-neg-881",
+            "test-neg-885",
+            "test-neg-874"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-878:1",
+            "test-neg-879:2",
+            "test-neg-881:1",
+            "test-neg-885:1",
+            "test-neg-874:1"
+          ],
+          "matched_review_ids": [
+            "test-neg-885"
+          ],
+          "first_relevant_rank": 4,
+          "recall": 0.3333333333333333,
+          "reciprocal_rank": 0.25,
+          "latency_ms": 0.1987
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-877",
+            "test-neg-870",
+            "test-neg-881",
+            "test-neg-885",
+            "test-neg-883"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-877:2",
+            "test-neg-870:2",
+            "test-neg-881:2",
+            "test-neg-885:1",
+            "test-neg-883:1"
+          ],
+          "matched_review_ids": [
+            "test-neg-885"
+          ],
+          "first_relevant_rank": 4,
+          "recall": 0.3333333333333333,
+          "reciprocal_rank": 0.25,
+          "latency_ms": 5.716
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-neg-881",
+            "test-neg-885",
+            "test-neg-879",
+            "test-pos-3736",
+            "test-neg-870"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-881:1",
+            "test-neg-885:1",
+            "test-neg-879:2",
+            "test-pos-3736:3",
+            "test-neg-870:2"
+          ],
+          "matched_review_ids": [
+            "test-neg-885"
+          ],
+          "first_relevant_rank": 2,
+          "recall": 0.3333333333333333,
+          "reciprocal_rank": 0.5,
+          "latency_ms": 5.6863
+        }
+      }
+    },
+    {
+      "qid": "imdb-49",
+      "movie_id": "tt0956038",
+      "question": "What made the beach house look implausible to one reviewer?",
+      "relevant_review_ids": [
+        "test-neg-882"
+      ],
+      "best_methods": [
+        "dense"
+      ],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-3735",
+            "test-pos-3741",
+            "test-neg-872",
+            "test-neg-878",
+            "test-neg-882"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-3735:4",
+            "test-pos-3741:2",
+            "test-neg-872:1",
+            "test-neg-878:2",
+            "test-neg-882:1"
+          ],
+          "matched_review_ids": [
+            "test-neg-882"
+          ],
+          "first_relevant_rank": 5,
+          "recall": 1.0,
+          "reciprocal_rank": 0.2,
+          "latency_ms": 0.2284
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-neg-882",
+            "test-neg-872",
+            "test-pos-3735",
+            "test-pos-3733",
+            "test-neg-878"
+          ],
+          "retrieved_chunk_ids": [
+            "test-neg-882:1",
+            "test-neg-872:1",
+            "test-pos-3735:4",
+            "test-pos-3733:2",
+            "test-neg-878:2"
+          ],
+          "matched_review_ids": [
+            "test-neg-882"
+          ],
+          "first_relevant_rank": 1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "latency_ms": 5.2085
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-3735",
+            "test-neg-872",
+            "test-neg-882",
+            "test-pos-3741",
+            "test-neg-878"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-3735:4",
+            "test-neg-872:1",
+            "test-neg-882:1",
+            "test-pos-3741:2",
+            "test-neg-878:2"
+          ],
+          "matched_review_ids": [
+            "test-neg-882"
+          ],
+          "first_relevant_rank": 3,
+          "recall": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "latency_ms": 5.499
+        }
+      }
+    },
+    {
+      "qid": "imdb-50",
+      "movie_id": "tt0956038",
+      "question": "Which specific street address was used to film the inn's interior scenes?",
+      "relevant_review_ids": [],
+      "best_methods": [],
+      "results": {
+        "bm25": {
+          "retrieved_review_ids": [
+            "test-pos-3734",
+            "test-pos-3733",
+            "test-neg-870",
+            "test-pos-3744",
+            "test-neg-882"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-3734:1",
+            "test-pos-3733:2",
+            "test-neg-870:2",
+            "test-pos-3744:3",
+            "test-neg-882:2"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 0.1891
+        },
+        "dense": {
+          "retrieved_review_ids": [
+            "test-pos-3744",
+            "test-neg-878",
+            "test-neg-876",
+            "test-neg-872",
+            "test-neg-880"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-3744:3",
+            "test-neg-878:2",
+            "test-neg-876:2",
+            "test-neg-872:2",
+            "test-neg-880:1"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 6.3688
+        },
+        "hybrid": {
+          "retrieved_review_ids": [
+            "test-pos-3744",
+            "test-pos-3734",
+            "test-neg-882",
+            "test-pos-3733",
+            "test-neg-876"
+          ],
+          "retrieved_chunk_ids": [
+            "test-pos-3744:3",
+            "test-pos-3734:1",
+            "test-neg-882:2",
+            "test-pos-3733:2",
+            "test-neg-876:2"
+          ],
+          "matched_review_ids": [],
+          "first_relevant_rank": null,
+          "recall": null,
+          "reciprocal_rank": null,
+          "latency_ms": 6.2189
+        }
+      }
+    }
+  ]
+}

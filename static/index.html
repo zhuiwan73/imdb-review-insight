@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>影评洞察</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1b2040;
+      --muted: #526079;
+      --accent: #304ca0;
+      --dark: #203679;
+      --paper: #f4f6fb;
+      --wash: #edf0f8;
+      --line: #d4dbeb;
+      --cue: #d4f0b1;
+      font-family: "Microsoft YaHei UI", "PingFang SC", system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; min-width: 280px; }
+    button, select, textarea { font: inherit; }
+    button, select { cursor: pointer; }
+    button:disabled, select:disabled { cursor: not-allowed; }
+    :focus-visible { outline: 3px solid #6a82d1; outline-offset: 3px; }
+    [hidden] { display: none !important; }
+
+    .frame { width: min(1180px, calc(100% - 64px)); margin-inline: auto; }
+    .masthead { background: var(--ink); color: #fff; }
+    .masthead .frame {
+      min-height: 230px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 36px;
+      padding-block: 38px 42px;
+    }
+    h1, h2, p { margin: 0; }
+    h1 { font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.15; letter-spacing: .035em; }
+    .masthead p { margin-top: 17px; color: #dce2f1; line-height: 1.65; }
+    .aperture {
+      width: 174px;
+      height: 112px;
+      border: 1px solid #65719a;
+      position: relative;
+      background:
+        linear-gradient(to right, #65719a 1px, transparent 1px) 25% 0 / 25% 100%,
+        linear-gradient(to bottom, #65719a 1px, transparent 1px) 0 25% / 100% 25%;
+    }
+    .aperture::before, .aperture::after {
+      content: "";
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      border: solid var(--cue);
+    }
+    .aperture::before { inset: 22px auto auto 36px; border-width: 2px 0 0 2px; }
+    .aperture::after { inset: auto 36px 22px auto; border-width: 0 2px 2px 0; }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: minmax(270px, 340px) minmax(0, 1fr);
+      align-items: start;
+      gap: clamp(24px, 5vw, 56px);
+      padding-block: 36px 56px;
+    }
+    .controls {
+      padding: 24px;
+      background: var(--wash);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+    .field + .field { margin-top: 24px; }
+    .field label, .preset-label {
+      display: block;
+      font-size: .93rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    select, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      color: var(--ink);
+      background: #fff;
+      border: 1px solid #a3b0d0;
+      border-radius: 5px;
+    }
+    select { min-height: 44px; }
+    textarea { display: block; min-height: 108px; line-height: 1.5; resize: vertical; }
+    textarea::placeholder { color: var(--muted); opacity: 1; }
+    .help { display: block; margin-top: 7px; color: var(--muted); line-height: 1.55; font-size: .82rem; }
+    .presets { margin-top: 17px; }
+    .preset-list { display: flex; flex-wrap: wrap; gap: 7px; }
+    .preset {
+      background: transparent;
+      color: var(--dark);
+      border: 1px solid #aab8d8;
+      border-radius: 4px;
+      min-height: 36px;
+      padding: 5px 9px;
+      font-size: .82rem;
+    }
+    .preset:hover, .preset:focus-visible { background: #fff; }
+    .primary {
+      width: 100%;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      border: 0;
+      border-radius: 5px;
+      min-height: 45px;
+      margin-top: 24px;
+      padding: 9px 14px;
+    }
+    .primary:hover:not(:disabled) { background: var(--dark); }
+    .primary:disabled { background: #5b6788; }
+    .retry { width: auto; margin-top: 0; }
+
+    .results { min-width: 0; }
+    .result-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px 18px;
+      border-bottom: 1px solid var(--line);
+      padding: 2px 0 14px;
+    }
+    h2 { font-size: 1.28rem; line-height: 1.4; }
+    .mode {
+      font-size: .81rem;
+      font-weight: 700;
+      color: #274526;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background: #e2eeda;
+    }
+    .mode[data-weak="true"] { background: #f4ecd6; color: #614511; }
+    .result-message {
+      color: var(--muted);
+      padding: 22px 0;
+      font-size: .97rem;
+      line-height: 1.7;
+    }
+    .result-message[data-error="true"] { color: #8b293c; }
+    .answer {
+      padding: 20px 0 23px;
+      line-height: 1.8;
+      font-size: 1.03rem;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+    .inline-ref {
+      display: inline-block;
+      padding: 0 5px;
+      margin-inline: 2px;
+      background: #e3e9fc;
+      color: var(--dark);
+      border-radius: 3px;
+      text-decoration: none;
+      font-size: .78em;
+      line-height: 1.5;
+      font-weight: 700;
+      white-space: normal;
+    }
+    .source-heading { font-size: .99rem; margin: 2px 0 12px; }
+    .sources { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .citation {
+      border: 1px solid var(--line);
+      border-inline-start: 4px solid #7287ca;
+      border-radius: 4px;
+      padding: 13px 15px;
+      background: #fff;
+      scroll-margin-block: 18px;
+    }
+    .citation:target { border-color: var(--accent); background: #eff3ff; }
+    .citation-meta { color: var(--muted); font-size: .77rem; overflow-wrap: anywhere; }
+    .citation-title { color: var(--dark); font-weight: 700; margin-inline-end: .65em; }
+    .citation blockquote { margin: 8px 0 0; line-height: 1.65; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+    }
+    @media (max-width: 760px) {
+      .frame { width: min(100% - 40px, 600px); }
+      .masthead .frame { min-height: 180px; gap: 25px; padding-block: 27px; }
+      .aperture { width: 109px; height: 76px; }
+      .aperture::before { inset: 13px auto auto 20px; }
+      .aperture::after { inset: auto 20px 13px auto; }
+      .aperture::before, .aperture::after { width: 18px; height: 18px; }
+      .workspace { grid-template-columns: 1fr; padding-top: 24px; }
+    }
+    @media (max-width: 440px) {
+      .frame { width: calc(100% - 32px); }
+      .masthead .frame { grid-template-columns: 1fr; }
+      .aperture { display: none; }
+      .controls { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="frame">
+      <div>
+        <h1>影评洞察</h1>
+        <p>选一部电影，问问评论里怎么说。每段证据都能回到原文。</p>
+      </div>
+      <div class="aperture" aria-hidden="true"></div>
+    </div>
+  </header>
+  <main class="frame workspace">
+    <form id="ask-form" class="controls">
+      <div class="field">
+        <label for="movie">电影</label>
+        <select id="movie" required disabled>
+          <option value="">正在加载电影…</option>
+        </select>
+        <span class="help" id="movie-detail" hidden></span>
+      </div>
+      <div class="field" id="retriever-field" hidden>
+        <label for="retriever">检索方式</label>
+        <select id="retriever"></select>
+      </div>
+      <div class="field">
+        <label for="question">你的问题</label>
+        <textarea id="question" rows="3" maxlength="300" required
+          placeholder="What do reviewers say about the acting?"
+          aria-describedby="question-help"></textarea>
+        <span class="help" id="question-help">评论原文为英文。使用英文提问可获得更准确的检索结果。</span>
+        <div class="presets">
+          <span class="preset-label">试试这些问题</span>
+          <div class="preset-list">
+            <button class="preset" type="button" data-question="What do reviewers say about the acting?">表演评价</button>
+            <button class="preset" type="button" data-question="What do reviewers say about the pacing?">叙事节奏</button>
+            <button class="preset" type="button" data-question="How do reviewers describe the ending?">结局评价</button>
+          </div>
+        </div>
+      </div>
+      <button class="primary" id="ask-button" type="submit" disabled>检索影评</button>
+    </form>
+    <section class="results" id="results" aria-labelledby="result-title">
+      <header class="result-header">
+        <h2 id="result-title">回答与证据</h2>
+        <span id="mode" class="mode" hidden></span>
+      </header>
+      <p id="status" class="result-message" role="status">选择一部电影并提交问题。</p>
+      <button id="retry" type="button" class="primary retry" hidden>重新加载电影</button>
+      <p id="answer" class="answer" dir="auto" hidden></p>
+      <section id="source-section" aria-labelledby="source-heading" hidden>
+        <h2 id="source-heading" class="source-heading">影评原文</h2>
+        <ol id="sources" class="sources"></ol>
+      </section>
+      <p id="announcement" class="sr-only" role="status"></p>
+    </section>
+  </main>
+  <script>
+    "use strict";
+
+    const form = document.querySelector("#ask-form");
+    const select = document.querySelector("#movie");
+    const retrieverField = document.querySelector("#retriever-field");
+    const retriever = document.querySelector("#retriever");
+    const movieDetail = document.querySelector("#movie-detail");
+    const question = document.querySelector("#question");
+    const askButton = document.querySelector("#ask-button");
+    const statusMessage = document.querySelector("#status");
+    const retry = document.querySelector("#retry");
+    const answer = document.querySelector("#answer");
+    const mode = document.querySelector("#mode");
+    const sourceSection = document.querySelector("#source-section");
+    const sources = document.querySelector("#sources");
+    const results = document.querySelector("#results");
+    const announcement = document.querySelector("#announcement");
+    let movies = [];
+    let waiting = false;
+
+    function updateControls() {
+      select.disabled = waiting || movies.length === 0;
+      retriever.disabled = select.disabled;
+      askButton.disabled = waiting || movies.length === 0;
+      askButton.textContent = waiting ? "正在检索…" : "检索影评";
+    }
+
+    function displayStatus(message, isError = false) {
+      statusMessage.hidden = !message;
+      statusMessage.textContent = message;
+      statusMessage.dataset.error = String(isError);
+    }
+
+    function clearResults() {
+      answer.hidden = true;
+      answer.replaceChildren();
+      mode.hidden = true;
+      sourceSection.hidden = true;
+      sources.replaceChildren();
+      announcement.textContent = "";
+    }
+
+    function showMovie() {
+      const movie = movies.find((item) => item.movie_id === select.value);
+      movieDetail.hidden = !movie;
+      if (movie) {
+        const source = movie.movie_id.startsWith("demo-") ? "演示数据" : movie.movie_id;
+        movieDetail.textContent = movie.review_count + " 条评论 · " + source;
+      }
+    }
+
+    async function getJson(url, options) {
+      const response = await fetch(url, options);
+      let body;
+      try {
+        body = await response.json();
+      } catch {
+        throw new Error("服务返回了无法读取的数据。请重试。");
+      }
+      if (!response.ok) {
+        throw new Error(typeof body?.error === "string" ? body.error : "服务暂不可用。请重试。");
+      }
+      return body;
+    }
+
+    function showError(error) {
+      displayStatus(error instanceof TypeError ? "连接服务失败。请确认本地服务已启动。" : error.message, true);
+    }
+
+    async function loadMovies() {
+      retry.hidden = true;
+      displayStatus("正在加载电影…");
+      try {
+        const [data, methods] = await Promise.all([getJson("/api/movies"), getJson("/api/retrievers")]);
+        if (!Array.isArray(data)) throw new Error("无法读取电影列表。");
+
+        retriever.replaceChildren(...methods.items.map((item) => new Option(item.label, item.id)));
+        retriever.value = methods.selected;
+        retrieverField.hidden = methods.items.length < 2;
+        movies = data;
+        select.replaceChildren();
+        if (movies.length === 0) {
+          select.add(new Option("暂无可选电影", ""));
+          displayStatus("评论库里还没有电影。导入影评后重新加载。");
+          retry.hidden = false;
+          return;
+        }
+        for (const movie of movies) {
+          select.add(new Option(movie.title || movie.movie_id, movie.movie_id));
+        }
+        showMovie();
+        displayStatus("输入一个问题，查看回答和支持它的影评原文。");
+      } catch (error) {
+        movies = [];
+        select.replaceChildren(new Option("电影加载失败", ""));
+        showError(error);
+        retry.hidden = false;
+      } finally {
+        updateControls();
+      }
+    }
+
+    function renderCitations(citations) {
+      const links = new Map();
+      for (const citation of citations) {
+        if (links.has(citation.chunk_id)) continue;
+
+        const number = links.size + 1;
+        const target = "source-" + number;
+        const row = document.createElement("li");
+        row.className = "citation";
+        row.id = target;
+        row.tabIndex = -1;
+
+        const meta = document.createElement("div");
+        meta.className = "citation-meta";
+        const title = document.createElement("span");
+        title.className = "citation-title";
+        title.textContent = "证据 " + number;
+        meta.append(title, document.createTextNode(citation.chunk_id));
+
+        const quote = document.createElement("blockquote");
+        quote.lang = "en";
+        quote.dir = "auto";
+        quote.textContent = citation.text;
+
+        row.append(meta, quote);
+        sources.append(row);
+        links.set(citation.chunk_id, {target, number});
+      }
+      sourceSection.hidden = links.size === 0;
+      return links;
+    }
+
+    function renderAnswer(text, links) {
+      let cursor = 0;
+      for (const match of text.matchAll(/\[([^\]\r\n]+)\]/g)) {
+        const link = links.get(match[1].trim());
+        if (!link) continue;
+
+        answer.append(document.createTextNode(text.slice(cursor, match.index)));
+        const ref = document.createElement("a");
+        ref.className = "inline-ref";
+        ref.href = "#" + link.target;
+        ref.textContent = "证据 " + link.number;
+        answer.append(ref);
+        cursor = match.index + match[0].length;
+      }
+      answer.append(document.createTextNode(text.slice(cursor)));
+      answer.hidden = false;
+    }
+
+    function renderResult(result) {
+      if (typeof result?.answer !== "string" || !Array.isArray(result.citations)) {
+        throw new Error("服务未返回完整结果。请重试。");
+      }
+      const links = renderCitations(result.citations);
+      displayStatus("");
+      mode.hidden = false;
+      const insufficient = result.status === "insufficient_evidence";
+      mode.dataset.weak = String(insufficient);
+      mode.textContent = insufficient ? "证据不足" : result.mode === "llm" ? "模型回答" : "原文摘录";
+      renderAnswer(result.answer, links);
+      announcement.textContent = insufficient ? "证据不足。" : "已检索到 " + links.size + " 段影评证据。";
+    }
+
+    retry.addEventListener("click", loadMovies);
+    select.addEventListener("change", () => {
+      showMovie();
+      clearResults();
+      displayStatus("输入一个问题，查看回答和支持它的影评原文。");
+    });
+    retriever.addEventListener("change", () => {
+      clearResults();
+      displayStatus("已切换检索方式。再次提交，可以比较候选影评。");
+    });
+    for (const preset of document.querySelectorAll(".preset")) {
+      preset.addEventListener("click", () => {
+        question.value = preset.dataset.question;
+        question.setCustomValidity("");
+        question.focus();
+      });
+    }
+    question.addEventListener("input", () => question.setCustomValidity(""));
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (waiting || !select.value) return;
+
+      const prompt = question.value.trim();
+      if (!prompt) {
+        question.setCustomValidity("请输入一个问题。");
+        question.reportValidity();
+        return;
+      }
+
+      waiting = true;
+      clearResults();
+      updateControls();
+      results.setAttribute("aria-busy", "true");
+      displayStatus("正在查找相关影评…");
+      try {
+        const result = await getJson("/api/ask", {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({movie_id: select.value, question: prompt, retriever: retriever.value}),
+        });
+        renderResult(result);
+      } catch (error) {
+        showError(error);
+      } finally {
+        waiting = false;
+        results.removeAttribute("aria-busy");
+        updateControls();
+      }
+    });
+
+    loadMovies();
+  </script>
+</body>
+</html>

@@ -1,0 +1,578 @@
+{
+  "schema_version": 1,
+  "retriever": "bm25",
+  "top_k": 5,
+  "model": "qwen2.5:1.5b",
+  "model_digest": "f2b0a490f661d58f20c4b98e5797ecf55e6e96293a88b71e96e7cc389f658f7e",
+  "ollama_url": "http://127.0.0.1:11434",
+  "corpus": "imdb_evidence_local.jsonl",
+  "corpus_sha256": "4b20d7114fd038c294da360d3e0854184151dbd5530b950eef117032e49501e2",
+  "questions": 8,
+  "questions_sha256": "452aaf58ccf5cd4be7d8e7fce9b6e8ca46003007d05263dd325a2677b2f531df",
+  "implementation_sha256": "dc9c65e1b65c054bc99ca935605644e2e2b88d789fe439b013647c7edc6eb2fd",
+  "gate_sha256": "a593e4b33841b5e8f6441a7046b5cb74458f2682d7be24c1984e44bbc3cf6063",
+  "labels_sha256": "452aaf58ccf5cd4be7d8e7fce9b6e8ca46003007d05263dd325a2677b2f531df",
+  "ollama_version": "0.40.17",
+  "contexts": {
+    "full": 4,
+    "partial": 0,
+    "none": 4
+  },
+  "methods": {
+    "direct": {
+      "by_context": {
+        "full": {
+          "answered": 4,
+          "insufficient_evidence": 0,
+          "error": 0
+        },
+        "partial": {
+          "answered": 0,
+          "insufficient_evidence": 0,
+          "error": 0
+        },
+        "none": {
+          "answered": 4,
+          "insufficient_evidence": 0,
+          "error": 0
+        }
+      },
+      "reasons": {},
+      "p50_ms": 618.975,
+      "p95_ms": 838.755
+    },
+    "gated": {
+      "by_context": {
+        "full": {
+          "answered": 1,
+          "insufficient_evidence": 3,
+          "error": 0
+        },
+        "partial": {
+          "answered": 0,
+          "insufficient_evidence": 0,
+          "error": 0
+        },
+        "none": {
+          "answered": 0,
+          "insufficient_evidence": 4,
+          "error": 0
+        }
+      },
+      "reasons": {
+        "gate_insufficient": 7
+      },
+      "p50_ms": 174.554,
+      "p95_ms": 577.893
+    }
+  },
+  "cases": [
+    {
+      "kind": "case",
+      "qid": "dev-01",
+      "movie_id": "tt0080855",
+      "question": "According to the review describing Sam Waterston's list of 125 people marked for death, what does his character accuse those people of being?",
+      "relevant_review_ids": [
+        "test-pos-2132"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-2132",
+        "test-neg-507",
+        "test-pos-2147",
+        "test-pos-2146",
+        "test-neg-509"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-2132:2",
+        "test-neg-507:2",
+        "test-pos-2147:5",
+        "test-pos-2146:3",
+        "test-neg-509:5"
+      ],
+      "matched_review_ids": [
+        "test-pos-2132"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": [
+        "test-pos-2132:2"
+      ],
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-2132:2",
+                "test-neg-507:2",
+                "test-pos-2147:5"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-2132:2",
+            "test-neg-507:2",
+            "test-pos-2147:5"
+          ],
+          "latency_ms": 901.62
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 182.437
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "dev-02",
+      "movie_id": "tt0080855",
+      "question": "What do reviewers say actually happened to Ella Watson and James Averell before the Johnson County fighting?",
+      "relevant_review_ids": [
+        "test-neg-499",
+        "test-neg-502",
+        "test-neg-504"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-504",
+        "test-neg-499",
+        "test-neg-502",
+        "test-neg-509",
+        "test-pos-2146"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-504:3",
+        "test-neg-499:5",
+        "test-neg-502:1",
+        "test-neg-509:9",
+        "test-pos-2146:8"
+      ],
+      "matched_review_ids": [
+        "test-neg-499",
+        "test-neg-502",
+        "test-neg-504"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": [
+        "test-neg-504:3",
+        "test-neg-499:5",
+        "test-neg-502:1"
+      ],
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 164.901
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-504:3",
+                "test-neg-499:5",
+                "test-neg-502:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-504:3",
+            "test-neg-499:5",
+            "test-neg-502:1"
+          ],
+          "latency_ms": 654.854
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "dev-03",
+      "movie_id": "tt0080855",
+      "question": "What brand of roller skates was used in the roller-skating sequence?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-2141",
+        "test-neg-509",
+        "test-neg-506",
+        "test-pos-2146",
+        "test-pos-2130"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-2141:5",
+        "test-neg-509:7",
+        "test-neg-506:3",
+        "test-pos-2146:5",
+        "test-pos-2130:2"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": [],
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-2141:5",
+                "test-neg-509:7",
+                "test-neg-506:3"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-2141:5",
+            "test-neg-509:7",
+            "test-neg-506:3"
+          ],
+          "latency_ms": 596.416
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 184.31
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "dev-04",
+      "movie_id": "tt0080855",
+      "question": "What time was the train scheduled to leave in the train-station scene between Kris Kristofferson and Richard Masur?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-neg-506",
+        "test-neg-508",
+        "test-neg-500",
+        "test-neg-509",
+        "test-pos-2136"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-506:1",
+        "test-neg-508:10",
+        "test-neg-500:1",
+        "test-neg-509:3",
+        "test-pos-2136:4"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": [],
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 166.671
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-506:1",
+                "test-neg-508:10",
+                "test-neg-500:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-506:1",
+            "test-neg-508:10",
+            "test-neg-500:1"
+          ],
+          "latency_ms": 722.007
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "dev-05",
+      "movie_id": "tt0113253",
+      "question": "What does the reviewer who discusses the film's post-production changes recommend about the Producer's Cut compared with the released version?",
+      "relevant_review_ids": [
+        "test-pos-9877"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-9877",
+        "test-pos-9873",
+        "test-pos-9874",
+        "test-pos-9876",
+        "test-pos-9866"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-9877:3",
+        "test-pos-9873:1",
+        "test-pos-9874:5",
+        "test-pos-9876:2",
+        "test-pos-9866:6"
+      ],
+      "matched_review_ids": [
+        "test-pos-9877"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": [
+        "test-pos-9877:3"
+      ],
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-9873:1",
+                "test-pos-9874:5",
+                "test-pos-9876:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-9873:1",
+            "test-pos-9874:5",
+            "test-pos-9876:2"
+          ],
+          "latency_ms": 501.571
+        },
+        "gated": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-9877:3"
+              ]
+            }
+          ],
+          "gate": {
+            "reason": "passed",
+            "proposals": 1,
+            "selected_chunk_ids": [
+              "test-pos-9877:3"
+            ]
+          },
+          "citation_ids": [
+            "test-pos-9877:3"
+          ],
+          "latency_ms": 789.08
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "dev-06",
+      "movie_id": "tt0113253",
+      "question": "What returning character from the original Halloween does Paul Rudd play in this sequel?",
+      "relevant_review_ids": [
+        "test-neg-2674",
+        "test-neg-2677",
+        "test-pos-9874"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-2668",
+        "test-neg-2674",
+        "test-pos-9875",
+        "test-neg-2677",
+        "test-pos-9874"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-2668:1",
+        "test-neg-2674:4",
+        "test-pos-9875:1",
+        "test-neg-2677:6",
+        "test-pos-9874:4"
+      ],
+      "matched_review_ids": [
+        "test-neg-2674",
+        "test-neg-2677",
+        "test-pos-9874"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": [
+        "test-neg-2674:4",
+        "test-neg-2677:6",
+        "test-pos-9874:4"
+      ],
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 162.017
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-2674:4",
+                "test-pos-9875:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-2674:4",
+            "test-pos-9875:1"
+          ],
+          "latency_ms": 641.533
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "dev-07",
+      "movie_id": "tt0113253",
+      "question": "What frequency is the radio station using for the Halloween broadcast?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-neg-2678",
+        "test-neg-2680",
+        "test-neg-2683",
+        "test-neg-2682",
+        "test-pos-9875"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-2678:3",
+        "test-neg-2680:1",
+        "test-neg-2683:1",
+        "test-neg-2682:8",
+        "test-pos-9875:2"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": [],
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-2678:3",
+                "test-neg-2680:1",
+                "test-neg-2683:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-2678:3",
+            "test-neg-2680:1",
+            "test-neg-2683:1"
+          ],
+          "latency_ms": 569.654
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 185.689
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "dev-08",
+      "movie_id": "tt0113253",
+      "question": "Which company manufactured the Michael Myers mask that was used in this sequel?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-9875",
+        "test-pos-9874",
+        "test-pos-9868",
+        "test-pos-9872",
+        "test-pos-9877"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-9875:2",
+        "test-pos-9874:6",
+        "test-pos-9868:1",
+        "test-pos-9872:1",
+        "test-pos-9877:3"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": [],
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 159.264
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-9874:6",
+                "test-pos-9872:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-9874:6",
+            "test-pos-9872:1"
+          ],
+          "latency_ms": 512.328
+        }
+      }
+    }
+  ],
+  "release_excerpt": "Run statuses, evidence IDs and review labels. Quotes and answers are available when rerun locally."
+}

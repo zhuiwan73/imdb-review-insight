@@ -1,0 +1,1539 @@
+{
+  "schema_version": 1,
+  "retriever": "bm25",
+  "top_k": 5,
+  "model": "qwen2.5:1.5b",
+  "model_digest": "f2b0a490f661d58f20c4b98e5797ecf55e6e96293a88b71e96e7cc389f658f7e",
+  "ollama_url": "http://127.0.0.1:11434",
+  "corpus": "imdb_evidence_local.jsonl",
+  "corpus_sha256": "4b20d7114fd038c294da360d3e0854184151dbd5530b950eef117032e49501e2",
+  "questions": 24,
+  "questions_sha256": "ed48c59febf8b4a0a70410e9133ae4447e8a224d32284b163c0cfcd173ab0a12",
+  "implementation_sha256": "dc9c65e1b65c054bc99ca935605644e2e2b88d789fe439b013647c7edc6eb2fd",
+  "gate_sha256": "a593e4b33841b5e8f6441a7046b5cb74458f2682d7be24c1984e44bbc3cf6063",
+  "labels_sha256": "ed48c59febf8b4a0a70410e9133ae4447e8a224d32284b163c0cfcd173ab0a12",
+  "ollama_version": "0.40.17",
+  "contexts": {
+    "full": 12,
+    "partial": 0,
+    "none": 12
+  },
+  "methods": {
+    "direct": {
+      "by_context": {
+        "full": {
+          "answered": 12,
+          "insufficient_evidence": 0,
+          "error": 0
+        },
+        "partial": {
+          "answered": 0,
+          "insufficient_evidence": 0,
+          "error": 0
+        },
+        "none": {
+          "answered": 10,
+          "insufficient_evidence": 2,
+          "error": 0
+        }
+      },
+      "reasons": {
+        "model_rejected": 2
+      },
+      "p50_ms": 499.625,
+      "p95_ms": 1110.543
+    },
+    "gated": {
+      "by_context": {
+        "full": {
+          "answered": 1,
+          "insufficient_evidence": 11,
+          "error": 0
+        },
+        "partial": {
+          "answered": 0,
+          "insufficient_evidence": 0,
+          "error": 0
+        },
+        "none": {
+          "answered": 0,
+          "insufficient_evidence": 12,
+          "error": 0
+        }
+      },
+      "reasons": {
+        "gate_insufficient": 22,
+        "gate_quote_unverified": 1
+      },
+      "p50_ms": 119.566,
+      "p95_ms": 192.706
+    }
+  },
+  "cases": [
+    {
+      "kind": "case",
+      "qid": "holdout-01",
+      "movie_id": "tt0166252",
+      "question": "What kind of shop does Helen run in the seaside town?",
+      "relevant_review_ids": [
+        "test-pos-2500"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-2508",
+        "test-pos-2510",
+        "test-neg-578",
+        "test-pos-2500",
+        "test-pos-2509"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-2508:6",
+        "test-pos-2510:3",
+        "test-neg-578:1",
+        "test-pos-2500:1",
+        "test-pos-2509:2"
+      ],
+      "matched_review_ids": [
+        "test-pos-2500"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": [
+        "test-pos-2500:1"
+      ],
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-2500:1",
+                "test-pos-2509:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-2500:1",
+            "test-pos-2509:2"
+          ],
+          "latency_ms": 1142.408
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 121.034
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "holdout-02",
+      "movie_id": "tt0166252",
+      "question": "Which performer did a reviewer single out for a deadpan performance?",
+      "relevant_review_ids": [
+        "test-neg-569"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-569",
+        "test-neg-578",
+        "test-pos-2509",
+        "test-neg-571",
+        "test-pos-2503"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-569:1",
+        "test-neg-578:1",
+        "test-pos-2509:3",
+        "test-neg-571:1",
+        "test-pos-2503:1"
+      ],
+      "matched_review_ids": [
+        "test-neg-569"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": [
+        "test-neg-569:1"
+      ],
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_quote_unverified",
+          "findings": [],
+          "gate": {
+            "reason": "gate_quote_unverified",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 132.449
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-569:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-569:1"
+          ],
+          "latency_ms": 423.189
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "holdout-03",
+      "movie_id": "tt0166252",
+      "question": "What flavor of taffy is being made in the store?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-neg-567",
+        "test-pos-2510",
+        "test-pos-2500",
+        "test-pos-2502",
+        "test-pos-2496"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-567:1",
+        "test-pos-2510:2",
+        "test-pos-2500:1",
+        "test-pos-2502:1",
+        "test-pos-2496:1"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": [],
+      "methods": {
+        "direct": {
+          "status": "insufficient_evidence",
+          "reason": "model_rejected",
+          "findings": [],
+          "gate": null,
+          "citation_ids": [],
+          "latency_ms": 81.41
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 146.809
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "holdout-04",
+      "movie_id": "tt0166252",
+      "question": "Which summer camp is Helen's daughter attending?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-2509",
+        "test-pos-2508",
+        "test-pos-2497",
+        "test-pos-2504",
+        "test-neg-575"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-2509:1",
+        "test-pos-2508:5",
+        "test-pos-2497:3",
+        "test-pos-2504:1",
+        "test-neg-575:1"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": [],
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 120.085
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-2509:1",
+                "test-pos-2508:5",
+                "test-pos-2497:3"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-2509:1",
+            "test-pos-2508:5",
+            "test-pos-2497:3"
+          ],
+          "latency_ms": 486.97
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "holdout-05",
+      "movie_id": "tt0437179",
+      "question": "Why are the teenage convicts sent to the Blackwell Hotel?",
+      "relevant_review_ids": [
+        "test-neg-667",
+        "test-pos-2876"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-2876",
+        "test-neg-667",
+        "test-neg-666",
+        "test-pos-2871",
+        "test-neg-658"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-2876:1",
+        "test-neg-667:1",
+        "test-neg-666:2",
+        "test-pos-2871:2",
+        "test-neg-658:1"
+      ],
+      "matched_review_ids": [
+        "test-neg-667",
+        "test-pos-2876"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": [
+        "test-pos-2876:1",
+        "test-neg-667:1"
+      ],
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-2876:1",
+                "test-neg-667:1",
+                "test-neg-666:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-2876:1",
+            "test-neg-667:1",
+            "test-neg-666:2"
+          ],
+          "latency_ms": 476.697
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 106.666
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "holdout-06",
+      "movie_id": "tt0437179",
+      "question": "Which element did a reviewer praise when the audience sees things from Kane's point of view?",
+      "relevant_review_ids": [
+        "test-pos-2867"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-2867",
+        "test-neg-662",
+        "test-neg-666",
+        "test-neg-668",
+        "test-neg-661"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-2867:1",
+        "test-neg-662:1",
+        "test-neg-666:2",
+        "test-neg-668:6",
+        "test-neg-661:3"
+      ],
+      "matched_review_ids": [
+        "test-pos-2867"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": [
+        "test-pos-2867:1"
+      ],
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 100.792
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-2867:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-2867:1"
+          ],
+          "latency_ms": 462.955
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "holdout-07",
+      "movie_id": "tt0437179",
+      "question": "What caused the fire at the Blackwell Hotel?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-2871",
+        "test-neg-668",
+        "test-neg-667",
+        "test-pos-2876",
+        "test-neg-661"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-2871:2",
+        "test-neg-668:4",
+        "test-neg-667:1",
+        "test-pos-2876:1",
+        "test-neg-661:1"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": [],
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-2871:2",
+                "test-neg-668:4",
+                "test-neg-667:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-2871:2",
+            "test-neg-668:4",
+            "test-neg-667:1"
+          ],
+          "latency_ms": 559.878
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 124.354
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "holdout-08",
+      "movie_id": "tt0437179",
+      "question": "How long did Glenn Jacobs train for his debut as Jacob Goodnight?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-neg-660",
+        "test-pos-2871",
+        "test-pos-2862",
+        "test-pos-2863",
+        "test-pos-2874"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-660:1",
+        "test-pos-2871:1",
+        "test-pos-2862:1",
+        "test-pos-2863:3",
+        "test-pos-2874:1"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": [],
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 174.973
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-660:1",
+                "test-pos-2863:3"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-660:1",
+            "test-pos-2863:3"
+          ],
+          "latency_ms": 406.111
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "holdout-09",
+      "movie_id": "tt0455857",
+      "question": "How does the remake use the opening section of the original film?",
+      "relevant_review_ids": [
+        "test-neg-3042",
+        "test-neg-3045"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-3038",
+        "test-neg-3042",
+        "test-pos-11415",
+        "test-neg-3045",
+        "test-pos-11418"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-3038:2",
+        "test-neg-3042:1",
+        "test-pos-11415:2",
+        "test-neg-3045:1",
+        "test-pos-11418:2"
+      ],
+      "matched_review_ids": [
+        "test-neg-3042",
+        "test-neg-3045"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": [
+        "test-neg-3042:1",
+        "test-neg-3045:1"
+      ],
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-3038:2",
+                "test-neg-3042:1",
+                "test-neg-3045:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-3038:2",
+            "test-neg-3042:1",
+            "test-neg-3045:1"
+          ],
+          "latency_ms": 654.579
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 124.766
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "holdout-10",
+      "movie_id": "tt0455857",
+      "question": "What does Jill do to secure the house once the children are asleep?",
+      "relevant_review_ids": [
+        "test-pos-11408"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-11408",
+        "test-neg-3047",
+        "test-pos-11405",
+        "test-neg-3043",
+        "test-pos-11403"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-11408:1",
+        "test-neg-3047:3",
+        "test-pos-11405:1",
+        "test-neg-3043:2",
+        "test-pos-11403:1"
+      ],
+      "matched_review_ids": [
+        "test-pos-11408"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": [
+        "test-pos-11408:1"
+      ],
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 105.253
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-11408:1",
+                "test-neg-3047:3"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-11405:1",
+                "test-neg-3043:2"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-11403:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-11408:1",
+            "test-neg-3047:3",
+            "test-pos-11405:1",
+            "test-neg-3043:2",
+            "test-pos-11403:1"
+          ],
+          "latency_ms": 929.977
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "holdout-11",
+      "movie_id": "tt0455857",
+      "question": "What make and model is the cell phone that gets Jill in trouble?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-11407",
+        "test-neg-3047",
+        "test-pos-11405",
+        "test-neg-3040",
+        "test-neg-3048"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-11407:1",
+        "test-neg-3047:2",
+        "test-pos-11405:1",
+        "test-neg-3040:2",
+        "test-neg-3048:1"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": [],
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-3047:2",
+                "test-neg-3048:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-3047:2",
+            "test-neg-3048:1"
+          ],
+          "latency_ms": 457.472
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 117.179
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "holdout-12",
+      "movie_id": "tt0455857",
+      "question": "What is the name of the carnival shown in the opening scene?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-11414",
+        "test-neg-3047",
+        "test-pos-11407",
+        "test-neg-3042",
+        "test-pos-11415"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-11414:1",
+        "test-neg-3047:1",
+        "test-pos-11407:2",
+        "test-neg-3042:1",
+        "test-pos-11415:5"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": [],
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 118.595
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-11414:1",
+                "test-neg-3047:1",
+                "test-pos-11407:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-11414:1",
+            "test-neg-3047:1",
+            "test-pos-11407:2"
+          ],
+          "latency_ms": 746.149
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "holdout-13",
+      "movie_id": "tt0460692",
+      "question": "A reviewer disliked the music and laugh track. What classic sitcom did they think the laughter might have come from?",
+      "relevant_review_ids": [
+        "test-neg-3296"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-3284",
+        "test-neg-3289",
+        "test-neg-3296",
+        "test-pos-12066",
+        "test-neg-3290"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-3284:1",
+        "test-neg-3289:2",
+        "test-neg-3296:1",
+        "test-pos-12066:3",
+        "test-neg-3290:3"
+      ],
+      "matched_review_ids": [
+        "test-neg-3296"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": [
+        "test-neg-3296:1"
+      ],
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-3284:1",
+                "test-neg-3289:2",
+                "test-neg-3296:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-3284:1",
+            "test-neg-3289:2",
+            "test-neg-3296:1"
+          ],
+          "latency_ms": 592.64
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 119.048
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "holdout-14",
+      "movie_id": "tt0460692",
+      "question": "What did the reviewer who called it a modern Married with Children say was clever about the writing?",
+      "relevant_review_ids": [
+        "test-pos-12066"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-12066",
+        "test-neg-3299",
+        "test-pos-12068",
+        "test-neg-3284",
+        "test-neg-3300"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-12066:1",
+        "test-neg-3299:1",
+        "test-pos-12068:1",
+        "test-neg-3284:3",
+        "test-neg-3300:2"
+      ],
+      "matched_review_ids": [
+        "test-pos-12066"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": [
+        "test-pos-12066:1"
+      ],
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 104.893
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-12066:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-3299:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-3300:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-12066:1",
+            "test-neg-3299:1",
+            "test-neg-3300:2"
+          ],
+          "latency_ms": 2100.573
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "holdout-15",
+      "movie_id": "tt0460692",
+      "question": "Which sound studio recorded the canned laugh track for The War at Home?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-neg-3284",
+        "test-pos-12060",
+        "test-neg-3299",
+        "test-neg-3290",
+        "test-pos-12069"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-3284:1",
+        "test-pos-12060:3",
+        "test-neg-3299:4",
+        "test-neg-3290:3",
+        "test-pos-12069:1"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": [],
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-3299:4"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-3290:3"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-3299:4"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-3299:4",
+            "test-neg-3290:3"
+          ],
+          "latency_ms": 838.735
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 115.27
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "holdout-16",
+      "movie_id": "tt0460692",
+      "question": "How many viewers watched the premiere of The War at Home on Fox?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-12067",
+        "test-neg-3297",
+        "test-pos-12063",
+        "test-neg-3284",
+        "test-neg-3299"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-12067:1",
+        "test-neg-3297:2",
+        "test-pos-12063:1",
+        "test-neg-3284:3",
+        "test-neg-3299:1"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": [],
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 171.58
+        },
+        "direct": {
+          "status": "insufficient_evidence",
+          "reason": "model_rejected",
+          "findings": [],
+          "gate": null,
+          "citation_ids": [],
+          "latency_ms": 103.488
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "holdout-17",
+      "movie_id": "tt0840359",
+      "question": "What production cost does the viewer who watched the making-of feature report for Mark Stirton's The Planet?",
+      "relevant_review_ids": [
+        "test-pos-1380"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-1380",
+        "test-pos-1385",
+        "test-pos-1372",
+        "test-pos-1378",
+        "test-pos-1384"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-1380:1",
+        "test-pos-1385:1",
+        "test-pos-1372:4",
+        "test-pos-1378:1",
+        "test-pos-1384:5"
+      ],
+      "matched_review_ids": [
+        "test-pos-1380"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": [
+        "test-pos-1380:1"
+      ],
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-1380:1",
+                "test-pos-1385:1",
+                "test-pos-1372:4"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-1380:1",
+            "test-pos-1385:1",
+            "test-pos-1372:4"
+          ],
+          "latency_ms": 548.821
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 151.398
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "holdout-18",
+      "movie_id": "tt0840359",
+      "question": "Which beach did the DVD buyer say was used to film The Planet?",
+      "relevant_review_ids": [
+        "test-pos-1374"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-1374",
+        "test-pos-1372",
+        "test-pos-1371",
+        "test-pos-1385",
+        "test-neg-333"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-1374:1",
+        "test-pos-1372:1",
+        "test-pos-1371:1",
+        "test-pos-1385:4",
+        "test-neg-333:2"
+      ],
+      "matched_review_ids": [
+        "test-pos-1374"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": [
+        "test-pos-1374:1"
+      ],
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 104.176
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-1374:1",
+                "test-pos-1372:1",
+                "test-pos-1371:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-1374:1",
+            "test-pos-1372:1",
+            "test-pos-1371:1"
+          ],
+          "latency_ms": 554.883
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "holdout-19",
+      "movie_id": "tt0840359",
+      "question": "What model of computer was used to render the digital space effects in The Planet?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-1382",
+        "test-pos-1385",
+        "test-neg-345",
+        "test-pos-1381",
+        "test-pos-1372"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-1382:2",
+        "test-pos-1385:1",
+        "test-neg-345:2",
+        "test-pos-1381:1",
+        "test-pos-1372:3"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": [],
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-1382:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-1382:2"
+          ],
+          "latency_ms": 383.515
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 162.404
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "holdout-20",
+      "movie_id": "tt0840359",
+      "question": "How many days did the crew spend filming on Balmedie Beach specifically?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-1385",
+        "test-pos-1374",
+        "test-neg-344",
+        "test-pos-1384",
+        "test-neg-334"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-1385:4",
+        "test-pos-1374:1",
+        "test-neg-344:2",
+        "test-pos-1384:3",
+        "test-neg-334:4"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": [],
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 195.835
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-1385:4",
+                "test-pos-1374:1",
+                "test-pos-1384:3"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-1385:4",
+            "test-pos-1374:1",
+            "test-pos-1384:3"
+          ],
+          "latency_ms": 455.932
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "holdout-21",
+      "movie_id": "tt0091278",
+      "question": "In the opening radar scene, what does Col. Ted Masters discover about the number and direction of the approaching planes?",
+      "relevant_review_ids": [
+        "test-pos-4951"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-4951",
+        "test-neg-1203",
+        "test-neg-1211",
+        "test-pos-4957",
+        "test-neg-1209"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-4951:1",
+        "test-neg-1203:3",
+        "test-neg-1211:1",
+        "test-pos-4957:2",
+        "test-neg-1209:3"
+      ],
+      "matched_review_ids": [
+        "test-pos-4951"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": [
+        "test-pos-4951:1"
+      ],
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-4951:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-4951:1"
+          ],
+          "latency_ms": 339.314
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 99.466
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "holdout-22",
+      "movie_id": "tt0091278",
+      "question": "According to the review that spotted a continuity error in the F-16s, which variant did Doug and Chappy take off in and which variant appears in combat?",
+      "relevant_review_ids": [
+        "test-pos-4957"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-4957",
+        "test-neg-1206",
+        "test-neg-1209",
+        "test-neg-1199",
+        "test-pos-4955"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-4957:1",
+        "test-neg-1206:2",
+        "test-neg-1209:3",
+        "test-neg-1199:2",
+        "test-pos-4955:1"
+      ],
+      "matched_review_ids": [
+        "test-pos-4957"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": [
+        "test-pos-4957:1"
+      ],
+      "methods": {
+        "gated": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-4955:1",
+                "test-neg-1206:2"
+              ]
+            }
+          ],
+          "gate": {
+            "reason": "passed",
+            "proposals": 2,
+            "selected_chunk_ids": [
+              "test-pos-4955:1",
+              "test-neg-1206:2"
+            ]
+          },
+          "citation_ids": [
+            "test-pos-4955:1",
+            "test-neg-1206:2"
+          ],
+          "latency_ms": 1493.57
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-4957:1",
+                "test-neg-1206:2",
+                "test-neg-1209:3"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-4957:1",
+            "test-neg-1206:2",
+            "test-neg-1209:3"
+          ],
+          "latency_ms": 506.561
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "holdout-23",
+      "movie_id": "tt0091278",
+      "question": "What names are given for the pilots who flew the real F-16s in Iron Eagle's aerial footage?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-4955",
+        "test-neg-1205",
+        "test-pos-4949",
+        "test-neg-1199",
+        "test-pos-4958"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-4955:1",
+        "test-neg-1205:1",
+        "test-pos-4949:1",
+        "test-neg-1199:2",
+        "test-pos-4958:2"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": [],
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-4955:1",
+                "test-neg-1205:1",
+                "test-pos-4949:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-4955:1",
+            "test-neg-1205:1",
+            "test-pos-4949:1"
+          ],
+          "latency_ms": 492.689
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 115.659
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "holdout-24",
+      "movie_id": "tt0091278",
+      "question": "What was the runway number when Doug and Chappy took off on the rescue mission?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-neg-1211",
+        "test-pos-4957",
+        "test-pos-4951",
+        "test-neg-1209",
+        "test-pos-4959"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-1211:1",
+        "test-pos-4957:1",
+        "test-pos-4951:9",
+        "test-neg-1209:2",
+        "test-pos-4959:5"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": [],
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 110.912
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-1211:1",
+                "test-pos-4957:1",
+                "test-neg-1209:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-1211:1",
+            "test-pos-4957:1",
+            "test-neg-1209:2"
+          ],
+          "latency_ms": 578.925
+        }
+      }
+    }
+  ],
+  "release_excerpt": "Run statuses, evidence IDs and review labels. Quotes and answers are available when rerun locally."
+}

@@ -1,0 +1,12 @@
+{"qid":"demo-harbor-01","movie_id":"demo-harbor","question":"What did reviewers praise and criticize about the pacing?","relevant_review_ids":["harbor-r1","harbor-r2"],"category":"disagreement"}
+{"qid":"demo-harbor-02","movie_id":"demo-harbor","question":"How does the sound design foreshadow the storm?","relevant_review_ids":["harbor-r3"],"category":"supported"}
+{"qid":"demo-harbor-03","movie_id":"demo-harbor","question":"What criticism was made about the ending and reunion?","relevant_review_ids":["harbor-r4"],"category":"supported"}
+{"qid":"demo-harbor-04","movie_id":"demo-harbor","question":"How many festival awards did the film win?","relevant_review_ids":[],"category":"unsupported"}
+{"qid":"demo-orbit-01","movie_id":"demo-orbit","question":"Why did some reviewers like the practical effects while others found the visual effects distracting?","relevant_review_ids":["orbit-r1","orbit-r2"],"category":"disagreement"}
+{"qid":"demo-orbit-02","movie_id":"demo-orbit","question":"Why did one reviewer dislike the dialogue in the briefing?","relevant_review_ids":["orbit-r3"],"category":"supported"}
+{"qid":"demo-orbit-03","movie_id":"demo-orbit","question":"How is the piano melody used in the score?","relevant_review_ids":["orbit-r5"],"category":"supported"}
+{"qid":"demo-orbit-04","movie_id":"demo-orbit","question":"Which novel was this adapted from, and who wrote it?","relevant_review_ids":[],"category":"unsupported"}
+{"qid":"demo-garden-01","movie_id":"demo-garden","question":"What opposite opinions did reviewers have about the sisters' acting?","relevant_review_ids":["garden-r1","garden-r2"],"category":"disagreement"}
+{"qid":"demo-garden-02","movie_id":"demo-garden","question":"What did viewers say about the photography at daybreak?","relevant_review_ids":["garden-r3"],"category":"paraphrase"}
+{"qid":"demo-garden-03","movie_id":"demo-garden","question":"How does the ending resolve the family conflict?","relevant_review_ids":["garden-r4"],"category":"supported"}
+{"qid":"demo-garden-04","movie_id":"demo-garden","question":"How much of the production budget went into the cinematography?","relevant_review_ids":[],"category":"unsupported"}

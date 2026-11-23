@@ -1,0 +1,2240 @@
+{
+  "review_level": [
+    {
+      "qid": "imdb-01",
+      "movie_id": "tt0156934",
+      "question": "Did the jazzy soundtrack suit the film's mood, or did viewers find it distracting?",
+      "reference_ids": [
+        "test-neg-2648",
+        "test-neg-2657",
+        "test-pos-9821",
+        "test-pos-9831",
+        "test-pos-9834"
+      ],
+      "distinct_ranks": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "raw_passage_ranks": [
+        1,
+        2,
+        3,
+        5,
+        8
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-9821:7",
+        "test-pos-9831:1",
+        "test-neg-2648:2",
+        "test-pos-9824:9",
+        "test-pos-9834:1"
+      ]
+    },
+    {
+      "qid": "imdb-02",
+      "movie_id": "tt0156934",
+      "question": "What did reviewers think the police-corruption subplot added to the central romance?",
+      "reference_ids": [
+        "test-neg-2653",
+        "test-neg-2658",
+        "test-pos-9821",
+        "test-pos-9823",
+        "test-pos-9824",
+        "test-pos-9834"
+      ],
+      "distinct_ranks": [
+        1,
+        3,
+        5
+      ],
+      "raw_passage_ranks": [
+        1,
+        3,
+        5,
+        6,
+        15
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-9821:5",
+        "test-pos-9833:2",
+        "test-pos-9824:3",
+        "test-pos-9832:4",
+        "test-pos-9823:4"
+      ]
+    },
+    {
+      "qid": "imdb-03",
+      "movie_id": "tt0156934",
+      "question": "What detail about the seating on the crashed flight starts the plot?",
+      "reference_ids": [
+        "test-pos-9833"
+      ],
+      "distinct_ranks": [
+        10
+      ],
+      "raw_passage_ranks": [
+        11
+      ],
+      "location": "rank6_to_20",
+      "top5_ids": [
+        "test-neg-2660:3",
+        "test-pos-9824:7",
+        "test-pos-9823:4",
+        "test-neg-2661:1",
+        "test-neg-2653:2"
+      ],
+      "verified_late_passage_ranks": {
+        "test-pos-9833:2": 10
+      },
+      "conditions": {
+        "top5_direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-2653:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "latency_ms": 523.22
+        },
+        "top5_gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "latency_ms": 165.22
+        },
+        "oracle_direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-9833:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "latency_ms": 400.1
+        },
+        "oracle_gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_quote_unverified",
+          "findings": [],
+          "gate": {
+            "reason": "gate_quote_unverified",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "latency_ms": 131.95
+        }
+      }
+    },
+    {
+      "qid": "imdb-05",
+      "movie_id": "tt0159365",
+      "question": "Did the farewell kiss make Ada and Inman's romance believable to the reviewers?",
+      "reference_ids": [
+        "test-neg-1753",
+        "test-neg-1763",
+        "test-pos-6651",
+        "test-pos-6656",
+        "test-pos-6657"
+      ],
+      "distinct_ranks": [
+        1,
+        2,
+        3,
+        10,
+        14
+      ],
+      "raw_passage_ranks": [
+        1,
+        2,
+        3,
+        11
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-6657:1",
+        "test-pos-6656:2",
+        "test-neg-1753:1",
+        "test-pos-6662:3",
+        "test-pos-6650:2"
+      ]
+    },
+    {
+      "qid": "imdb-06",
+      "movie_id": "tt0159365",
+      "question": "How did viewers disagree about the effectiveness of the opening Civil War battle?",
+      "reference_ids": [
+        "test-neg-1760",
+        "test-neg-1765",
+        "test-pos-6653",
+        "test-pos-6664"
+      ],
+      "distinct_ranks": [
+        1,
+        3,
+        7,
+        17
+      ],
+      "raw_passage_ranks": [
+        1,
+        3,
+        4,
+        8,
+        10,
+        15,
+        18
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-neg-1760:3",
+        "test-neg-1753:1",
+        "test-pos-6664:2",
+        "test-pos-6662:1",
+        "test-pos-6651:1"
+      ]
+    },
+    {
+      "qid": "imdb-07",
+      "movie_id": "tt0159365",
+      "question": "How did reviewers react to Renée Zellweger's portrayal of Ruby?",
+      "reference_ids": [
+        "test-neg-1759",
+        "test-neg-1760",
+        "test-neg-1761",
+        "test-neg-1766",
+        "test-pos-6650",
+        "test-pos-6659",
+        "test-pos-6663"
+      ],
+      "distinct_ranks": [
+        4,
+        5,
+        6,
+        7,
+        10,
+        11
+      ],
+      "raw_passage_ranks": [
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        15,
+        16,
+        17
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-6661:2",
+        "test-pos-6664:4",
+        "test-pos-6662:5",
+        "test-neg-1759:1",
+        "test-pos-6659:1"
+      ]
+    },
+    {
+      "qid": "imdb-09",
+      "movie_id": "tt0166924",
+      "question": "How do viewers interpret the film's origins as a rejected television pilot?",
+      "reference_ids": [
+        "test-neg-2336",
+        "test-neg-2339",
+        "test-pos-8642",
+        "test-pos-8643"
+      ],
+      "distinct_ranks": [
+        1,
+        2,
+        10,
+        13
+      ],
+      "raw_passage_ranks": [
+        1,
+        2,
+        11,
+        14
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-8643:1",
+        "test-neg-2339:1",
+        "test-pos-8648:2",
+        "test-pos-8638:3",
+        "test-neg-2332:2"
+      ]
+    },
+    {
+      "qid": "imdb-10",
+      "movie_id": "tt0166924",
+      "question": "What did viewers suggest doing after a first viewing to make sense of the story?",
+      "reference_ids": [
+        "test-pos-8636",
+        "test-pos-8639",
+        "test-pos-8643",
+        "test-pos-8646",
+        "test-pos-8647"
+      ],
+      "distinct_ranks": [
+        2,
+        5,
+        6,
+        13,
+        16
+      ],
+      "raw_passage_ranks": [
+        2,
+        4,
+        6,
+        7,
+        11,
+        15,
+        17
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-neg-2334:2",
+        "test-pos-8639:4",
+        "test-pos-8641:13",
+        "test-neg-2327:4",
+        "test-pos-8647:5"
+      ]
+    },
+    {
+      "qid": "imdb-11",
+      "movie_id": "tt0166924",
+      "question": "What gave the film a Hitchcock-like quality, according to viewers who made that comparison?",
+      "reference_ids": [
+        "test-pos-8641",
+        "test-pos-8644"
+      ],
+      "distinct_ranks": [
+        3,
+        19
+      ],
+      "raw_passage_ranks": [
+        3
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-neg-2332:1",
+        "test-pos-8647:3",
+        "test-pos-8644:1",
+        "test-pos-8646:7",
+        "test-pos-8640:4"
+      ]
+    },
+    {
+      "qid": "imdb-12",
+      "movie_id": "tt0166924",
+      "question": "Which acting performances did even reviewers who disliked the film single out for praise?",
+      "reference_ids": [
+        "test-neg-2327",
+        "test-neg-2328",
+        "test-neg-2334"
+      ],
+      "distinct_ranks": [
+        4,
+        8,
+        13
+      ],
+      "raw_passage_ranks": [
+        5,
+        9,
+        17
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-8647:3",
+        "test-neg-2341:1",
+        "test-neg-2325:2",
+        "test-neg-2328:1",
+        "test-neg-2333:1"
+      ]
+    },
+    {
+      "qid": "imdb-14",
+      "movie_id": "tt0182576",
+      "question": "Why did some viewers enjoy the cutaway flashbacks while others felt they broke up the plot?",
+      "reference_ids": [
+        "test-neg-2596",
+        "test-neg-2599",
+        "test-neg-2600",
+        "test-neg-2603",
+        "test-pos-9669",
+        "test-pos-9683"
+      ],
+      "distinct_ranks": [
+        1,
+        4,
+        7,
+        10,
+        15,
+        16
+      ],
+      "raw_passage_ranks": [
+        1,
+        4,
+        7,
+        10,
+        12,
+        19
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-9683:1",
+        "test-pos-9682:9",
+        "test-pos-9681:1",
+        "test-neg-2596:1",
+        "test-neg-2606:4"
+      ]
+    },
+    {
+      "qid": "imdb-15",
+      "movie_id": "tt0182576",
+      "question": "Did reviewers treat the resemblance to The Simpsons as imitation or point to a different style of humor?",
+      "reference_ids": [
+        "test-neg-2598",
+        "test-neg-2603",
+        "test-pos-9668",
+        "test-pos-9674",
+        "test-pos-9678",
+        "test-pos-9683"
+      ],
+      "distinct_ranks": [
+        4,
+        12,
+        13,
+        15,
+        16,
+        17
+      ],
+      "raw_passage_ranks": [
+        5,
+        14,
+        15,
+        19
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-9676:2",
+        "test-pos-9684:3",
+        "test-neg-2600:2",
+        "test-pos-9683:3",
+        "test-neg-2596:4"
+      ]
+    },
+    {
+      "qid": "imdb-16",
+      "movie_id": "tt0182576",
+      "question": "Which parts of the show were easier and harder for the reviewer who did not speak English natively?",
+      "reference_ids": [
+        "test-pos-9680"
+      ],
+      "distinct_ranks": [
+        1
+      ],
+      "raw_passage_ranks": [
+        1
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-9680:1",
+        "test-neg-2596:5",
+        "test-pos-9682:9",
+        "test-neg-2606:6",
+        "test-pos-9671:2"
+      ]
+    },
+    {
+      "qid": "imdb-17",
+      "movie_id": "tt0182576",
+      "question": "What visual criticism did some reviewers make about the supporting characters and guest stars?",
+      "reference_ids": [
+        "test-neg-2600",
+        "test-neg-2605"
+      ],
+      "distinct_ranks": [
+        1,
+        14
+      ],
+      "raw_passage_ranks": [
+        1,
+        7,
+        16
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-neg-2605:1",
+        "test-pos-9684:1",
+        "test-pos-9672:1",
+        "test-neg-2606:5",
+        "test-pos-9677:1"
+      ]
+    },
+    {
+      "qid": "imdb-18",
+      "movie_id": "tt0187696",
+      "question": "What makes Paula suspect foul play when she begins working in the medical school's dissection lab?",
+      "reference_ids": [
+        "test-neg-1832",
+        "test-neg-1835",
+        "test-neg-1836"
+      ],
+      "distinct_ranks": [
+        1,
+        2,
+        5
+      ],
+      "raw_passage_ranks": [
+        1,
+        2,
+        5,
+        8,
+        9,
+        16,
+        20
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-neg-1836:1",
+        "test-neg-1832:1",
+        "test-pos-6859:1",
+        "test-pos-6865:1",
+        "test-neg-1835:3"
+      ]
+    },
+    {
+      "qid": "imdb-19",
+      "movie_id": "tt0187696",
+      "question": "What problems did reviewers notice in the English dub, especially with lip synchronization, voices, or tone?",
+      "reference_ids": [
+        "test-neg-1827",
+        "test-pos-6853",
+        "test-pos-6856",
+        "test-pos-6860",
+        "test-pos-6865",
+        "test-pos-6867"
+      ],
+      "distinct_ranks": [
+        1,
+        2,
+        5,
+        6,
+        8
+      ],
+      "raw_passage_ranks": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        9,
+        10
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-6867:6",
+        "test-pos-6853:1",
+        "test-pos-6859:2",
+        "test-pos-6858:2",
+        "test-pos-6860:1"
+      ]
+    },
+    {
+      "qid": "imdb-20",
+      "movie_id": "tt0187696",
+      "question": "How did reviewers differ on the film's handling of medical ethics?",
+      "reference_ids": [
+        "test-neg-1833",
+        "test-pos-6856",
+        "test-pos-6864"
+      ],
+      "distinct_ranks": [
+        1,
+        4,
+        5
+      ],
+      "raw_passage_ranks": [
+        1,
+        4,
+        5
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-6856:1",
+        "test-neg-1836:1",
+        "test-neg-1827:2",
+        "test-pos-6864:1",
+        "test-neg-1833:3"
+      ]
+    },
+    {
+      "qid": "imdb-21",
+      "movie_id": "tt0187696",
+      "question": "When reviewers compared Anatomy with American slashers, what did they find derivative or distinctive?",
+      "reference_ids": [
+        "test-neg-1825",
+        "test-neg-1831",
+        "test-neg-1832",
+        "test-neg-1835",
+        "test-neg-1837",
+        "test-pos-6859",
+        "test-pos-6863"
+      ],
+      "distinct_ranks": [
+        1,
+        2,
+        3,
+        7,
+        10,
+        13,
+        14
+      ],
+      "raw_passage_ranks": [
+        1,
+        2,
+        3,
+        8,
+        10,
+        13,
+        14,
+        18,
+        19,
+        20
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-6859:4",
+        "test-neg-1831:1",
+        "test-neg-1835:1",
+        "test-pos-6862:2",
+        "test-pos-6867:1"
+      ]
+    },
+    {
+      "qid": "imdb-23",
+      "movie_id": "tt0203755",
+      "question": "Did the retelling from three points of view make the comedy more effective or more confusing?",
+      "reference_ids": [
+        "test-neg-3193",
+        "test-pos-11863",
+        "test-pos-11870",
+        "test-pos-11872",
+        "test-pos-11875"
+      ],
+      "distinct_ranks": [
+        1,
+        3,
+        4,
+        11,
+        13
+      ],
+      "raw_passage_ranks": [
+        1,
+        3,
+        4,
+        5,
+        14,
+        15,
+        16,
+        18
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-11875:2",
+        "test-neg-3183:4",
+        "test-neg-3193:1",
+        "test-pos-11872:1",
+        "test-pos-11867:2"
+      ]
+    },
+    {
+      "qid": "imdb-24",
+      "movie_id": "tt0203755",
+      "question": "Which listener hears each man's account of Jewel?",
+      "reference_ids": [
+        "test-neg-3196",
+        "test-pos-11866",
+        "test-pos-11873",
+        "test-pos-11875"
+      ],
+      "distinct_ranks": [
+        1,
+        2,
+        7,
+        12
+      ],
+      "raw_passage_ranks": [
+        1,
+        2,
+        5,
+        6,
+        9,
+        10,
+        16,
+        17
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-neg-3196:2",
+        "test-pos-11875:6",
+        "test-neg-3195:2",
+        "test-pos-11872:1",
+        "test-neg-3183:4"
+      ]
+    },
+    {
+      "qid": "imdb-25",
+      "movie_id": "tt0203755",
+      "question": "What material comforts does Jewel want, according to the reviewers?",
+      "reference_ids": [
+        "test-neg-3183",
+        "test-neg-3195",
+        "test-pos-11861",
+        "test-pos-11864"
+      ],
+      "distinct_ranks": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "raw_passage_ranks": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        10,
+        20
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-11875:1",
+        "test-neg-3195:3",
+        "test-pos-11864:3",
+        "test-neg-3183:3",
+        "test-pos-11861:1"
+      ]
+    },
+    {
+      "qid": "imdb-26",
+      "movie_id": "tt0203755",
+      "question": "How did reviewers react to the YMCA song cue?",
+      "reference_ids": [
+        "test-neg-3191",
+        "test-neg-3195",
+        "test-pos-11868",
+        "test-pos-11869"
+      ],
+      "distinct_ranks": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "raw_passage_ranks": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-11868:3",
+        "test-pos-11869:2",
+        "test-neg-3191:2",
+        "test-neg-3195:5"
+      ]
+    },
+    {
+      "qid": "imdb-27",
+      "movie_id": "tt0264935",
+      "question": "What are the boys trying to prove by planning a murder they hope to get away with?",
+      "reference_ids": [
+        "test-pos-5846",
+        "test-pos-5847",
+        "test-pos-5851",
+        "test-pos-5853",
+        "test-pos-5855",
+        "test-pos-5859",
+        "test-pos-5861"
+      ],
+      "distinct_ranks": [
+        1,
+        3,
+        4,
+        5,
+        8,
+        11,
+        17
+      ],
+      "raw_passage_ranks": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        9,
+        10,
+        11,
+        13,
+        15,
+        17
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-5846:5",
+        "test-pos-5856:1",
+        "test-pos-5859:4",
+        "test-pos-5851:2",
+        "test-pos-5847:1"
+      ]
+    },
+    {
+      "qid": "imdb-28",
+      "movie_id": "tt0264935",
+      "question": "How did reviewers differ on whether Sandra Bullock was convincing as a hardened detective?",
+      "reference_ids": [
+        "test-neg-1536",
+        "test-neg-1537",
+        "test-neg-1539",
+        "test-neg-1542",
+        "test-neg-1543",
+        "test-pos-5850",
+        "test-pos-5852",
+        "test-pos-5853",
+        "test-pos-5854",
+        "test-pos-5855",
+        "test-pos-5859",
+        "test-pos-5861",
+        "test-pos-5862"
+      ],
+      "distinct_ranks": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        12,
+        13,
+        15,
+        16,
+        19
+      ],
+      "raw_passage_ranks": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11,
+        12,
+        14,
+        15,
+        16,
+        18,
+        19,
+        20
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-5861:6",
+        "test-neg-1536:3",
+        "test-pos-5851:1",
+        "test-pos-5862:1",
+        "test-pos-5859:5"
+      ]
+    },
+    {
+      "qid": "imdb-29",
+      "movie_id": "tt0264935",
+      "question": "What past attack shapes Cassie, and how does it affect her as a detective?",
+      "reference_ids": [
+        "test-pos-5853",
+        "test-pos-5855",
+        "test-pos-5861"
+      ],
+      "distinct_ranks": [
+        1,
+        7,
+        16
+      ],
+      "raw_passage_ranks": [
+        1,
+        3,
+        9,
+        16
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-5855:3",
+        "test-pos-5859:5",
+        "test-pos-5862:3",
+        "test-pos-5851:1",
+        "test-pos-5850:1"
+      ]
+    },
+    {
+      "qid": "imdb-31",
+      "movie_id": "tt0284953",
+      "question": "What did viewers miss about the TV interview format, and what did defenders like about the scripted movie?",
+      "reference_ids": [
+        "test-neg-822",
+        "test-neg-825",
+        "test-neg-826",
+        "test-neg-828",
+        "test-neg-829",
+        "test-pos-3493",
+        "test-pos-3495",
+        "test-pos-3496",
+        "test-pos-3502",
+        "test-pos-3503"
+      ],
+      "distinct_ranks": [
+        1,
+        4,
+        6,
+        7,
+        9,
+        10,
+        15,
+        16
+      ],
+      "raw_passage_ranks": [
+        1,
+        4,
+        6,
+        7,
+        9,
+        10,
+        16,
+        17,
+        18
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-3502:2",
+        "test-pos-3501:2",
+        "test-pos-3497:1",
+        "test-neg-825:2",
+        "test-neg-818:1"
+      ]
+    },
+    {
+      "qid": "imdb-32",
+      "movie_id": "tt0284953",
+      "question": "What did David Carlton hope would happen if he backed Ali G, and how did his plan turn out?",
+      "reference_ids": [
+        "test-pos-3489",
+        "test-pos-3500"
+      ],
+      "distinct_ranks": [
+        1,
+        2
+      ],
+      "raw_passage_ranks": [
+        1,
+        2,
+        10
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-3500:1",
+        "test-pos-3489:3",
+        "test-neg-828:3",
+        "test-neg-823:1",
+        "test-neg-825:1"
+      ]
+    },
+    {
+      "qid": "imdb-33",
+      "movie_id": "tt0284953",
+      "question": "Does Borat appear in the film, and what did reviewers say about his appearance?",
+      "reference_ids": [
+        "test-pos-3490",
+        "test-pos-3491",
+        "test-pos-3492"
+      ],
+      "distinct_ranks": [
+        1,
+        2,
+        8
+      ],
+      "raw_passage_ranks": [
+        1,
+        2,
+        10
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-3492:3",
+        "test-pos-3490:1",
+        "test-neg-828:3",
+        "test-neg-824:3",
+        "test-pos-3496:3"
+      ]
+    },
+    {
+      "qid": "imdb-35",
+      "movie_id": "tt0340874",
+      "question": "What negative and positive reactions to the Northfork cinematography appear in the reviews?",
+      "reference_ids": [
+        "test-neg-3003",
+        "test-pos-11219",
+        "test-pos-11227"
+      ],
+      "distinct_ranks": [
+        5,
+        6
+      ],
+      "raw_passage_ranks": [
+        6,
+        7,
+        13
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-11220:3",
+        "test-neg-3009:1",
+        "test-pos-11230:10",
+        "test-pos-11229:3",
+        "test-neg-3003:1"
+      ]
+    },
+    {
+      "qid": "imdb-36",
+      "movie_id": "tt0340874",
+      "question": "Why is the town being evacuated in Northfork?",
+      "reference_ids": [
+        "test-neg-2996",
+        "test-pos-11223",
+        "test-pos-11228",
+        "test-pos-11233"
+      ],
+      "distinct_ranks": [
+        1,
+        2,
+        9
+      ],
+      "raw_passage_ranks": [
+        1,
+        2,
+        10,
+        12
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-neg-2996:2",
+        "test-pos-11233:1",
+        "test-pos-11232:3",
+        "test-pos-11230:6",
+        "test-pos-11231:1"
+      ]
+    },
+    {
+      "qid": "imdb-37",
+      "movie_id": "tt0340874",
+      "question": "When Northfork played at Cannes, did the reviewer who called it very slow also find it boring?",
+      "reference_ids": [
+        "test-pos-11232"
+      ],
+      "distinct_ranks": [
+        1
+      ],
+      "raw_passage_ranks": [
+        1,
+        3
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-11232:1",
+        "test-pos-11220:4",
+        "test-pos-11222:3",
+        "test-pos-11223:4",
+        "test-pos-11230:8"
+      ]
+    },
+    {
+      "qid": "imdb-39",
+      "movie_id": "tt0435687",
+      "question": "Did reviewers want more of the familiar television characters, or did some like the smaller set of main characters?",
+      "reference_ids": [
+        "test-neg-1185",
+        "test-neg-1196",
+        "test-pos-4885",
+        "test-pos-4887"
+      ],
+      "distinct_ranks": [
+        3,
+        11
+      ],
+      "raw_passage_ranks": [
+        3,
+        9,
+        13
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-4894:1",
+        "test-neg-1186:2",
+        "test-neg-1196:1",
+        "test-pos-4891:4",
+        "test-pos-4892:2"
+      ]
+    },
+    {
+      "qid": "imdb-40",
+      "movie_id": "tt0435687",
+      "question": "What made Geoff a comic standout even for a reviewer who disliked much of the movie?",
+      "reference_ids": [
+        "test-neg-1193",
+        "test-pos-4886"
+      ],
+      "distinct_ranks": [
+        5,
+        12
+      ],
+      "raw_passage_ranks": [
+        5,
+        7,
+        16,
+        19
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-4891:3",
+        "test-pos-4896:3",
+        "test-pos-4894:3",
+        "test-neg-1194:2",
+        "test-pos-4886:3"
+      ]
+    },
+    {
+      "qid": "imdb-41",
+      "movie_id": "tt0435687",
+      "question": "What did fans say about how funny the film was compared with the three television series?",
+      "reference_ids": [
+        "test-neg-1184",
+        "test-neg-1189",
+        "test-pos-4891",
+        "test-pos-4898"
+      ],
+      "distinct_ranks": [
+        2,
+        3,
+        8,
+        13
+      ],
+      "raw_passage_ranks": [
+        2,
+        3,
+        7,
+        11,
+        13,
+        14
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-neg-1196:1",
+        "test-pos-4891:1",
+        "test-neg-1189:1",
+        "test-pos-4895:3",
+        "test-pos-4894:1"
+      ]
+    },
+    {
+      "qid": "imdb-43",
+      "movie_id": "tt0808151",
+      "question": "Which CERN director from the novel is missing in the film, and what does he do at the beginning of the book?",
+      "reference_ids": [
+        "test-neg-412",
+        "test-neg-415",
+        "test-neg-420"
+      ],
+      "distinct_ranks": [
+        2,
+        4,
+        5
+      ],
+      "raw_passage_ranks": [
+        2,
+        4,
+        5,
+        6,
+        8
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-neg-421:3",
+        "test-neg-412:1",
+        "test-pos-1628:1",
+        "test-neg-415:1",
+        "test-neg-420:2"
+      ]
+    },
+    {
+      "qid": "imdb-44",
+      "movie_id": "tt0808151",
+      "question": "How did views differ about the film's visual depiction of Rome and the Vatican?",
+      "reference_ids": [
+        "test-neg-421",
+        "test-pos-1627"
+      ],
+      "distinct_ranks": [
+        3,
+        6
+      ],
+      "raw_passage_ranks": [
+        3,
+        5,
+        7
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-1624:3",
+        "test-neg-417:4",
+        "test-neg-421:3",
+        "test-pos-1635:2",
+        "test-pos-1634:2"
+      ]
+    },
+    {
+      "qid": "imdb-45",
+      "movie_id": "tt0808151",
+      "question": "Was the music in Angels & Demons praised, or did it make the action harder to take in?",
+      "reference_ids": [
+        "test-neg-417",
+        "test-pos-1627",
+        "test-pos-1628"
+      ],
+      "distinct_ranks": [
+        12,
+        13
+      ],
+      "raw_passage_ranks": [
+        18,
+        19
+      ],
+      "location": "rank6_to_20",
+      "top5_ids": [
+        "test-neg-414:2",
+        "test-pos-1635:1",
+        "test-pos-1633:5",
+        "test-neg-410:3",
+        "test-pos-1623:1"
+      ],
+      "verified_late_passage_ranks": {
+        "test-neg-417:3": 12,
+        "test-pos-1627:1": 13
+      },
+      "conditions": {
+        "top5_direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-1633:5",
+                "test-neg-410:3"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-414:2",
+                "test-pos-1623:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "latency_ms": 679.37
+        },
+        "top5_gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_quote_unverified",
+          "findings": [],
+          "gate": {
+            "reason": "gate_quote_unverified",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "latency_ms": 174.69
+        },
+        "oracle_direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-1627:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-417:3"
+              ]
+            }
+          ],
+          "gate": null,
+          "latency_ms": 560.6
+        },
+        "oracle_gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "latency_ms": 129.7
+        }
+      }
+    },
+    {
+      "qid": "imdb-47",
+      "movie_id": "tt0956038",
+      "question": "Did reviewers find Diane Lane and Richard Gere believable as a couple?",
+      "reference_ids": [
+        "test-neg-871",
+        "test-neg-872",
+        "test-pos-3737",
+        "test-pos-3741"
+      ],
+      "distinct_ranks": [
+        1,
+        5
+      ],
+      "raw_passage_ranks": [
+        1,
+        5
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-3737:1",
+        "test-pos-3736:1",
+        "test-pos-3734:1",
+        "test-neg-873:2",
+        "test-pos-3741:1"
+      ]
+    },
+    {
+      "qid": "imdb-48",
+      "movie_id": "tt0956038",
+      "question": "What did reviewers say was missing from the buildup to the central romance?",
+      "reference_ids": [
+        "test-neg-875",
+        "test-neg-884",
+        "test-neg-885"
+      ],
+      "distinct_ranks": [
+        4,
+        17
+      ],
+      "raw_passage_ranks": [
+        5
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-neg-878:1",
+        "test-neg-879:2",
+        "test-neg-881:1",
+        "test-neg-885:1",
+        "test-neg-874:1"
+      ]
+    },
+    {
+      "qid": "imdb-49",
+      "movie_id": "tt0956038",
+      "question": "What made the beach house look implausible to one reviewer?",
+      "reference_ids": [
+        "test-neg-882"
+      ],
+      "distinct_ranks": [
+        5
+      ],
+      "raw_passage_ranks": [
+        5,
+        7,
+        9,
+        16
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-3735:4",
+        "test-pos-3741:2",
+        "test-neg-872:1",
+        "test-neg-878:2",
+        "test-neg-882:1"
+      ]
+    }
+  ],
+  "passage_level": [
+    {
+      "qid": "holdout-01",
+      "movie_id": "tt0166252",
+      "question": "What kind of shop does Helen run in the seaside town?",
+      "reference_ids": [
+        "test-pos-2500:1"
+      ],
+      "distinct_ranks": [
+        4
+      ],
+      "raw_passage_ranks": [
+        4
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-2508:6",
+        "test-pos-2510:3",
+        "test-neg-578:1",
+        "test-pos-2500:1",
+        "test-pos-2509:2"
+      ],
+      "conditions": {
+        "top5_direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-2500:1",
+                "test-pos-2509:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "latency_ms": 44758.3
+        },
+        "top5_gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "latency_ms": 180.2
+        },
+        "oracle_direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-2500:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "latency_ms": 478.99
+        },
+        "oracle_gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "latency_ms": 105.94
+        }
+      }
+    },
+    {
+      "qid": "holdout-02",
+      "movie_id": "tt0166252",
+      "question": "Which performer did a reviewer single out for a deadpan performance?",
+      "reference_ids": [
+        "test-neg-569:1"
+      ],
+      "distinct_ranks": [
+        1
+      ],
+      "raw_passage_ranks": [
+        1
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-neg-569:1",
+        "test-neg-578:1",
+        "test-pos-2509:3",
+        "test-neg-571:1",
+        "test-pos-2503:1"
+      ]
+    },
+    {
+      "qid": "holdout-05",
+      "movie_id": "tt0437179",
+      "question": "Why are the teenage convicts sent to the Blackwell Hotel?",
+      "reference_ids": [
+        "test-pos-2876:1",
+        "test-neg-667:1"
+      ],
+      "distinct_ranks": [
+        1,
+        2
+      ],
+      "raw_passage_ranks": [
+        1,
+        2
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-2876:1",
+        "test-neg-667:1",
+        "test-neg-666:2",
+        "test-pos-2871:2",
+        "test-neg-658:1"
+      ],
+      "conditions": {
+        "top5_direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-2876:1",
+                "test-neg-667:1",
+                "test-neg-666:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "latency_ms": 543.98
+        },
+        "top5_gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "latency_ms": 170.5
+        },
+        "oracle_direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-2876:1",
+                "test-neg-667:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "latency_ms": 614.67
+        },
+        "oracle_gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "latency_ms": 94.22
+        }
+      }
+    },
+    {
+      "qid": "holdout-06",
+      "movie_id": "tt0437179",
+      "question": "Which element did a reviewer praise when the audience sees things from Kane's point of view?",
+      "reference_ids": [
+        "test-pos-2867:1"
+      ],
+      "distinct_ranks": [
+        1
+      ],
+      "raw_passage_ranks": [
+        1
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-2867:1",
+        "test-neg-662:1",
+        "test-neg-666:2",
+        "test-neg-668:6",
+        "test-neg-661:3"
+      ],
+      "conditions": {
+        "top5_direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-2867:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "latency_ms": 507.83
+        },
+        "top5_gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "latency_ms": 145.69
+        },
+        "oracle_direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-2867:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "latency_ms": 444.65
+        },
+        "oracle_gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_quote_unverified",
+          "findings": [],
+          "gate": {
+            "reason": "gate_quote_unverified",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "latency_ms": 128.05
+        }
+      }
+    },
+    {
+      "qid": "holdout-09",
+      "movie_id": "tt0455857",
+      "question": "How does the remake use the opening section of the original film?",
+      "reference_ids": [
+        "test-neg-3042:1",
+        "test-neg-3045:1"
+      ],
+      "distinct_ranks": [
+        2,
+        4
+      ],
+      "raw_passage_ranks": [
+        2,
+        4
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-neg-3038:2",
+        "test-neg-3042:1",
+        "test-pos-11415:2",
+        "test-neg-3045:1",
+        "test-pos-11418:2"
+      ],
+      "conditions": {
+        "top5_direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-3038:2",
+                "test-neg-3042:1",
+                "test-pos-11415:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "latency_ms": 576.09
+        },
+        "top5_gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "latency_ms": 173.75
+        },
+        "oracle_direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-3042:1",
+                "test-neg-3045:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "latency_ms": 479.83
+        },
+        "oracle_gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "latency_ms": 114.43
+        }
+      }
+    },
+    {
+      "qid": "holdout-10",
+      "movie_id": "tt0455857",
+      "question": "What does Jill do to secure the house once the children are asleep?",
+      "reference_ids": [
+        "test-pos-11408:1"
+      ],
+      "distinct_ranks": [
+        1
+      ],
+      "raw_passage_ranks": [
+        1
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-11408:1",
+        "test-neg-3047:3",
+        "test-pos-11405:1",
+        "test-neg-3043:2",
+        "test-pos-11403:1"
+      ],
+      "conditions": {
+        "top5_direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-11408:1",
+                "test-neg-3047:3"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-11405:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-11403:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "latency_ms": 951.35
+        },
+        "top5_gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "latency_ms": 168.61
+        },
+        "oracle_direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-11408:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "latency_ms": 383.83
+        },
+        "oracle_gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "latency_ms": 105.1
+        }
+      }
+    },
+    {
+      "qid": "holdout-13",
+      "movie_id": "tt0460692",
+      "question": "A reviewer disliked the music and laugh track. What classic sitcom did they think the laughter might have come from?",
+      "reference_ids": [
+        "test-neg-3296:1"
+      ],
+      "distinct_ranks": [
+        3
+      ],
+      "raw_passage_ranks": [
+        3
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-neg-3284:1",
+        "test-neg-3289:2",
+        "test-neg-3296:1",
+        "test-pos-12066:3",
+        "test-neg-3290:3"
+      ],
+      "conditions": {
+        "top5_direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-3284:1",
+                "test-neg-3289:2",
+                "test-neg-3296:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "latency_ms": 653.39
+        },
+        "top5_gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "latency_ms": 159.32
+        },
+        "oracle_direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-3296:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "latency_ms": 423.53
+        },
+        "oracle_gated": {
+          "status": "insufficient_evidence",
+          "reason": "model_rejected",
+          "findings": [],
+          "gate": {
+            "reason": "passed",
+            "proposals": 1,
+            "selected_chunk_ids": [
+              "test-neg-3296:1"
+            ]
+          },
+          "latency_ms": 498.61
+        }
+      }
+    },
+    {
+      "qid": "holdout-14",
+      "movie_id": "tt0460692",
+      "question": "What did the reviewer who called it a modern Married with Children say was clever about the writing?",
+      "reference_ids": [
+        "test-pos-12066:1"
+      ],
+      "distinct_ranks": [
+        1
+      ],
+      "raw_passage_ranks": [
+        1
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-12066:1",
+        "test-neg-3299:1",
+        "test-pos-12068:1",
+        "test-neg-3284:3",
+        "test-neg-3300:2"
+      ],
+      "conditions": {
+        "top5_direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-12066:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "latency_ms": 1000.02
+        },
+        "top5_gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "latency_ms": 162.31
+        },
+        "oracle_direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-12066:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "latency_ms": 428.32
+        },
+        "oracle_gated": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-12066:1"
+              ]
+            }
+          ],
+          "gate": {
+            "reason": "passed",
+            "proposals": 1,
+            "selected_chunk_ids": [
+              "test-pos-12066:1"
+            ]
+          },
+          "latency_ms": 877.26
+        }
+      }
+    },
+    {
+      "qid": "holdout-17",
+      "movie_id": "tt0840359",
+      "question": "What production cost does the viewer who watched the making-of feature report for Mark Stirton's The Planet?",
+      "reference_ids": [
+        "test-pos-1380:1"
+      ],
+      "distinct_ranks": [
+        1
+      ],
+      "raw_passage_ranks": [
+        1
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-1380:1",
+        "test-pos-1385:1",
+        "test-pos-1372:4",
+        "test-pos-1378:1",
+        "test-pos-1384:5"
+      ],
+      "conditions": {
+        "top5_direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-1380:1",
+                "test-pos-1385:1",
+                "test-pos-1372:4"
+              ]
+            }
+          ],
+          "gate": null,
+          "latency_ms": 611.58
+        },
+        "top5_gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "latency_ms": 150.49
+        },
+        "oracle_direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-1380:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "latency_ms": 420.58
+        },
+        "oracle_gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_quote_unverified",
+          "findings": [],
+          "gate": {
+            "reason": "gate_quote_unverified",
+            "proposals": 1,
+            "selected_chunk_ids": []
+          },
+          "latency_ms": 399.26
+        }
+      }
+    },
+    {
+      "qid": "holdout-18",
+      "movie_id": "tt0840359",
+      "question": "Which beach did the DVD buyer say was used to film The Planet?",
+      "reference_ids": [
+        "test-pos-1374:1"
+      ],
+      "distinct_ranks": [
+        1
+      ],
+      "raw_passage_ranks": [
+        1
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-1374:1",
+        "test-pos-1372:1",
+        "test-pos-1371:1",
+        "test-pos-1385:4",
+        "test-neg-333:2"
+      ],
+      "conditions": {
+        "top5_direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-1372:1",
+                "test-pos-1371:1",
+                "test-pos-1385:4"
+              ]
+            }
+          ],
+          "gate": null,
+          "latency_ms": 547.34
+        },
+        "top5_gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "latency_ms": 160.55
+        },
+        "oracle_direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-1374:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "latency_ms": 454.69
+        },
+        "oracle_gated": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-1374:1"
+              ]
+            }
+          ],
+          "gate": {
+            "reason": "passed",
+            "proposals": 1,
+            "selected_chunk_ids": [
+              "test-pos-1374:1"
+            ]
+          },
+          "latency_ms": 783.94
+        }
+      }
+    },
+    {
+      "qid": "holdout-21",
+      "movie_id": "tt0091278",
+      "question": "In the opening radar scene, what does Col. Ted Masters discover about the number and direction of the approaching planes?",
+      "reference_ids": [
+        "test-pos-4951:1"
+      ],
+      "distinct_ranks": [
+        1
+      ],
+      "raw_passage_ranks": [
+        1
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-4951:1",
+        "test-neg-1203:3",
+        "test-neg-1211:1",
+        "test-pos-4957:2",
+        "test-neg-1209:3"
+      ],
+      "conditions": {
+        "top5_direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-4951:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "latency_ms": 380.89
+        },
+        "top5_gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "latency_ms": 163.6
+        },
+        "oracle_direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-4951:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "latency_ms": 400.69
+        },
+        "oracle_gated": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-4951:1"
+              ]
+            }
+          ],
+          "gate": {
+            "reason": "passed",
+            "proposals": 1,
+            "selected_chunk_ids": [
+              "test-pos-4951:1"
+            ]
+          },
+          "latency_ms": 732.82
+        }
+      }
+    },
+    {
+      "qid": "holdout-22",
+      "movie_id": "tt0091278",
+      "question": "According to the review that spotted a continuity error in the F-16s, which variant did Doug and Chappy take off in and which variant appears in combat?",
+      "reference_ids": [
+        "test-pos-4957:1"
+      ],
+      "distinct_ranks": [
+        1
+      ],
+      "raw_passage_ranks": [
+        1
+      ],
+      "location": "top5",
+      "top5_ids": [
+        "test-pos-4957:1",
+        "test-neg-1206:2",
+        "test-neg-1209:3",
+        "test-neg-1199:2",
+        "test-pos-4955:1"
+      ]
+    }
+  ],
+  "ollama_version": "0.40.17",
+  "model": {
+    "name": "qwen2.5:1.5b",
+    "model": "qwen2.5:1.5b",
+    "modified_at": "2026-11-21T21:24:09.1109061+08:00",
+    "size": 986061892,
+    "digest": "65ec06548149b04c096a120e4a6da9d4017ea809c91734ea5631e89f96ddc57b",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+        "qwen2"
+      ],
+      "parameter_size": "1.5B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 32768,
+      "embedding_length": 1536,
+      "runner": "ggml"
+    },
+    "capabilities": [
+      "completion",
+      "tools"
+    ]
+  }
+}

@@ -1,0 +1,3500 @@
+{
+  "schema_version": 1,
+  "retriever": "bm25",
+  "top_k": 5,
+  "model": "qwen2.5:1.5b",
+  "model_digest": "f2b0a490f661d58f20c4b98e5797ecf55e6e96293a88b71e96e7cc389f658f7e",
+  "ollama_url": "http://127.0.0.1:11434",
+  "corpus": "imdb_local.jsonl",
+  "corpus_sha256": "b0ba71fb839071f359b553bccbc0a145158861d0337de19e5617172092be4426",
+  "questions": 50,
+  "questions_sha256": "1c7d8e8ff3b9459e8e0dd9af60b14c75bf75124c12e766548a9215075e37958b",
+  "implementation_sha256": "dc9c65e1b65c054bc99ca935605644e2e2b88d789fe439b013647c7edc6eb2fd",
+  "gate_sha256": "a593e4b33841b5e8f6441a7046b5cb74458f2682d7be24c1984e44bbc3cf6063",
+  "labels_sha256": "9b3e32f347ce4767b1a39e396bdc166b861d18103a90489bc9fb60c328d2708a",
+  "ollama_version": "0.40.17",
+  "contexts": {
+    "full": 24,
+    "partial": 14,
+    "none": 12
+  },
+  "methods": {
+    "direct": {
+      "by_context": {
+        "full": {
+          "answered": 24,
+          "insufficient_evidence": 0,
+          "error": 0
+        },
+        "partial": {
+          "answered": 14,
+          "insufficient_evidence": 0,
+          "error": 0
+        },
+        "none": {
+          "answered": 12,
+          "insufficient_evidence": 0,
+          "error": 0
+        }
+      },
+      "reasons": {},
+      "p50_ms": 729.968,
+      "p95_ms": 1903.377
+    },
+    "gated": {
+      "by_context": {
+        "full": {
+          "answered": 0,
+          "insufficient_evidence": 24,
+          "error": 0
+        },
+        "partial": {
+          "answered": 1,
+          "insufficient_evidence": 13,
+          "error": 0
+        },
+        "none": {
+          "answered": 0,
+          "insufficient_evidence": 12,
+          "error": 0
+        }
+      },
+      "reasons": {
+        "gate_insufficient": 44,
+        "model_rejected": 1,
+        "gate_quote_unverified": 4
+      },
+      "p50_ms": 174.942,
+      "p95_ms": 361.419
+    }
+  },
+  "cases": [
+    {
+      "kind": "case",
+      "qid": "imdb-01",
+      "movie_id": "tt0156934",
+      "question": "Did the jazzy soundtrack suit the film's mood, or did viewers find it distracting?",
+      "relevant_review_ids": [
+        "test-neg-2648",
+        "test-neg-2657",
+        "test-pos-9821",
+        "test-pos-9831",
+        "test-pos-9834"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-9821",
+        "test-pos-9831",
+        "test-neg-2648",
+        "test-pos-9824",
+        "test-pos-9834"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-9821:7",
+        "test-pos-9831:1",
+        "test-neg-2648:2",
+        "test-pos-9824:9",
+        "test-pos-9834:1"
+      ],
+      "matched_review_ids": [
+        "test-neg-2648",
+        "test-pos-9821",
+        "test-pos-9831",
+        "test-pos-9834"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-9821:7"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-9831:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-9824:9"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-9821:7",
+            "test-pos-9831:1",
+            "test-pos-9824:9"
+          ],
+          "latency_ms": 1600.599
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 189.751
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-02",
+      "movie_id": "tt0156934",
+      "question": "What did reviewers think the police-corruption subplot added to the central romance?",
+      "relevant_review_ids": [
+        "test-neg-2653",
+        "test-neg-2658",
+        "test-pos-9821",
+        "test-pos-9823",
+        "test-pos-9824",
+        "test-pos-9834"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-9821",
+        "test-pos-9833",
+        "test-pos-9824",
+        "test-pos-9832",
+        "test-pos-9823"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-9821:5",
+        "test-pos-9833:2",
+        "test-pos-9824:3",
+        "test-pos-9832:4",
+        "test-pos-9823:4"
+      ],
+      "matched_review_ids": [
+        "test-pos-9821",
+        "test-pos-9823",
+        "test-pos-9824"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 145.916
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-9823:4"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-9823:4"
+          ],
+          "latency_ms": 458.276
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-03",
+      "movie_id": "tt0156934",
+      "question": "What detail about the seating on the crashed flight starts the plot?",
+      "relevant_review_ids": [
+        "test-pos-9833"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-2660",
+        "test-pos-9824",
+        "test-pos-9823",
+        "test-neg-2661",
+        "test-neg-2653"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-2660:3",
+        "test-pos-9824:7",
+        "test-pos-9823:4",
+        "test-neg-2661:1",
+        "test-neg-2653:2"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-2653:2"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-9824:7"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-9823:4"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-2653:2",
+            "test-pos-9824:7",
+            "test-pos-9823:4"
+          ],
+          "latency_ms": 926.736
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 174.245
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-04",
+      "movie_id": "tt0156934",
+      "question": "How much did the production pay to use the airport for filming?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-neg-2661",
+        "test-neg-2654",
+        "test-pos-9826",
+        "test-neg-2663",
+        "test-pos-9823"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-2661:1",
+        "test-neg-2654:2",
+        "test-pos-9826:2",
+        "test-neg-2663:1",
+        "test-pos-9823:1"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 187.566
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-2661:1",
+                "test-neg-2654:2",
+                "test-pos-9826:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-2661:1",
+            "test-neg-2654:2",
+            "test-pos-9826:2"
+          ],
+          "latency_ms": 643.258
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-05",
+      "movie_id": "tt0159365",
+      "question": "Did the farewell kiss make Ada and Inman's romance believable to the reviewers?",
+      "relevant_review_ids": [
+        "test-neg-1753",
+        "test-neg-1763",
+        "test-pos-6651",
+        "test-pos-6656",
+        "test-pos-6657"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-6657",
+        "test-pos-6656",
+        "test-neg-1753",
+        "test-pos-6662",
+        "test-pos-6650"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-6657:1",
+        "test-pos-6656:2",
+        "test-neg-1753:1",
+        "test-pos-6662:3",
+        "test-pos-6650:2"
+      ],
+      "matched_review_ids": [
+        "test-neg-1753",
+        "test-pos-6656",
+        "test-pos-6657"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-6657:1",
+                "test-pos-6662:3"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-6656:2",
+                "test-neg-1753:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-6657:1",
+            "test-pos-6662:3",
+            "test-pos-6656:2",
+            "test-neg-1753:1"
+          ],
+          "latency_ms": 772.669
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 157.437
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-06",
+      "movie_id": "tt0159365",
+      "question": "How did viewers disagree about the effectiveness of the opening Civil War battle?",
+      "relevant_review_ids": [
+        "test-neg-1760",
+        "test-neg-1765",
+        "test-pos-6653",
+        "test-pos-6664"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-1760",
+        "test-neg-1753",
+        "test-pos-6664",
+        "test-pos-6662",
+        "test-pos-6651"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-1760:3",
+        "test-neg-1753:1",
+        "test-pos-6664:2",
+        "test-pos-6662:1",
+        "test-pos-6651:1"
+      ],
+      "matched_review_ids": [
+        "test-neg-1760",
+        "test-pos-6664"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 147.827
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-1760:3",
+                "test-neg-1753:1",
+                "test-pos-6664:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-1760:3",
+            "test-neg-1753:1",
+            "test-pos-6664:2"
+          ],
+          "latency_ms": 513.299
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-07",
+      "movie_id": "tt0159365",
+      "question": "How did reviewers react to Renée Zellweger's portrayal of Ruby?",
+      "relevant_review_ids": [
+        "test-neg-1759",
+        "test-neg-1760",
+        "test-neg-1761",
+        "test-neg-1766",
+        "test-pos-6650",
+        "test-pos-6659",
+        "test-pos-6663"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-6661",
+        "test-pos-6664",
+        "test-pos-6662",
+        "test-neg-1759",
+        "test-pos-6659"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-6661:2",
+        "test-pos-6664:4",
+        "test-pos-6662:5",
+        "test-neg-1759:1",
+        "test-pos-6659:1"
+      ],
+      "matched_review_ids": [
+        "test-neg-1759",
+        "test-pos-6659"
+      ],
+      "expected_context": "partial",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-6664:4",
+                "test-pos-6662:5",
+                "test-neg-1759:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-6661:2",
+                "test-pos-6664:4",
+                "test-pos-6662:5"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-6664:4",
+            "test-pos-6662:5",
+            "test-neg-1759:1",
+            "test-pos-6661:2"
+          ],
+          "latency_ms": 851.675
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "model_rejected",
+          "findings": [],
+          "gate": {
+            "reason": "passed",
+            "proposals": 1,
+            "selected_chunk_ids": [
+              "test-pos-6661:2"
+            ]
+          },
+          "citation_ids": [],
+          "latency_ms": 492.263
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-08",
+      "movie_id": "tt0159365",
+      "question": "What focal length was the camera lens set to for the opening battle sequence?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-neg-1760",
+        "test-pos-6664",
+        "test-pos-6662",
+        "test-pos-6650",
+        "test-pos-6653"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-1760:3",
+        "test-pos-6664:2",
+        "test-pos-6662:1",
+        "test-pos-6650:3",
+        "test-pos-6653:1"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 169.546
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-1760:3"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-6664:2",
+                "test-pos-6662:1",
+                "test-pos-6650:3"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-1760:3",
+            "test-pos-6664:2",
+            "test-pos-6662:1",
+            "test-pos-6650:3"
+          ],
+          "latency_ms": 831.352
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-09",
+      "movie_id": "tt0166924",
+      "question": "How do viewers interpret the film's origins as a rejected television pilot?",
+      "relevant_review_ids": [
+        "test-neg-2336",
+        "test-neg-2339",
+        "test-pos-8642",
+        "test-pos-8643"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-8643",
+        "test-neg-2339",
+        "test-pos-8648",
+        "test-pos-8638",
+        "test-neg-2332"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-8643:1",
+        "test-neg-2339:1",
+        "test-pos-8648:2",
+        "test-pos-8638:3",
+        "test-neg-2332:2"
+      ],
+      "matched_review_ids": [
+        "test-neg-2339",
+        "test-pos-8643"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-8643:1",
+                "test-neg-2339:1",
+                "test-pos-8648:2"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-2332:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-8643:1",
+            "test-neg-2339:1",
+            "test-pos-8648:2",
+            "test-neg-2332:2"
+          ],
+          "latency_ms": 748.274
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 194.29
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-10",
+      "movie_id": "tt0166924",
+      "question": "What did viewers suggest doing after a first viewing to make sense of the story?",
+      "relevant_review_ids": [
+        "test-pos-8636",
+        "test-pos-8639",
+        "test-pos-8643",
+        "test-pos-8646",
+        "test-pos-8647"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-2334",
+        "test-pos-8639",
+        "test-pos-8641",
+        "test-neg-2327",
+        "test-pos-8647"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-2334:2",
+        "test-pos-8639:4",
+        "test-pos-8641:13",
+        "test-neg-2327:4",
+        "test-pos-8647:5"
+      ],
+      "matched_review_ids": [
+        "test-pos-8639",
+        "test-pos-8647"
+      ],
+      "expected_context": "partial",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 169.05
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-2327:4",
+                "test-pos-8647:5"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-2327:4",
+                "test-pos-8647:5"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-2327:4",
+                "test-pos-8647:5"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-2327:4",
+            "test-pos-8647:5"
+          ],
+          "latency_ms": 1250.189
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-11",
+      "movie_id": "tt0166924",
+      "question": "What gave the film a Hitchcock-like quality, according to viewers who made that comparison?",
+      "relevant_review_ids": [
+        "test-pos-8641",
+        "test-pos-8644"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-2332",
+        "test-pos-8647",
+        "test-pos-8644",
+        "test-pos-8646",
+        "test-pos-8640"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-2332:1",
+        "test-pos-8647:3",
+        "test-pos-8644:1",
+        "test-pos-8646:7",
+        "test-pos-8640:4"
+      ],
+      "matched_review_ids": [
+        "test-pos-8644"
+      ],
+      "expected_context": "partial",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-2332:1",
+                "test-pos-8647:3"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-8646:7"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-8640:4"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-2332:1",
+            "test-pos-8647:3",
+            "test-pos-8646:7",
+            "test-pos-8640:4"
+          ],
+          "latency_ms": 2270.738
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 187.874
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-12",
+      "movie_id": "tt0166924",
+      "question": "Which acting performances did even reviewers who disliked the film single out for praise?",
+      "relevant_review_ids": [
+        "test-neg-2327",
+        "test-neg-2328",
+        "test-neg-2334"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-8647",
+        "test-neg-2341",
+        "test-neg-2325",
+        "test-neg-2328",
+        "test-neg-2333"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-8647:3",
+        "test-neg-2341:1",
+        "test-neg-2325:2",
+        "test-neg-2328:1",
+        "test-neg-2333:1"
+      ],
+      "matched_review_ids": [
+        "test-neg-2328"
+      ],
+      "expected_context": "partial",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 157.714
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-8647:3"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-8647:3"
+          ],
+          "latency_ms": 793.879
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-13",
+      "movie_id": "tt0166924",
+      "question": "Which brand supplied the blue paint used on the key or box props?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-8647",
+        "test-pos-8648",
+        "test-pos-8641",
+        "test-neg-2327",
+        "test-pos-8645"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-8647:26",
+        "test-pos-8648:8",
+        "test-pos-8641:10",
+        "test-neg-2327:6",
+        "test-pos-8645:3"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-8647:26",
+                "test-pos-8648:8",
+                "test-pos-8641:10"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-8647:26",
+            "test-pos-8648:8",
+            "test-pos-8641:10"
+          ],
+          "latency_ms": 673.551
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 171.29
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-14",
+      "movie_id": "tt0182576",
+      "question": "Why did some viewers enjoy the cutaway flashbacks while others felt they broke up the plot?",
+      "relevant_review_ids": [
+        "test-neg-2596",
+        "test-neg-2599",
+        "test-neg-2600",
+        "test-neg-2603",
+        "test-pos-9669",
+        "test-pos-9683"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-9683",
+        "test-pos-9682",
+        "test-pos-9681",
+        "test-neg-2596",
+        "test-neg-2606"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-9683:1",
+        "test-pos-9682:9",
+        "test-pos-9681:1",
+        "test-neg-2596:1",
+        "test-neg-2606:4"
+      ],
+      "matched_review_ids": [
+        "test-neg-2596",
+        "test-pos-9683"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 178.065
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-9683:1",
+                "test-pos-9682:9"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-2596:1",
+                "test-neg-2606:4"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-9683:1",
+            "test-pos-9682:9",
+            "test-neg-2596:1",
+            "test-neg-2606:4"
+          ],
+          "latency_ms": 901.595
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-15",
+      "movie_id": "tt0182576",
+      "question": "Did reviewers treat the resemblance to The Simpsons as imitation or point to a different style of humor?",
+      "relevant_review_ids": [
+        "test-neg-2598",
+        "test-neg-2603",
+        "test-pos-9668",
+        "test-pos-9674",
+        "test-pos-9678",
+        "test-pos-9683"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-9676",
+        "test-pos-9684",
+        "test-neg-2600",
+        "test-pos-9683",
+        "test-neg-2596"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-9676:2",
+        "test-pos-9684:3",
+        "test-neg-2600:2",
+        "test-pos-9683:3",
+        "test-neg-2596:4"
+      ],
+      "matched_review_ids": [
+        "test-pos-9683"
+      ],
+      "expected_context": "partial",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-9676:2",
+                "test-neg-2600:2",
+                "test-pos-9683:3"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-9676:2",
+            "test-neg-2600:2",
+            "test-pos-9683:3"
+          ],
+          "latency_ms": 597.359
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 193.275
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-16",
+      "movie_id": "tt0182576",
+      "question": "Which parts of the show were easier and harder for the reviewer who did not speak English natively?",
+      "relevant_review_ids": [
+        "test-pos-9680"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-9680",
+        "test-neg-2596",
+        "test-pos-9682",
+        "test-neg-2606",
+        "test-pos-9671"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-9680:1",
+        "test-neg-2596:5",
+        "test-pos-9682:9",
+        "test-neg-2606:6",
+        "test-pos-9671:2"
+      ],
+      "matched_review_ids": [
+        "test-pos-9680"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 159.267
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-9680:1",
+                "test-neg-2596:5",
+                "test-pos-9682:9"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-2606:6",
+                "test-pos-9671:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-9680:1",
+            "test-neg-2596:5",
+            "test-pos-9682:9",
+            "test-neg-2606:6",
+            "test-pos-9671:2"
+          ],
+          "latency_ms": 941.447
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-17",
+      "movie_id": "tt0182576",
+      "question": "What visual criticism did some reviewers make about the supporting characters and guest stars?",
+      "relevant_review_ids": [
+        "test-neg-2600",
+        "test-neg-2605"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-2605",
+        "test-pos-9684",
+        "test-pos-9672",
+        "test-neg-2606",
+        "test-pos-9677"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-2605:1",
+        "test-pos-9684:1",
+        "test-pos-9672:1",
+        "test-neg-2606:5",
+        "test-pos-9677:1"
+      ],
+      "matched_review_ids": [
+        "test-neg-2605"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-2605:1",
+                "test-neg-2606:5"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-9684:1",
+                "test-pos-9672:1",
+                "test-pos-9677:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-2605:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-2605:1",
+            "test-neg-2606:5",
+            "test-pos-9684:1",
+            "test-pos-9672:1",
+            "test-pos-9677:1"
+          ],
+          "latency_ms": 1070.307
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 194.477
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-18",
+      "movie_id": "tt0187696",
+      "question": "What makes Paula suspect foul play when she begins working in the medical school's dissection lab?",
+      "relevant_review_ids": [
+        "test-neg-1832",
+        "test-neg-1835",
+        "test-neg-1836"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-1836",
+        "test-neg-1832",
+        "test-pos-6859",
+        "test-pos-6865",
+        "test-neg-1835"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-1836:1",
+        "test-neg-1832:1",
+        "test-pos-6859:1",
+        "test-pos-6865:1",
+        "test-neg-1835:3"
+      ],
+      "matched_review_ids": [
+        "test-neg-1832",
+        "test-neg-1835",
+        "test-neg-1836"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 160.274
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-1832:1",
+                "test-pos-6859:1",
+                "test-pos-6865:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-1832:1",
+            "test-pos-6859:1",
+            "test-pos-6865:1"
+          ],
+          "latency_ms": 658.114
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-19",
+      "movie_id": "tt0187696",
+      "question": "What problems did reviewers notice in the English dub, especially with lip synchronization, voices, or tone?",
+      "relevant_review_ids": [
+        "test-neg-1827",
+        "test-pos-6853",
+        "test-pos-6856",
+        "test-pos-6860",
+        "test-pos-6865",
+        "test-pos-6867"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-6867",
+        "test-pos-6853",
+        "test-pos-6859",
+        "test-pos-6858",
+        "test-pos-6860"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-6867:6",
+        "test-pos-6853:1",
+        "test-pos-6859:2",
+        "test-pos-6858:2",
+        "test-pos-6860:1"
+      ],
+      "matched_review_ids": [
+        "test-pos-6853",
+        "test-pos-6860",
+        "test-pos-6867"
+      ],
+      "expected_context": "partial",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-6859:2"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-6860:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-6867:6"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-6859:2",
+            "test-pos-6860:1",
+            "test-pos-6867:6"
+          ],
+          "latency_ms": 2648.555
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 179.115
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-20",
+      "movie_id": "tt0187696",
+      "question": "How did reviewers differ on the film's handling of medical ethics?",
+      "relevant_review_ids": [
+        "test-neg-1833",
+        "test-pos-6856",
+        "test-pos-6864"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-6856",
+        "test-neg-1836",
+        "test-neg-1827",
+        "test-pos-6864",
+        "test-neg-1833"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-6856:1",
+        "test-neg-1836:1",
+        "test-neg-1827:2",
+        "test-pos-6864:1",
+        "test-neg-1833:3"
+      ],
+      "matched_review_ids": [
+        "test-neg-1833",
+        "test-pos-6856",
+        "test-pos-6864"
+      ],
+      "expected_context": "partial",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 159.697
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-6856:1",
+                "test-neg-1836:1",
+                "test-neg-1827:2"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-6864:1",
+                "test-neg-1833:3"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-6864:1",
+                "test-neg-1833:3"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-6856:1",
+            "test-neg-1836:1",
+            "test-neg-1827:2",
+            "test-pos-6864:1",
+            "test-neg-1833:3"
+          ],
+          "latency_ms": 1143.158
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-21",
+      "movie_id": "tt0187696",
+      "question": "When reviewers compared Anatomy with American slashers, what did they find derivative or distinctive?",
+      "relevant_review_ids": [
+        "test-neg-1825",
+        "test-neg-1831",
+        "test-neg-1832",
+        "test-neg-1835",
+        "test-neg-1837",
+        "test-pos-6859",
+        "test-pos-6863"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-6859",
+        "test-neg-1831",
+        "test-neg-1835",
+        "test-pos-6862",
+        "test-pos-6867"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-6859:4",
+        "test-neg-1831:1",
+        "test-neg-1835:1",
+        "test-pos-6862:2",
+        "test-pos-6867:1"
+      ],
+      "matched_review_ids": [
+        "test-neg-1831",
+        "test-neg-1835",
+        "test-pos-6859"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-1831:1",
+                "test-neg-1835:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-1831:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-1831:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-1831:1",
+            "test-neg-1835:1"
+          ],
+          "latency_ms": 1121.238
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 176.025
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-22",
+      "movie_id": "tt0187696",
+      "question": "How much of the production budget paid for the practical anatomy effects?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-6859",
+        "test-neg-1828",
+        "test-pos-6864",
+        "test-pos-6867",
+        "test-pos-6855"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-6859:2",
+        "test-neg-1828:1",
+        "test-pos-6864:1",
+        "test-pos-6867:3",
+        "test-pos-6855:1"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 197.826
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-6859:2",
+                "test-neg-1828:1",
+                "test-pos-6864:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-6859:2",
+            "test-neg-1828:1",
+            "test-pos-6864:1"
+          ],
+          "latency_ms": 612.443
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-23",
+      "movie_id": "tt0203755",
+      "question": "Did the retelling from three points of view make the comedy more effective or more confusing?",
+      "relevant_review_ids": [
+        "test-neg-3193",
+        "test-pos-11863",
+        "test-pos-11870",
+        "test-pos-11872",
+        "test-pos-11875"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-11875",
+        "test-neg-3183",
+        "test-neg-3193",
+        "test-pos-11872",
+        "test-pos-11867"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-11875:2",
+        "test-neg-3183:4",
+        "test-neg-3193:1",
+        "test-pos-11872:1",
+        "test-pos-11867:2"
+      ],
+      "matched_review_ids": [
+        "test-neg-3193",
+        "test-pos-11872",
+        "test-pos-11875"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-11872:1",
+                "test-pos-11867:2"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-3183:4",
+                "test-neg-3193:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-11872:1",
+            "test-pos-11867:2",
+            "test-neg-3183:4",
+            "test-neg-3193:1"
+          ],
+          "latency_ms": 869.906
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 196.228
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-24",
+      "movie_id": "tt0203755",
+      "question": "Which listener hears each man's account of Jewel?",
+      "relevant_review_ids": [
+        "test-neg-3196",
+        "test-pos-11866",
+        "test-pos-11873",
+        "test-pos-11875"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-3196",
+        "test-pos-11875",
+        "test-neg-3195",
+        "test-pos-11872",
+        "test-neg-3183"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-3196:2",
+        "test-pos-11875:6",
+        "test-neg-3195:2",
+        "test-pos-11872:1",
+        "test-neg-3183:4"
+      ],
+      "matched_review_ids": [
+        "test-neg-3196",
+        "test-pos-11875"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 182.297
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-3196:2",
+                "test-pos-11875:6",
+                "test-neg-3195:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-3196:2",
+            "test-pos-11875:6",
+            "test-neg-3195:2"
+          ],
+          "latency_ms": 598.454
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-25",
+      "movie_id": "tt0203755",
+      "question": "What material comforts does Jewel want, according to the reviewers?",
+      "relevant_review_ids": [
+        "test-neg-3183",
+        "test-neg-3195",
+        "test-pos-11861",
+        "test-pos-11864"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-11875",
+        "test-neg-3195",
+        "test-pos-11864",
+        "test-neg-3183",
+        "test-pos-11861"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-11875:1",
+        "test-neg-3195:3",
+        "test-pos-11864:3",
+        "test-neg-3183:3",
+        "test-pos-11861:1"
+      ],
+      "matched_review_ids": [
+        "test-neg-3183",
+        "test-neg-3195",
+        "test-pos-11861",
+        "test-pos-11864"
+      ],
+      "expected_context": "partial",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-11861:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-11861:1"
+          ],
+          "latency_ms": 349.15
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_quote_unverified",
+          "findings": [],
+          "gate": {
+            "reason": "gate_quote_unverified",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 180.047
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-26",
+      "movie_id": "tt0203755",
+      "question": "How did reviewers react to the YMCA song cue?",
+      "relevant_review_ids": [
+        "test-neg-3191",
+        "test-neg-3195",
+        "test-pos-11868",
+        "test-pos-11869"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-11868",
+        "test-pos-11869",
+        "test-neg-3191",
+        "test-neg-3195"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-11868:3",
+        "test-pos-11869:2",
+        "test-neg-3191:2",
+        "test-neg-3195:5"
+      ],
+      "matched_review_ids": [
+        "test-neg-3191",
+        "test-neg-3195",
+        "test-pos-11868",
+        "test-pos-11869"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 170.272
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-11868:3",
+                "test-neg-3191:2"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-11869:2"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-3195:5"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-11868:3",
+            "test-neg-3191:2",
+            "test-pos-11869:2",
+            "test-neg-3195:5"
+          ],
+          "latency_ms": 1046.027
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-27",
+      "movie_id": "tt0264935",
+      "question": "What are the boys trying to prove by planning a murder they hope to get away with?",
+      "relevant_review_ids": [
+        "test-pos-5846",
+        "test-pos-5847",
+        "test-pos-5851",
+        "test-pos-5853",
+        "test-pos-5855",
+        "test-pos-5859",
+        "test-pos-5861"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-5846",
+        "test-pos-5856",
+        "test-pos-5859",
+        "test-pos-5851",
+        "test-pos-5847"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-5846:5",
+        "test-pos-5856:1",
+        "test-pos-5859:4",
+        "test-pos-5851:2",
+        "test-pos-5847:1"
+      ],
+      "matched_review_ids": [
+        "test-pos-5846",
+        "test-pos-5847",
+        "test-pos-5851",
+        "test-pos-5859"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-5846:5",
+                "test-pos-5856:1",
+                "test-pos-5859:4"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-5846:5",
+            "test-pos-5856:1",
+            "test-pos-5859:4"
+          ],
+          "latency_ms": 559.492
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 160.7
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-28",
+      "movie_id": "tt0264935",
+      "question": "How did reviewers differ on whether Sandra Bullock was convincing as a hardened detective?",
+      "relevant_review_ids": [
+        "test-neg-1536",
+        "test-neg-1537",
+        "test-neg-1539",
+        "test-neg-1542",
+        "test-neg-1543",
+        "test-pos-5850",
+        "test-pos-5852",
+        "test-pos-5853",
+        "test-pos-5854",
+        "test-pos-5855",
+        "test-pos-5859",
+        "test-pos-5861",
+        "test-pos-5862"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-5861",
+        "test-neg-1536",
+        "test-pos-5851",
+        "test-pos-5862",
+        "test-pos-5859"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-5861:6",
+        "test-neg-1536:3",
+        "test-pos-5851:1",
+        "test-pos-5862:1",
+        "test-pos-5859:5"
+      ],
+      "matched_review_ids": [
+        "test-neg-1536",
+        "test-pos-5859",
+        "test-pos-5861",
+        "test-pos-5862"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 157.548
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-5861:6",
+                "test-neg-1536:3",
+                "test-pos-5851:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-5861:6",
+                "test-pos-5851:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-5861:6",
+                "test-pos-5851:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-5861:6",
+            "test-neg-1536:3",
+            "test-pos-5851:1"
+          ],
+          "latency_ms": 1233.128
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-29",
+      "movie_id": "tt0264935",
+      "question": "What past attack shapes Cassie, and how does it affect her as a detective?",
+      "relevant_review_ids": [
+        "test-pos-5853",
+        "test-pos-5855",
+        "test-pos-5861"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-5855",
+        "test-pos-5859",
+        "test-pos-5862",
+        "test-pos-5851",
+        "test-pos-5850"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-5855:3",
+        "test-pos-5859:5",
+        "test-pos-5862:3",
+        "test-pos-5851:1",
+        "test-pos-5850:1"
+      ],
+      "matched_review_ids": [
+        "test-pos-5855"
+      ],
+      "expected_context": "partial",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-5859:5",
+                "test-pos-5862:3"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-5859:5",
+            "test-pos-5862:3"
+          ],
+          "latency_ms": 482.122
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 199.348
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-30",
+      "movie_id": "tt0264935",
+      "question": "What was the insurance premium for filming the scenes at the bluff?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-5847",
+        "test-pos-5849",
+        "test-neg-1543"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-5847:2",
+        "test-pos-5849:1",
+        "test-neg-1543:4"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 129.733
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-5847:2",
+                "test-pos-5849:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-5847:2",
+            "test-pos-5849:1"
+          ],
+          "latency_ms": 500.398
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-31",
+      "movie_id": "tt0284953",
+      "question": "What did viewers miss about the TV interview format, and what did defenders like about the scripted movie?",
+      "relevant_review_ids": [
+        "test-neg-822",
+        "test-neg-825",
+        "test-neg-826",
+        "test-neg-828",
+        "test-neg-829",
+        "test-pos-3493",
+        "test-pos-3495",
+        "test-pos-3496",
+        "test-pos-3502",
+        "test-pos-3503"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-3502",
+        "test-pos-3501",
+        "test-pos-3497",
+        "test-neg-825",
+        "test-neg-818"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-3502:2",
+        "test-pos-3501:2",
+        "test-pos-3497:1",
+        "test-neg-825:2",
+        "test-neg-818:1"
+      ],
+      "matched_review_ids": [
+        "test-neg-825",
+        "test-pos-3502"
+      ],
+      "expected_context": "partial",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-3502:2"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-3501:2"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-825:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-3502:2",
+            "test-pos-3501:2",
+            "test-neg-825:2"
+          ],
+          "latency_ms": 1267.29
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 145.294
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-32",
+      "movie_id": "tt0284953",
+      "question": "What did David Carlton hope would happen if he backed Ali G, and how did his plan turn out?",
+      "relevant_review_ids": [
+        "test-pos-3489",
+        "test-pos-3500"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-3500",
+        "test-pos-3489",
+        "test-neg-828",
+        "test-neg-823",
+        "test-neg-825"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-3500:1",
+        "test-pos-3489:3",
+        "test-neg-828:3",
+        "test-neg-823:1",
+        "test-neg-825:1"
+      ],
+      "matched_review_ids": [
+        "test-pos-3489",
+        "test-pos-3500"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 170.165
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-3500:1",
+                "test-pos-3489:3"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-3500:1",
+                "test-pos-3489:3"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-828:3",
+                "test-neg-823:1",
+                "test-neg-825:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-3500:1",
+            "test-pos-3489:3",
+            "test-neg-828:3",
+            "test-neg-823:1",
+            "test-neg-825:1"
+          ],
+          "latency_ms": 1101.686
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-33",
+      "movie_id": "tt0284953",
+      "question": "Does Borat appear in the film, and what did reviewers say about his appearance?",
+      "relevant_review_ids": [
+        "test-pos-3490",
+        "test-pos-3491",
+        "test-pos-3492"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-3492",
+        "test-pos-3490",
+        "test-neg-828",
+        "test-neg-824",
+        "test-pos-3496"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-3492:3",
+        "test-pos-3490:1",
+        "test-neg-828:3",
+        "test-neg-824:3",
+        "test-pos-3496:3"
+      ],
+      "matched_review_ids": [
+        "test-pos-3490",
+        "test-pos-3492"
+      ],
+      "expected_context": "partial",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-3492:3"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-3490:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-828:3"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-3492:3",
+            "test-pos-3490:1",
+            "test-neg-828:3"
+          ],
+          "latency_ms": 1673.992
+        },
+        "gated": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-3492:3"
+              ]
+            }
+          ],
+          "gate": {
+            "reason": "passed",
+            "proposals": 1,
+            "selected_chunk_ids": [
+              "test-pos-3492:3"
+            ]
+          },
+          "citation_ids": [
+            "test-pos-3492:3"
+          ],
+          "latency_ms": 993.338
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-34",
+      "movie_id": "tt0284953",
+      "question": "How large was the Parliament set used for the political scenes?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-3501",
+        "test-pos-3500",
+        "test-pos-3504",
+        "test-pos-3498",
+        "test-neg-830"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-3501:2",
+        "test-pos-3500:1",
+        "test-pos-3504:1",
+        "test-pos-3498:1",
+        "test-neg-830:1"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 189.927
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-3501:2",
+                "test-pos-3500:1",
+                "test-pos-3504:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-3501:2",
+            "test-pos-3500:1",
+            "test-pos-3504:1"
+          ],
+          "latency_ms": 569.235
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-35",
+      "movie_id": "tt0340874",
+      "question": "What negative and positive reactions to the Northfork cinematography appear in the reviews?",
+      "relevant_review_ids": [
+        "test-neg-3003",
+        "test-pos-11219",
+        "test-pos-11227"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-11220",
+        "test-neg-3009",
+        "test-pos-11230",
+        "test-pos-11229",
+        "test-neg-3003"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-11220:3",
+        "test-neg-3009:1",
+        "test-pos-11230:10",
+        "test-pos-11229:3",
+        "test-neg-3003:1"
+      ],
+      "matched_review_ids": [
+        "test-neg-3003"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-3003:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-11229:3"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-3003:1",
+            "test-pos-11229:3"
+          ],
+          "latency_ms": 709.184
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 173.792
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-36",
+      "movie_id": "tt0340874",
+      "question": "Why is the town being evacuated in Northfork?",
+      "relevant_review_ids": [
+        "test-neg-2996",
+        "test-pos-11223",
+        "test-pos-11228",
+        "test-pos-11233"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-2996",
+        "test-pos-11233",
+        "test-pos-11232",
+        "test-pos-11230",
+        "test-pos-11231"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-2996:2",
+        "test-pos-11233:1",
+        "test-pos-11232:3",
+        "test-pos-11230:6",
+        "test-pos-11231:1"
+      ],
+      "matched_review_ids": [
+        "test-neg-2996",
+        "test-pos-11233"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 175.64
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-2996:2",
+                "test-pos-11233:1",
+                "test-pos-11232:3"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-2996:2",
+            "test-pos-11233:1",
+            "test-pos-11232:3"
+          ],
+          "latency_ms": 661.801
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-37",
+      "movie_id": "tt0340874",
+      "question": "When Northfork played at Cannes, did the reviewer who called it very slow also find it boring?",
+      "relevant_review_ids": [
+        "test-pos-11232"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-11232",
+        "test-pos-11220",
+        "test-pos-11222",
+        "test-pos-11223",
+        "test-pos-11230"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-11232:1",
+        "test-pos-11220:4",
+        "test-pos-11222:3",
+        "test-pos-11223:4",
+        "test-pos-11230:8"
+      ],
+      "matched_review_ids": [
+        "test-pos-11232"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-11220:4",
+                "test-pos-11222:3",
+                "test-pos-11223:4"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-11220:4",
+            "test-pos-11222:3",
+            "test-pos-11223:4"
+          ],
+          "latency_ms": 555.286
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 168.988
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-38",
+      "movie_id": "tt0340874",
+      "question": "Which camera make and model was used for the widescreen cinematography in Northfork?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-11219",
+        "test-neg-3003",
+        "test-pos-11230",
+        "test-pos-11224",
+        "test-pos-11229"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-11219:1",
+        "test-neg-3003:1",
+        "test-pos-11230:1",
+        "test-pos-11224:1",
+        "test-pos-11229:3"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 148.767
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-11219:1",
+                "test-neg-3003:1",
+                "test-pos-11230:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-11219:1",
+            "test-neg-3003:1",
+            "test-pos-11230:1"
+          ],
+          "latency_ms": 584.373
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-39",
+      "movie_id": "tt0435687",
+      "question": "Did reviewers want more of the familiar television characters, or did some like the smaller set of main characters?",
+      "relevant_review_ids": [
+        "test-neg-1185",
+        "test-neg-1196",
+        "test-pos-4885",
+        "test-pos-4887"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-4894",
+        "test-neg-1186",
+        "test-neg-1196",
+        "test-pos-4891",
+        "test-pos-4892"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-4894:1",
+        "test-neg-1186:2",
+        "test-neg-1196:1",
+        "test-pos-4891:4",
+        "test-pos-4892:2"
+      ],
+      "matched_review_ids": [
+        "test-neg-1196"
+      ],
+      "expected_context": "partial",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-4891:4",
+                "test-pos-4892:2"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-1186:2",
+                "test-neg-1196:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-4891:4",
+            "test-pos-4892:2",
+            "test-neg-1186:2",
+            "test-neg-1196:1"
+          ],
+          "latency_ms": 711.662
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 196.816
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-40",
+      "movie_id": "tt0435687",
+      "question": "What made Geoff a comic standout even for a reviewer who disliked much of the movie?",
+      "relevant_review_ids": [
+        "test-neg-1193",
+        "test-pos-4886"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-4891",
+        "test-pos-4896",
+        "test-pos-4894",
+        "test-neg-1194",
+        "test-pos-4886"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-4891:3",
+        "test-pos-4896:3",
+        "test-pos-4894:3",
+        "test-neg-1194:2",
+        "test-pos-4886:3"
+      ],
+      "matched_review_ids": [
+        "test-pos-4886"
+      ],
+      "expected_context": "none",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 193.961
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-4896:3",
+                "test-pos-4894:3",
+                "test-neg-1194:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-4896:3",
+            "test-pos-4894:3",
+            "test-neg-1194:2"
+          ],
+          "latency_ms": 532.32
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-41",
+      "movie_id": "tt0435687",
+      "question": "What did fans say about how funny the film was compared with the three television series?",
+      "relevant_review_ids": [
+        "test-neg-1184",
+        "test-neg-1189",
+        "test-pos-4891",
+        "test-pos-4898"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-1196",
+        "test-pos-4891",
+        "test-neg-1189",
+        "test-pos-4895",
+        "test-pos-4894"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-1196:1",
+        "test-pos-4891:1",
+        "test-neg-1189:1",
+        "test-pos-4895:3",
+        "test-pos-4894:1"
+      ],
+      "matched_review_ids": [
+        "test-neg-1189",
+        "test-pos-4891"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-1196:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-1189:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-4895:3"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-1196:1",
+            "test-neg-1189:1",
+            "test-pos-4895:3"
+          ],
+          "latency_ms": 1161.015
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 201.498
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-42",
+      "movie_id": "tt0435687",
+      "question": "What focal length was used to film the medieval scenes in The League of Gentlemen's Apocalypse?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-4891",
+        "test-pos-4893",
+        "test-pos-4897",
+        "test-pos-4895",
+        "test-neg-1196"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-4891:2",
+        "test-pos-4893:1",
+        "test-pos-4897:1",
+        "test-pos-4895:11",
+        "test-neg-1196:2"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 172.625
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-4891:2",
+                "test-pos-4893:1",
+                "test-pos-4897:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-1196:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-4891:2",
+            "test-pos-4893:1",
+            "test-pos-4897:1",
+            "test-neg-1196:2"
+          ],
+          "latency_ms": 961.917
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-43",
+      "movie_id": "tt0808151",
+      "question": "Which CERN director from the novel is missing in the film, and what does he do at the beginning of the book?",
+      "relevant_review_ids": [
+        "test-neg-412",
+        "test-neg-415",
+        "test-neg-420"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-421",
+        "test-neg-412",
+        "test-pos-1628",
+        "test-neg-415",
+        "test-neg-420"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-421:3",
+        "test-neg-412:1",
+        "test-pos-1628:1",
+        "test-neg-415:1",
+        "test-neg-420:2"
+      ],
+      "matched_review_ids": [
+        "test-neg-412",
+        "test-neg-415",
+        "test-neg-420"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-412:1",
+                "test-neg-415:1",
+                "test-neg-420:2"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-412:1",
+                "test-neg-415:1",
+                "test-neg-420:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-412:1",
+            "test-neg-415:1",
+            "test-neg-420:2"
+          ],
+          "latency_ms": 887.814
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 179.427
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-44",
+      "movie_id": "tt0808151",
+      "question": "How did views differ about the film's visual depiction of Rome and the Vatican?",
+      "relevant_review_ids": [
+        "test-neg-421",
+        "test-pos-1627"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-1624",
+        "test-neg-417",
+        "test-neg-421",
+        "test-pos-1635",
+        "test-pos-1634"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-1624:3",
+        "test-neg-417:4",
+        "test-neg-421:3",
+        "test-pos-1635:2",
+        "test-pos-1634:2"
+      ],
+      "matched_review_ids": [
+        "test-neg-421"
+      ],
+      "expected_context": "partial",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 159.711
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-1624:3",
+                "test-neg-417:4",
+                "test-neg-421:3"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-1624:3",
+            "test-neg-417:4",
+            "test-neg-421:3"
+          ],
+          "latency_ms": 522.618
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-45",
+      "movie_id": "tt0808151",
+      "question": "Was the music in Angels & Demons praised, or did it make the action harder to take in?",
+      "relevant_review_ids": [
+        "test-neg-417",
+        "test-pos-1627",
+        "test-pos-1628"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-414",
+        "test-pos-1635",
+        "test-pos-1633",
+        "test-neg-410",
+        "test-pos-1623"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-414:2",
+        "test-pos-1635:1",
+        "test-pos-1633:5",
+        "test-neg-410:3",
+        "test-pos-1623:1"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "partial",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-1633:5",
+                "test-neg-410:3"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-414:2",
+                "test-pos-1623:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-1633:5",
+            "test-neg-410:3",
+            "test-neg-414:2",
+            "test-pos-1623:1"
+          ],
+          "latency_ms": 618.428
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_quote_unverified",
+          "findings": [],
+          "gate": {
+            "reason": "gate_quote_unverified",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 171.932
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-46",
+      "movie_id": "tt0808151",
+      "question": "Who coordinated the vehicle stunts for the sequences racing across Rome?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-1621",
+        "test-neg-417",
+        "test-pos-1623",
+        "test-pos-1629",
+        "test-pos-1634"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-1621:2",
+        "test-neg-417:3",
+        "test-pos-1623:1",
+        "test-pos-1629:5",
+        "test-pos-1634:4"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 150.198
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-1634:4"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-1634:4"
+          ],
+          "latency_ms": 403.011
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-47",
+      "movie_id": "tt0956038",
+      "question": "Did reviewers find Diane Lane and Richard Gere believable as a couple?",
+      "relevant_review_ids": [
+        "test-neg-871",
+        "test-neg-872",
+        "test-pos-3737",
+        "test-pos-3741"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-3737",
+        "test-pos-3736",
+        "test-pos-3734",
+        "test-neg-873",
+        "test-pos-3741"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-3737:1",
+        "test-pos-3736:1",
+        "test-pos-3734:1",
+        "test-neg-873:2",
+        "test-pos-3741:1"
+      ],
+      "matched_review_ids": [
+        "test-pos-3737",
+        "test-pos-3741"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-3737:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-3736:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-3734:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-3737:1",
+            "test-pos-3736:1",
+            "test-pos-3734:1"
+          ],
+          "latency_ms": 2091.056
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_quote_unverified",
+          "findings": [],
+          "gate": {
+            "reason": "gate_quote_unverified",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 189.58
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-48",
+      "movie_id": "tt0956038",
+      "question": "What did reviewers say was missing from the buildup to the central romance?",
+      "relevant_review_ids": [
+        "test-neg-875",
+        "test-neg-884",
+        "test-neg-885"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-878",
+        "test-neg-879",
+        "test-neg-881",
+        "test-neg-885",
+        "test-neg-874"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-878:1",
+        "test-neg-879:2",
+        "test-neg-881:1",
+        "test-neg-885:1",
+        "test-neg-874:1"
+      ],
+      "matched_review_ids": [
+        "test-neg-885"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_quote_unverified",
+          "findings": [],
+          "gate": {
+            "reason": "gate_quote_unverified",
+            "proposals": 3,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 1382.332
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-878:1",
+                "test-neg-879:2",
+                "test-neg-881:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-878:1",
+            "test-neg-879:2",
+            "test-neg-881:1"
+          ],
+          "latency_ms": 633.535
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-49",
+      "movie_id": "tt0956038",
+      "question": "What made the beach house look implausible to one reviewer?",
+      "relevant_review_ids": [
+        "test-neg-882"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-3735",
+        "test-pos-3741",
+        "test-neg-872",
+        "test-neg-878",
+        "test-neg-882"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-3735:4",
+        "test-pos-3741:2",
+        "test-neg-872:1",
+        "test-neg-878:2",
+        "test-neg-882:1"
+      ],
+      "matched_review_ids": [
+        "test-neg-882"
+      ],
+      "expected_context": "full",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-872:1",
+                "test-neg-878:2",
+                "test-neg-882:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-872:1",
+            "test-neg-878:2",
+            "test-neg-882:1"
+          ],
+          "latency_ms": 655.373
+        },
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 177.298
+        }
+      }
+    },
+    {
+      "kind": "case",
+      "qid": "imdb-50",
+      "movie_id": "tt0956038",
+      "question": "Which specific street address was used to film the inn's interior scenes?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-3734",
+        "test-pos-3733",
+        "test-neg-870",
+        "test-pos-3744",
+        "test-neg-882"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-3734:1",
+        "test-pos-3733:2",
+        "test-neg-870:2",
+        "test-pos-3744:3",
+        "test-neg-882:2"
+      ],
+      "matched_review_ids": [],
+      "expected_context": "none",
+      "supporting_chunk_ids": null,
+      "methods": {
+        "gated": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 162.173
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-3744:3"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-3744:3"
+          ],
+          "latency_ms": 468.556
+        }
+      }
+    }
+  ],
+  "release_excerpt": "Run statuses, evidence IDs and review labels. Quotes and answers are available when rerun locally."
+}

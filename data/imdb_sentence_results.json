@@ -1,0 +1,1394 @@
+{
+  "ollama_version": "0.40.17",
+  "model": "qwen2.5:1.5b",
+  "digest": "65ec06548149b04c096a120e4a6da9d4017ea809c91734ea5631e89f96ddc57b",
+  "cases": [
+    {
+      "qid": "fresh-01",
+      "movie_id": "tt0074157",
+      "question": "What style was the spaceship set design described as?",
+      "expected_context": "full",
+      "note": "Victorian",
+      "supporting_chunk_ids": [
+        "test-neg-2213:1"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-2213:1",
+        "test-neg-2218:3",
+        "test-pos-8302:1",
+        "test-pos-8306:1",
+        "test-neg-2219:3"
+      ],
+      "results": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-2213:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-8306:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-2219:3"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-2213:1",
+            "test-pos-8306:1",
+            "test-neg-2219:3"
+          ],
+          "latency_ms": 44599.213
+        },
+        "gate": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 161.843
+        },
+        "sentence_ids": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-2219:3"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-2219:3"
+          ],
+          "latency_ms": 190.821
+        }
+      }
+    },
+    {
+      "qid": "fresh-02",
+      "movie_id": "tt0074157",
+      "question": "What material did a reviewer compare the monster costumes to?",
+      "expected_context": "full",
+      "note": "Rubber suits",
+      "supporting_chunk_ids": [
+        "test-neg-2213:1",
+        "test-pos-8309:2",
+        "test-neg-2219:2"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-2213:1",
+        "test-pos-8309:2",
+        "test-neg-2219:2",
+        "test-pos-8297:2",
+        "test-pos-8307:1"
+      ],
+      "results": {
+        "gate": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-2213:1"
+              ]
+            }
+          ],
+          "gate": {
+            "reason": "passed",
+            "proposals": 1,
+            "selected_chunk_ids": [
+              "test-neg-2213:1"
+            ]
+          },
+          "citation_ids": [
+            "test-neg-2213:1"
+          ],
+          "latency_ms": 955.453
+        },
+        "sentence_ids": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-2213:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-8297:2"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-8307:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-2213:1",
+            "test-pos-8297:2",
+            "test-pos-8307:1"
+          ],
+          "latency_ms": 246.803
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-2213:1",
+                "test-neg-2219:2",
+                "test-pos-8307:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-2213:1",
+            "test-neg-2219:2",
+            "test-pos-8307:1"
+          ],
+          "latency_ms": 521.678
+        }
+      }
+    },
+    {
+      "qid": "fresh-03",
+      "movie_id": "tt0074157",
+      "question": "Which company manufactured the rubber monster costumes?",
+      "expected_context": "none",
+      "note": "The costume manufacturer is absent.",
+      "supporting_chunk_ids": [],
+      "candidate_chunk_ids": [
+        "test-pos-8309:2",
+        "test-neg-2213:1",
+        "test-neg-2219:2",
+        "test-pos-8307:1",
+        "test-pos-8303:1"
+      ],
+      "results": {
+        "sentence_ids": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-2213:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-8307:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-8307:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-2213:1",
+            "test-pos-8307:1"
+          ],
+          "latency_ms": 254.812
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-8307:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-8307:1"
+          ],
+          "latency_ms": 613.454
+        },
+        "gate": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 172.146
+        }
+      }
+    },
+    {
+      "qid": "fresh-04",
+      "movie_id": "tt0074157",
+      "question": "How much did the production pay to build the Victorian spaceship sets?",
+      "expected_context": "none",
+      "note": "The set construction cost is absent.",
+      "supporting_chunk_ids": [],
+      "candidate_chunk_ids": [
+        "test-pos-8308:1",
+        "test-pos-8309:1",
+        "test-neg-2218:1",
+        "test-pos-8300:1",
+        "test-pos-8306:2"
+      ],
+      "results": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-8306:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-8306:2"
+          ],
+          "latency_ms": 387.724
+        },
+        "gate": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 178.825
+        },
+        "sentence_ids": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-8309:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-2218:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-8306:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-8309:1",
+            "test-neg-2218:1",
+            "test-pos-8306:2"
+          ],
+          "latency_ms": 259.344
+        }
+      }
+    },
+    {
+      "qid": "fresh-05",
+      "movie_id": "tt0113957",
+      "question": "What computer tasks did Angela Bennett perform for the Cathedral Company?",
+      "expected_context": "full",
+      "note": "Cleaning viruses and testing games",
+      "supporting_chunk_ids": [
+        "test-pos-8217:1"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-8217:1",
+        "test-neg-2204:1",
+        "test-pos-8205:1",
+        "test-pos-8210:2",
+        "test-pos-8203:1"
+      ],
+      "results": {
+        "gate": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 172.532
+        },
+        "sentence_ids": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-8217:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-2204:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-2204:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-8217:1",
+            "test-neg-2204:1"
+          ],
+          "latency_ms": 295.051
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-8217:1",
+                "test-neg-2204:1",
+                "test-pos-8205:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-8217:1",
+            "test-neg-2204:1",
+            "test-pos-8205:1"
+          ],
+          "latency_ms": 582.139
+        }
+      }
+    },
+    {
+      "qid": "fresh-06",
+      "movie_id": "tt0113957",
+      "question": "Who played Angela Bennett in The Net?",
+      "expected_context": "full",
+      "note": "Sandra Bullock",
+      "supporting_chunk_ids": [
+        "test-pos-8217:1",
+        "test-pos-8203:1",
+        "test-pos-8210:2"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-8217:1",
+        "test-pos-8203:1",
+        "test-pos-8205:1",
+        "test-pos-8209:1",
+        "test-pos-8210:2"
+      ],
+      "results": {
+        "sentence_ids": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-8217:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-8205:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-8209:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-8217:1",
+            "test-pos-8205:1",
+            "test-pos-8209:1"
+          ],
+          "latency_ms": 285.297
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-8217:1",
+                "test-pos-8203:1",
+                "test-pos-8205:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-8217:1",
+            "test-pos-8203:1",
+            "test-pos-8205:1"
+          ],
+          "latency_ms": 578.948
+        },
+        "gate": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 198.409
+        }
+      }
+    },
+    {
+      "qid": "fresh-07",
+      "movie_id": "tt0113957",
+      "question": "What salary did the Cathedral Company pay Angela Bennett?",
+      "expected_context": "none",
+      "note": "Her salary is absent.",
+      "supporting_chunk_ids": [],
+      "candidate_chunk_ids": [
+        "test-pos-8217:1",
+        "test-neg-2204:1",
+        "test-pos-8205:1",
+        "test-pos-8209:1",
+        "test-pos-8203:1"
+      ],
+      "results": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-8205:1",
+                "test-pos-8209:1",
+                "test-pos-8203:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-8205:1",
+            "test-pos-8209:1",
+            "test-pos-8203:1"
+          ],
+          "latency_ms": 537.927
+        },
+        "gate": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 200.524
+        },
+        "sentence_ids": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-8217:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-8209:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-8217:1",
+            "test-pos-8209:1"
+          ],
+          "latency_ms": 252.277
+        }
+      }
+    },
+    {
+      "qid": "fresh-08",
+      "movie_id": "tt0113957",
+      "question": "Which programming language powers the scrolling computer interface?",
+      "expected_context": "none",
+      "note": "The programming language is absent.",
+      "supporting_chunk_ids": [],
+      "candidate_chunk_ids": [
+        "test-neg-2195:1",
+        "test-pos-8211:1",
+        "test-neg-2201:1",
+        "test-neg-2204:8",
+        "test-neg-2198:3"
+      ],
+      "results": {
+        "gate": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 148.131
+        },
+        "sentence_ids": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-2201:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-2201:1"
+          ],
+          "latency_ms": 199.024
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-2195:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-2195:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-2195:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-2195:1"
+          ],
+          "latency_ms": 878.134
+        }
+      }
+    },
+    {
+      "qid": "fresh-09",
+      "movie_id": "tt0124102",
+      "question": "Which character was played by Dee Snider?",
+      "expected_context": "full",
+      "note": "Carleton Hendricks, also known as Captain Howdy",
+      "supporting_chunk_ids": [
+        "test-neg-1432:3",
+        "test-pos-5515:2"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-1432:3",
+        "test-neg-1446:1",
+        "test-pos-5515:2",
+        "test-neg-1442:3",
+        "test-neg-1431:2"
+      ],
+      "results": {
+        "sentence_ids": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-1432:3"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-5515:2"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-1442:3"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-1432:3",
+            "test-pos-5515:2",
+            "test-neg-1442:3"
+          ],
+          "latency_ms": 234.185
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-1432:3",
+                "test-neg-1446:1",
+                "test-neg-1442:3"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-1432:3",
+            "test-neg-1446:1",
+            "test-neg-1442:3"
+          ],
+          "latency_ms": 616.793
+        },
+        "gate": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 144.931
+        }
+      }
+    },
+    {
+      "qid": "fresh-10",
+      "movie_id": "tt0124102",
+      "question": "How does the villain find or contact his victims?",
+      "expected_context": "full",
+      "note": "He lures them in internet chat rooms.",
+      "supporting_chunk_ids": [
+        "test-neg-1445:2"
+      ],
+      "candidate_chunk_ids": [
+        "test-neg-1430:1",
+        "test-neg-1445:2",
+        "test-neg-1438:1",
+        "test-pos-5505:2",
+        "test-neg-1429:1"
+      ],
+      "results": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-1430:1",
+                "test-neg-1445:2",
+                "test-neg-1438:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-1430:1",
+            "test-neg-1445:2",
+            "test-neg-1438:1"
+          ],
+          "latency_ms": 618.796
+        },
+        "gate": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 172.995
+        },
+        "sentence_ids": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-neg-1430:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-1445:2"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-1445:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-neg-1430:1",
+            "test-neg-1445:2"
+          ],
+          "latency_ms": 278.05
+        }
+      }
+    },
+    {
+      "qid": "fresh-11",
+      "movie_id": "tt0124102",
+      "question": "How much was the makeup artist for Captain Howdy paid?",
+      "expected_context": "none",
+      "note": "The makeup artist pay is absent.",
+      "supporting_chunk_ids": [],
+      "candidate_chunk_ids": [
+        "test-pos-5515:2",
+        "test-pos-5511:1",
+        "test-pos-5513:2",
+        "test-pos-5505:2",
+        "test-neg-1439:5"
+      ],
+      "results": {
+        "gate": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 166.673
+        },
+        "sentence_ids": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-5511:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-1439:5"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-1439:5"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-5511:1",
+            "test-neg-1439:5"
+          ],
+          "latency_ms": 284.7
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-5511:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-5511:1"
+          ],
+          "latency_ms": 355.151
+        }
+      }
+    },
+    {
+      "qid": "fresh-12",
+      "movie_id": "tt0124102",
+      "question": "What is the URL of the chat room used by Captain Howdy?",
+      "expected_context": "none",
+      "note": "The address of the chat room is absent.",
+      "supporting_chunk_ids": [],
+      "candidate_chunk_ids": [
+        "test-neg-1441:1",
+        "test-pos-5513:2",
+        "test-pos-5505:1",
+        "test-neg-1439:5",
+        "test-neg-1432:3"
+      ],
+      "results": {
+        "sentence_ids": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-5505:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-1439:5"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-5505:1",
+            "test-neg-1439:5"
+          ],
+          "latency_ms": 244.68
+        },
+        "direct": {
+          "status": "insufficient_evidence",
+          "reason": "model_rejected",
+          "findings": [],
+          "gate": null,
+          "citation_ids": [],
+          "latency_ms": 143.782
+        },
+        "gate": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 203.469
+        }
+      }
+    },
+    {
+      "qid": "fresh-13",
+      "movie_id": "tt0181288",
+      "question": "What is the name of the independent filmmaker followed in American Movie?",
+      "expected_context": "full",
+      "note": "Mark Borchardt",
+      "supporting_chunk_ids": [
+        "test-pos-5622:1",
+        "test-pos-5624:1"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-5625:1",
+        "test-neg-1471:1",
+        "test-pos-5623:4",
+        "test-pos-5622:1",
+        "test-pos-5624:1"
+      ],
+      "results": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-5625:1",
+                "test-neg-1471:1",
+                "test-pos-5623:4"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-5625:1",
+            "test-neg-1471:1",
+            "test-pos-5623:4"
+          ],
+          "latency_ms": 535.154
+        },
+        "gate": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 182.854
+        },
+        "sentence_ids": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-5624:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-5624:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-5624:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-5624:1"
+          ],
+          "latency_ms": 250.798
+        }
+      }
+    },
+    {
+      "qid": "fresh-14",
+      "movie_id": "tt0181288",
+      "question": "What was the name of Mark Borchardt’s short horror film?",
+      "expected_context": "full",
+      "note": "Coven",
+      "supporting_chunk_ids": [
+        "test-pos-5624:2"
+      ],
+      "candidate_chunk_ids": [
+        "test-pos-5622:1",
+        "test-pos-5636:2",
+        "test-neg-1477:2",
+        "test-pos-5624:2",
+        "test-neg-1471:1"
+      ],
+      "results": {
+        "gate": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 158.454
+        },
+        "sentence_ids": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-5622:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-5636:2"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-neg-1471:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-5622:1",
+            "test-pos-5636:2",
+            "test-neg-1471:1"
+          ],
+          "latency_ms": 253.537
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-5622:1",
+                "test-pos-5636:2",
+                "test-neg-1477:2"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-5622:1",
+            "test-pos-5636:2",
+            "test-neg-1477:2"
+          ],
+          "latency_ms": 615.279
+        }
+      }
+    },
+    {
+      "qid": "fresh-15",
+      "movie_id": "tt0181288",
+      "question": "What camera model did Mark Borchardt use to shoot Coven?",
+      "expected_context": "none",
+      "note": "The camera make and model are absent.",
+      "supporting_chunk_ids": [],
+      "candidate_chunk_ids": [
+        "test-pos-5624:2",
+        "test-pos-5639:1",
+        "test-pos-5621:5",
+        "test-pos-5635:4",
+        "test-pos-5629:1"
+      ],
+      "results": {
+        "sentence_ids": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-5639:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-5635:4"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-5635:4"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-5639:1",
+            "test-pos-5635:4"
+          ],
+          "latency_ms": 262.559
+        },
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-5624:2",
+                "test-pos-5639:1",
+                "test-pos-5621:5"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-5624:2",
+            "test-pos-5639:1",
+            "test-pos-5621:5"
+          ],
+          "latency_ms": 593.855
+        },
+        "gate": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 165.795
+        }
+      }
+    },
+    {
+      "qid": "fresh-16",
+      "movie_id": "tt0181288",
+      "question": "Which studio address was used to film Coven?",
+      "expected_context": "none",
+      "note": "An exact filming studio address is absent.",
+      "supporting_chunk_ids": [],
+      "candidate_chunk_ids": [
+        "test-pos-5623:3",
+        "test-pos-5629:1",
+        "test-pos-5624:2",
+        "test-pos-5621:6",
+        "test-pos-5639:1"
+      ],
+      "results": {
+        "direct": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-5624:2",
+                "test-pos-5621:6"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-5624:2",
+            "test-pos-5621:6"
+          ],
+          "latency_ms": 422.606
+        },
+        "gate": {
+          "status": "insufficient_evidence",
+          "reason": "gate_insufficient",
+          "findings": [],
+          "gate": {
+            "reason": "gate_insufficient",
+            "proposals": 0,
+            "selected_chunk_ids": []
+          },
+          "citation_ids": [],
+          "latency_ms": 168.607
+        },
+        "sentence_ids": {
+          "status": "answered",
+          "reason": null,
+          "findings": [
+            {
+              "source_ids": [
+                "test-pos-5624:2"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-5639:1"
+              ]
+            },
+            {
+              "source_ids": [
+                "test-pos-5639:1"
+              ]
+            }
+          ],
+          "gate": null,
+          "citation_ids": [
+            "test-pos-5624:2",
+            "test-pos-5639:1"
+          ],
+          "latency_ms": 242.375
+        }
+      }
+    }
+  ],
+  "summary": {
+    "direct": {
+      "full": {
+        "partial": 2,
+        "wrong": 4,
+        "correct": 2
+      },
+      "none": {
+        "wrong": 7,
+        "abstained": 1
+      }
+    },
+    "gate": {
+      "full": {
+        "abstained": 7,
+        "correct": 1
+      },
+      "none": {
+        "abstained": 8
+      }
+    },
+    "sentence_ids": {
+      "full": {
+        "wrong": 2,
+        "partial": 2,
+        "correct": 4
+      },
+      "none": {
+        "wrong": 8
+      }
+    }
+  },
+  "audit": [
+    {
+      "qid": "fresh-01",
+      "expected_context": "full",
+      "ratings": {
+        "direct": "partial",
+        "gate": "abstained",
+        "sentence_ids": "wrong"
+      }
+    },
+    {
+      "qid": "fresh-02",
+      "expected_context": "full",
+      "ratings": {
+        "gate": "correct",
+        "sentence_ids": "partial",
+        "direct": "wrong"
+      }
+    },
+    {
+      "qid": "fresh-03",
+      "expected_context": "none",
+      "ratings": {
+        "sentence_ids": "wrong",
+        "direct": "wrong",
+        "gate": "abstained"
+      }
+    },
+    {
+      "qid": "fresh-04",
+      "expected_context": "none",
+      "ratings": {
+        "direct": "wrong",
+        "gate": "abstained",
+        "sentence_ids": "wrong"
+      }
+    },
+    {
+      "qid": "fresh-05",
+      "expected_context": "full",
+      "ratings": {
+        "gate": "abstained",
+        "sentence_ids": "correct",
+        "direct": "wrong"
+      }
+    },
+    {
+      "qid": "fresh-06",
+      "expected_context": "full",
+      "ratings": {
+        "sentence_ids": "correct",
+        "direct": "correct",
+        "gate": "abstained"
+      }
+    },
+    {
+      "qid": "fresh-07",
+      "expected_context": "none",
+      "ratings": {
+        "direct": "wrong",
+        "gate": "abstained",
+        "sentence_ids": "wrong"
+      }
+    },
+    {
+      "qid": "fresh-08",
+      "expected_context": "none",
+      "ratings": {
+        "gate": "abstained",
+        "sentence_ids": "wrong",
+        "direct": "wrong"
+      }
+    },
+    {
+      "qid": "fresh-09",
+      "expected_context": "full",
+      "ratings": {
+        "sentence_ids": "correct",
+        "direct": "correct",
+        "gate": "abstained"
+      }
+    },
+    {
+      "qid": "fresh-10",
+      "expected_context": "full",
+      "ratings": {
+        "direct": "partial",
+        "gate": "abstained",
+        "sentence_ids": "partial"
+      }
+    },
+    {
+      "qid": "fresh-11",
+      "expected_context": "none",
+      "ratings": {
+        "gate": "abstained",
+        "sentence_ids": "wrong",
+        "direct": "wrong"
+      }
+    },
+    {
+      "qid": "fresh-12",
+      "expected_context": "none",
+      "ratings": {
+        "sentence_ids": "wrong",
+        "direct": "abstained",
+        "gate": "abstained"
+      }
+    },
+    {
+      "qid": "fresh-13",
+      "expected_context": "full",
+      "ratings": {
+        "direct": "wrong",
+        "gate": "abstained",
+        "sentence_ids": "correct"
+      }
+    },
+    {
+      "qid": "fresh-14",
+      "expected_context": "full",
+      "ratings": {
+        "gate": "abstained",
+        "sentence_ids": "wrong",
+        "direct": "wrong"
+      }
+    },
+    {
+      "qid": "fresh-15",
+      "expected_context": "none",
+      "ratings": {
+        "sentence_ids": "wrong",
+        "direct": "wrong",
+        "gate": "abstained"
+      }
+    },
+    {
+      "qid": "fresh-16",
+      "expected_context": "none",
+      "ratings": {
+        "direct": "wrong",
+        "gate": "abstained",
+        "sentence_ids": "wrong"
+      }
+    }
+  ],
+  "release_excerpt": "Questions, candidate IDs, citation IDs, results and review labels. Replay locally to inspect source text."
+}

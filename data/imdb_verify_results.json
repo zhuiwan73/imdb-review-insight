@@ -1,0 +1,1904 @@
+{
+  "rubric": "On supported questions, full requires the requested fact with a supporting citation. Partial leaves an ambiguity or omits part of the requested answer. On unsupported questions, only explicit abstention counts as correct. Semantic labels were assigned by Codex without independent review.",
+  "development": {
+    "ollama_version": "0.40.17",
+    "model": "qwen2.5:1.5b",
+    "digest": "65ec06548149b04c096a120e4a6da9d4017ea809c91734ea5631e89f96ddc57b",
+    "questions_sha256": "44da206637c265c10568eb2ff0e137e954a17b1e8db20d9759933507de694146",
+    "corpus_sha256": "aa0833a0717fbfe83855c88fbbac7d4ab29cae2734b4a6024eb66aa38d77a593",
+    "verifier_sha256": "78d824cf8aeb4f1987cf8162ac3bb486d2e2804f7159d8118191996b10555e82",
+    "cases": [
+      {
+        "qid": "fresh-01",
+        "movie_id": "tt0074157",
+        "question": "What style was the spaceship set design described as?",
+        "expected_context": "full",
+        "note": "Victorian",
+        "supporting_chunk_ids": [
+          "test-neg-2213:1"
+        ],
+        "candidate_chunk_ids": [
+          "test-neg-2213:1",
+          "test-neg-2218:3",
+          "test-pos-8302:1",
+          "test-pos-8306:1",
+          "test-neg-2219:3"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-neg-2219:3"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-neg-2219:3"
+            ],
+            "latency_ms": 43807.443,
+            "audit_label": "answered_ungraded"
+          },
+          "verified": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-neg-2219:3"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-neg-2219:3"
+            ],
+            "latency_ms": 138.265,
+            "audit_label": "answered_ungraded"
+          }
+        }
+      },
+      {
+        "qid": "fresh-02",
+        "movie_id": "tt0074157",
+        "question": "What material did a reviewer compare the monster costumes to?",
+        "expected_context": "full",
+        "note": "Rubber suits",
+        "supporting_chunk_ids": [
+          "test-neg-2213:1",
+          "test-pos-8309:2",
+          "test-neg-2219:2"
+        ],
+        "candidate_chunk_ids": [
+          "test-neg-2213:1",
+          "test-pos-8309:2",
+          "test-neg-2219:2",
+          "test-pos-8297:2",
+          "test-pos-8307:1"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-neg-2213:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-8297:2"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-8307:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-neg-2213:1",
+              "test-pos-8297:2",
+              "test-pos-8307:1"
+            ],
+            "latency_ms": 243.216,
+            "audit_label": "answered_ungraded"
+          },
+          "verified": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-neg-2213:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-neg-2213:1"
+            ],
+            "latency_ms": 197.265,
+            "audit_label": "answered_ungraded"
+          }
+        }
+      },
+      {
+        "qid": "fresh-03",
+        "movie_id": "tt0074157",
+        "question": "Which company manufactured the rubber monster costumes?",
+        "expected_context": "none",
+        "note": "The costume manufacturer is absent.",
+        "supporting_chunk_ids": [],
+        "candidate_chunk_ids": [
+          "test-pos-8309:2",
+          "test-neg-2213:1",
+          "test-neg-2219:2",
+          "test-pos-8307:1",
+          "test-pos-8303:1"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-neg-2213:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-8307:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-8307:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-neg-2213:1",
+              "test-pos-8307:1"
+            ],
+            "latency_ms": 245.073,
+            "audit_label": "unsupported_answer"
+          },
+          "verified": {
+            "status": "insufficient_evidence",
+            "reason": "verifier_span_unverified",
+            "findings": [],
+            "gate": null,
+            "citation_ids": [],
+            "latency_ms": 87.69,
+            "audit_label": "correct_abstention"
+          }
+        }
+      },
+      {
+        "qid": "fresh-04",
+        "movie_id": "tt0074157",
+        "question": "How much did the production pay to build the Victorian spaceship sets?",
+        "expected_context": "none",
+        "note": "The set construction cost is absent.",
+        "supporting_chunk_ids": [],
+        "candidate_chunk_ids": [
+          "test-pos-8308:1",
+          "test-pos-8309:1",
+          "test-neg-2218:1",
+          "test-pos-8300:1",
+          "test-pos-8306:2"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-8309:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-neg-2218:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-8306:2"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-8309:1",
+              "test-neg-2218:1",
+              "test-pos-8306:2"
+            ],
+            "latency_ms": 223.608,
+            "audit_label": "unsupported_answer"
+          },
+          "verified": {
+            "status": "insufficient_evidence",
+            "reason": "verifier_span_unverified",
+            "findings": [],
+            "gate": null,
+            "citation_ids": [],
+            "latency_ms": 110.311,
+            "audit_label": "correct_abstention"
+          }
+        }
+      },
+      {
+        "qid": "fresh-05",
+        "movie_id": "tt0113957",
+        "question": "What computer tasks did Angela Bennett perform for the Cathedral Company?",
+        "expected_context": "full",
+        "note": "Cleaning viruses and testing games",
+        "supporting_chunk_ids": [
+          "test-pos-8217:1"
+        ],
+        "candidate_chunk_ids": [
+          "test-pos-8217:1",
+          "test-neg-2204:1",
+          "test-pos-8205:1",
+          "test-pos-8210:2",
+          "test-pos-8203:1"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-8217:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-neg-2204:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-neg-2204:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-8217:1",
+              "test-neg-2204:1"
+            ],
+            "latency_ms": 250.137,
+            "audit_label": "answered_ungraded"
+          },
+          "verified": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-8217:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-8217:1"
+            ],
+            "latency_ms": 142.947,
+            "audit_label": "answered_ungraded"
+          }
+        }
+      },
+      {
+        "qid": "fresh-06",
+        "movie_id": "tt0113957",
+        "question": "Who played Angela Bennett in The Net?",
+        "expected_context": "full",
+        "note": "Sandra Bullock",
+        "supporting_chunk_ids": [
+          "test-pos-8217:1",
+          "test-pos-8203:1",
+          "test-pos-8210:2"
+        ],
+        "candidate_chunk_ids": [
+          "test-pos-8217:1",
+          "test-pos-8203:1",
+          "test-pos-8205:1",
+          "test-pos-8209:1",
+          "test-pos-8210:2"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-8217:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-8205:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-8209:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-8217:1",
+              "test-pos-8205:1",
+              "test-pos-8209:1"
+            ],
+            "latency_ms": 262.234,
+            "audit_label": "answered_ungraded"
+          },
+          "verified": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-8217:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-8217:1"
+            ],
+            "latency_ms": 128.292,
+            "audit_label": "answered_ungraded"
+          }
+        }
+      },
+      {
+        "qid": "fresh-07",
+        "movie_id": "tt0113957",
+        "question": "What salary did the Cathedral Company pay Angela Bennett?",
+        "expected_context": "none",
+        "note": "Her salary is absent.",
+        "supporting_chunk_ids": [],
+        "candidate_chunk_ids": [
+          "test-pos-8217:1",
+          "test-neg-2204:1",
+          "test-pos-8205:1",
+          "test-pos-8209:1",
+          "test-pos-8203:1"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-8217:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-8209:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-8217:1",
+              "test-pos-8209:1"
+            ],
+            "latency_ms": 225.746,
+            "audit_label": "unsupported_answer"
+          },
+          "verified": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-8217:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-8217:1"
+            ],
+            "latency_ms": 119.27,
+            "audit_label": "unsupported_answer"
+          }
+        }
+      },
+      {
+        "qid": "fresh-08",
+        "movie_id": "tt0113957",
+        "question": "Which programming language powers the scrolling computer interface?",
+        "expected_context": "none",
+        "note": "The programming language is absent.",
+        "supporting_chunk_ids": [],
+        "candidate_chunk_ids": [
+          "test-neg-2195:1",
+          "test-pos-8211:1",
+          "test-neg-2201:1",
+          "test-neg-2204:8",
+          "test-neg-2198:3"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-neg-2201:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-neg-2201:1"
+            ],
+            "latency_ms": 190.939,
+            "audit_label": "unsupported_answer"
+          },
+          "verified": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-neg-2201:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-neg-2201:1"
+            ],
+            "latency_ms": 243.187,
+            "audit_label": "unsupported_answer"
+          }
+        }
+      },
+      {
+        "qid": "fresh-09",
+        "movie_id": "tt0124102",
+        "question": "Which character was played by Dee Snider?",
+        "expected_context": "full",
+        "note": "Carleton Hendricks, also known as Captain Howdy",
+        "supporting_chunk_ids": [
+          "test-neg-1432:3",
+          "test-pos-5515:2"
+        ],
+        "candidate_chunk_ids": [
+          "test-neg-1432:3",
+          "test-neg-1446:1",
+          "test-pos-5515:2",
+          "test-neg-1442:3",
+          "test-neg-1431:2"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-neg-1432:3"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-5515:2"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-neg-1442:3"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-neg-1432:3",
+              "test-pos-5515:2",
+              "test-neg-1442:3"
+            ],
+            "latency_ms": 231.507,
+            "audit_label": "answered_ungraded"
+          },
+          "verified": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-neg-1432:3"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-neg-1432:3"
+            ],
+            "latency_ms": 119.41,
+            "audit_label": "answered_ungraded"
+          }
+        }
+      },
+      {
+        "qid": "fresh-10",
+        "movie_id": "tt0124102",
+        "question": "How does the villain find or contact his victims?",
+        "expected_context": "full",
+        "note": "He lures them in internet chat rooms.",
+        "supporting_chunk_ids": [
+          "test-neg-1445:2"
+        ],
+        "candidate_chunk_ids": [
+          "test-neg-1430:1",
+          "test-neg-1445:2",
+          "test-neg-1438:1",
+          "test-pos-5505:2",
+          "test-neg-1429:1"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-neg-1430:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-neg-1445:2"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-neg-1445:2"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-neg-1430:1",
+              "test-neg-1445:2"
+            ],
+            "latency_ms": 270.948,
+            "audit_label": "answered_ungraded"
+          },
+          "verified": {
+            "status": "insufficient_evidence",
+            "reason": "verifier_span_unverified",
+            "findings": [],
+            "gate": null,
+            "citation_ids": [],
+            "latency_ms": 112.803,
+            "audit_label": "false_abstention"
+          }
+        }
+      },
+      {
+        "qid": "fresh-11",
+        "movie_id": "tt0124102",
+        "question": "How much was the makeup artist for Captain Howdy paid?",
+        "expected_context": "none",
+        "note": "The makeup artist pay is absent.",
+        "supporting_chunk_ids": [],
+        "candidate_chunk_ids": [
+          "test-pos-5515:2",
+          "test-pos-5511:1",
+          "test-pos-5513:2",
+          "test-pos-5505:2",
+          "test-neg-1439:5"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-5511:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-neg-1439:5"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-neg-1439:5"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-5511:1",
+              "test-neg-1439:5"
+            ],
+            "latency_ms": 258.14,
+            "audit_label": "unsupported_answer"
+          },
+          "verified": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-neg-1439:5"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-neg-1439:5"
+            ],
+            "latency_ms": 132.892,
+            "audit_label": "unsupported_answer"
+          }
+        }
+      },
+      {
+        "qid": "fresh-12",
+        "movie_id": "tt0124102",
+        "question": "What is the URL of the chat room used by Captain Howdy?",
+        "expected_context": "none",
+        "note": "The address of the chat room is absent.",
+        "supporting_chunk_ids": [],
+        "candidate_chunk_ids": [
+          "test-neg-1441:1",
+          "test-pos-5513:2",
+          "test-pos-5505:1",
+          "test-neg-1439:5",
+          "test-neg-1432:3"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-5505:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-neg-1439:5"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-5505:1",
+              "test-neg-1439:5"
+            ],
+            "latency_ms": 227.458,
+            "audit_label": "unsupported_answer"
+          },
+          "verified": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-neg-1439:5"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-neg-1439:5"
+            ],
+            "latency_ms": 122.141,
+            "audit_label": "unsupported_answer"
+          }
+        }
+      },
+      {
+        "qid": "fresh-13",
+        "movie_id": "tt0181288",
+        "question": "What is the name of the independent filmmaker followed in American Movie?",
+        "expected_context": "full",
+        "note": "Mark Borchardt",
+        "supporting_chunk_ids": [
+          "test-pos-5622:1",
+          "test-pos-5624:1"
+        ],
+        "candidate_chunk_ids": [
+          "test-pos-5625:1",
+          "test-neg-1471:1",
+          "test-pos-5623:4",
+          "test-pos-5622:1",
+          "test-pos-5624:1"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-5624:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-5624:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-5624:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-5624:1"
+            ],
+            "latency_ms": 237.088,
+            "audit_label": "answered_ungraded"
+          },
+          "verified": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-5624:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-5624:1"
+            ],
+            "latency_ms": 110.794,
+            "audit_label": "answered_ungraded"
+          }
+        }
+      },
+      {
+        "qid": "fresh-14",
+        "movie_id": "tt0181288",
+        "question": "What was the name of Mark Borchardt’s short horror film?",
+        "expected_context": "full",
+        "note": "Coven",
+        "supporting_chunk_ids": [
+          "test-pos-5624:2"
+        ],
+        "candidate_chunk_ids": [
+          "test-pos-5622:1",
+          "test-pos-5636:2",
+          "test-neg-1477:2",
+          "test-pos-5624:2",
+          "test-neg-1471:1"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-5622:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-5636:2"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-neg-1471:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-5622:1",
+              "test-pos-5636:2",
+              "test-neg-1471:1"
+            ],
+            "latency_ms": 220.884,
+            "audit_label": "answered_ungraded"
+          },
+          "verified": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-5622:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-5622:1"
+            ],
+            "latency_ms": 121.332,
+            "audit_label": "answered_ungraded"
+          }
+        }
+      },
+      {
+        "qid": "fresh-15",
+        "movie_id": "tt0181288",
+        "question": "What camera model did Mark Borchardt use to shoot Coven?",
+        "expected_context": "none",
+        "note": "The camera make and model are absent.",
+        "supporting_chunk_ids": [],
+        "candidate_chunk_ids": [
+          "test-pos-5624:2",
+          "test-pos-5639:1",
+          "test-pos-5621:5",
+          "test-pos-5635:4",
+          "test-pos-5629:1"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-5639:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-5635:4"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-5635:4"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-5639:1",
+              "test-pos-5635:4"
+            ],
+            "latency_ms": 269.97,
+            "audit_label": "unsupported_answer"
+          },
+          "verified": {
+            "status": "insufficient_evidence",
+            "reason": "verifier_span_unverified",
+            "findings": [],
+            "gate": null,
+            "citation_ids": [],
+            "latency_ms": 104.318,
+            "audit_label": "correct_abstention"
+          }
+        }
+      },
+      {
+        "qid": "fresh-16",
+        "movie_id": "tt0181288",
+        "question": "Which studio address was used to film Coven?",
+        "expected_context": "none",
+        "note": "An exact filming studio address is absent.",
+        "supporting_chunk_ids": [],
+        "candidate_chunk_ids": [
+          "test-pos-5623:3",
+          "test-pos-5629:1",
+          "test-pos-5624:2",
+          "test-pos-5621:6",
+          "test-pos-5639:1"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-5624:2"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-5639:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-5639:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-5624:2",
+              "test-pos-5639:1"
+            ],
+            "latency_ms": 243.645,
+            "audit_label": "unsupported_answer"
+          },
+          "verified": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-5624:2"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-5624:2"
+            ],
+            "latency_ms": 104.932,
+            "audit_label": "unsupported_answer"
+          }
+        }
+      }
+    ],
+    "summary": {
+      "selected": {
+        "answered_ungraded": 8,
+        "unsupported_answer": 8
+      },
+      "verified": {
+        "answered_ungraded": 7,
+        "correct_abstention": 3,
+        "unsupported_answer": 5,
+        "false_abstention": 1
+      }
+    }
+  },
+  "holdout": {
+    "ollama_version": "0.40.17",
+    "model": "qwen2.5:1.5b",
+    "digest": "65ec06548149b04c096a120e4a6da9d4017ea809c91734ea5631e89f96ddc57b",
+    "questions_sha256": "0319c6e055a946e057e023f5da13e3c6f673acea73821b0d4847ab01ea6bedd6",
+    "corpus_sha256": "aa0833a0717fbfe83855c88fbbac7d4ab29cae2734b4a6024eb66aa38d77a593",
+    "verifier_sha256": "78d824cf8aeb4f1987cf8162ac3bb486d2e2804f7159d8118191996b10555e82",
+    "cases": [
+      {
+        "qid": "verify-01",
+        "movie_id": "tt0202382",
+        "question": "What unusual technician job was listed in the credits?",
+        "expected_context": "full",
+        "note": "Vomit Technician",
+        "supporting_chunk_ids": [
+          "test-pos-5769:1"
+        ],
+        "candidate_chunk_ids": [
+          "test-pos-5769:1"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-5769:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-5769:1"
+            ],
+            "latency_ms": 339.293,
+            "audit_label": "full"
+          },
+          "verified": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-5769:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-5769:1"
+            ],
+            "latency_ms": 117.068,
+            "audit_label": "full"
+          }
+        }
+      },
+      {
+        "qid": "verify-02",
+        "movie_id": "tt0202382",
+        "question": "Which TV series did a reviewer connect to Guest House Paradiso?",
+        "expected_context": "full",
+        "note": "Bottom",
+        "supporting_chunk_ids": [
+          "test-neg-1516:2"
+        ],
+        "candidate_chunk_ids": [
+          "test-neg-1523:3",
+          "test-neg-1513:1",
+          "test-neg-1516:2",
+          "test-neg-1520:4",
+          "test-pos-5768:1"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-neg-1523:3"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-neg-1523:3"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-neg-1523:3"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-neg-1523:3"
+            ],
+            "latency_ms": 227.721,
+            "audit_label": "partial"
+          },
+          "verified": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-neg-1523:3"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-neg-1523:3"
+            ],
+            "latency_ms": 135.931,
+            "audit_label": "incorrect"
+          }
+        },
+        "audit_note": "Baseline names several series without identifying which one is the reference answer. Verifier extracts a generic phrase."
+      },
+      {
+        "qid": "verify-03",
+        "movie_id": "tt0202382",
+        "question": "How much was the vomit technician paid per hour?",
+        "expected_context": "none",
+        "note": "No hourly rate appears.",
+        "supporting_chunk_ids": [],
+        "candidate_chunk_ids": [
+          "test-pos-5769:1",
+          "test-neg-1516:7",
+          "test-pos-5766:1",
+          "test-pos-5764:2",
+          "test-pos-5765:2"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-5764:2"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-5764:2"
+            ],
+            "latency_ms": 182.672,
+            "audit_label": "unsupported_answer"
+          },
+          "verified": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-5764:2"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-5764:2"
+            ],
+            "latency_ms": 129.18,
+            "audit_label": "unsupported_answer"
+          }
+        }
+      },
+      {
+        "qid": "verify-04",
+        "movie_id": "tt0202382",
+        "question": "What brand manufactured the lighting equipment used for the guest house interiors?",
+        "expected_context": "none",
+        "note": "No brand of lighting equipment appears.",
+        "supporting_chunk_ids": [],
+        "candidate_chunk_ids": [
+          "test-neg-1513:1",
+          "test-neg-1516:4",
+          "test-pos-5761:2",
+          "test-neg-1520:4",
+          "test-neg-1523:6"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-neg-1520:4"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-neg-1520:4"
+            ],
+            "latency_ms": 177.888,
+            "audit_label": "unsupported_answer"
+          },
+          "verified": {
+            "status": "insufficient_evidence",
+            "reason": "verifier_no_answer",
+            "findings": [],
+            "gate": null,
+            "citation_ids": [],
+            "latency_ms": 92.403,
+            "audit_label": "correct_abstention"
+          }
+        }
+      },
+      {
+        "qid": "verify-05",
+        "movie_id": "tt0239496",
+        "question": "What drink was put into super-soakers to stop the snow creatures?",
+        "expected_context": "full",
+        "note": "Margaritas",
+        "supporting_chunk_ids": [
+          "test-neg-3360:1"
+        ],
+        "candidate_chunk_ids": [
+          "test-neg-3360:1",
+          "test-pos-12383:3",
+          "test-pos-12384:1",
+          "test-neg-3375:3",
+          "test-neg-3370:2"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-12383:3"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-12384:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-neg-3375:3"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-12383:3",
+              "test-pos-12384:1",
+              "test-neg-3375:3"
+            ],
+            "latency_ms": 229.395,
+            "audit_label": "incorrect"
+          },
+          "verified": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-12383:3"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-12383:3"
+            ],
+            "latency_ms": 121.585,
+            "audit_label": "incorrect"
+          }
+        },
+        "audit_note": "Gold paragraph is retrieved, but selected sentences do not identify the drink."
+      },
+      {
+        "qid": "verify-06",
+        "movie_id": "tt0239496",
+        "question": "What kind of island does the killer snowman terrorize?",
+        "expected_context": "full",
+        "note": "A tropical island",
+        "supporting_chunk_ids": [
+          "test-pos-12384:1",
+          "test-neg-3376:1"
+        ],
+        "candidate_chunk_ids": [
+          "test-neg-3366:1",
+          "test-neg-3376:1",
+          "test-pos-12384:1",
+          "test-pos-12379:3",
+          "test-neg-3361:3"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-12379:3"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-neg-3361:3"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-12379:3",
+              "test-neg-3361:3"
+            ],
+            "latency_ms": 229.348,
+            "audit_label": "incorrect"
+          },
+          "verified": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-12379:3"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-12379:3"
+            ],
+            "latency_ms": 116.714,
+            "audit_label": "incorrect"
+          }
+        },
+        "audit_note": "Gold paragraph is retrieved, but selected sentences omit the type of island."
+      },
+      {
+        "qid": "verify-07",
+        "movie_id": "tt0239496",
+        "question": "What brand of margarita mix was loaded into the super-soakers?",
+        "expected_context": "none",
+        "note": "No commercial brand is given.",
+        "supporting_chunk_ids": [],
+        "candidate_chunk_ids": [
+          "test-neg-3360:1",
+          "test-pos-12384:1",
+          "test-neg-3375:3",
+          "test-neg-3372:1",
+          "test-pos-12378:2"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-neg-3372:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-neg-3372:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-neg-3372:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-neg-3372:1"
+            ],
+            "latency_ms": 252.825,
+            "audit_label": "unsupported_answer"
+          },
+          "verified": {
+            "status": "insufficient_evidence",
+            "reason": "verifier_span_unverified",
+            "findings": [],
+            "gate": null,
+            "citation_ids": [],
+            "latency_ms": 106.897,
+            "audit_label": "correct_abstention"
+          }
+        }
+      },
+      {
+        "qid": "verify-08",
+        "movie_id": "tt0239496",
+        "question": "What was the production travel budget for filming on the tropical island?",
+        "expected_context": "none",
+        "note": "No travel budget is given.",
+        "supporting_chunk_ids": [],
+        "candidate_chunk_ids": [
+          "test-neg-3359:3",
+          "test-neg-3366:2",
+          "test-neg-3363:1",
+          "test-pos-12384:1",
+          "test-neg-3372:1"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-neg-3363:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-neg-3372:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-neg-3363:1",
+              "test-neg-3372:1"
+            ],
+            "latency_ms": 229.876,
+            "audit_label": "unsupported_answer"
+          },
+          "verified": {
+            "status": "insufficient_evidence",
+            "reason": "verifier_span_unverified",
+            "findings": [],
+            "gate": null,
+            "citation_ids": [],
+            "latency_ms": 90.026,
+            "audit_label": "correct_abstention"
+          }
+        }
+      },
+      {
+        "qid": "verify-09",
+        "movie_id": "tt0284490",
+        "question": "Who plays Detective Mitch Preston in Showtime?",
+        "expected_context": "full",
+        "note": "Robert De Niro",
+        "supporting_chunk_ids": [
+          "test-neg-969:1",
+          "test-pos-4071:2",
+          "test-pos-4057:1"
+        ],
+        "candidate_chunk_ids": [
+          "test-neg-969:1",
+          "test-pos-4071:2",
+          "test-pos-4065:1",
+          "test-pos-4057:1",
+          "test-pos-4064:2"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-neg-969:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-4071:2"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-4065:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-neg-969:1",
+              "test-pos-4071:2",
+              "test-pos-4065:1"
+            ],
+            "latency_ms": 260.356,
+            "audit_label": "full"
+          },
+          "verified": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-neg-969:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-neg-969:1"
+            ],
+            "latency_ms": 140.579,
+            "audit_label": "full"
+          }
+        }
+      },
+      {
+        "qid": "verify-10",
+        "movie_id": "tt0284490",
+        "question": "What operation did Eddie Murphy’s officer spoil at the start of Showtime?",
+        "expected_context": "full",
+        "note": "A drug deal or drug bust",
+        "supporting_chunk_ids": [
+          "test-neg-970:1"
+        ],
+        "candidate_chunk_ids": [
+          "test-neg-976:1",
+          "test-pos-4072:2",
+          "test-pos-4059:1",
+          "test-neg-970:1",
+          "test-pos-4057:1"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-neg-970:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-neg-970:1"
+            ],
+            "latency_ms": 200.37,
+            "audit_label": "full"
+          },
+          "verified": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-neg-970:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-neg-970:1"
+            ],
+            "latency_ms": 124.911,
+            "audit_label": "incorrect"
+          }
+        },
+        "audit_note": "Baseline identifies the drug deal. Verifier extracts the later TV show from the same sentence."
+      },
+      {
+        "qid": "verify-11",
+        "movie_id": "tt0284490",
+        "question": "What was Detective Mitch Preston’s badge number?",
+        "expected_context": "none",
+        "note": "The badge number is absent.",
+        "supporting_chunk_ids": [],
+        "candidate_chunk_ids": [
+          "test-pos-4071:2",
+          "test-neg-969:1",
+          "test-pos-4065:1",
+          "test-pos-4064:2",
+          "test-pos-4066:1"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-neg-969:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-4065:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-4065:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-neg-969:1",
+              "test-pos-4065:1"
+            ],
+            "latency_ms": 238.036,
+            "audit_label": "unsupported_answer"
+          },
+          "verified": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-neg-969:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-neg-969:1"
+            ],
+            "latency_ms": 127.844,
+            "audit_label": "unsupported_answer"
+          }
+        },
+        "audit_note": "The verified span names the detective. The question asks for the badge number."
+      },
+      {
+        "qid": "verify-12",
+        "movie_id": "tt0284490",
+        "question": "What was the exact dollar value of the drugs involved in the botched deal?",
+        "expected_context": "none",
+        "note": "There is no exact dollar value for the drugs.",
+        "supporting_chunk_ids": [],
+        "candidate_chunk_ids": [
+          "test-neg-968:7",
+          "test-pos-4061:3",
+          "test-neg-971:1",
+          "test-neg-970:1",
+          "test-neg-969:6"
+        ],
+        "results": {
+          "selected": {
+            "status": "insufficient_evidence",
+            "reason": "sentence_none",
+            "findings": [],
+            "gate": null,
+            "citation_ids": [],
+            "latency_ms": 162.679,
+            "audit_label": "correct_abstention"
+          },
+          "verified": {
+            "status": "insufficient_evidence",
+            "reason": "sentence_none",
+            "findings": [],
+            "gate": null,
+            "citation_ids": [],
+            "latency_ms": 0.003,
+            "audit_label": "correct_abstention"
+          }
+        }
+      },
+      {
+        "qid": "verify-13",
+        "movie_id": "tt0483726",
+        "question": "What did Tom Dobbs do for a living before running for president?",
+        "expected_context": "full",
+        "note": "Political comedian or political talk-show host",
+        "supporting_chunk_ids": [
+          "test-neg-1418:1",
+          "test-pos-5446:1",
+          "test-pos-5439:1"
+        ],
+        "candidate_chunk_ids": [
+          "test-neg-1408:2",
+          "test-neg-1418:1",
+          "test-pos-5431:3",
+          "test-pos-5446:1",
+          "test-pos-5439:1"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-5446:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-5446:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-5439:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-5446:1",
+              "test-pos-5439:1"
+            ],
+            "latency_ms": 252.339,
+            "audit_label": "full"
+          },
+          "verified": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-5446:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-5446:1"
+            ],
+            "latency_ms": 204.315,
+            "audit_label": "incorrect"
+          }
+        },
+        "audit_note": "Baseline identifies the occupation. Verifier extracts the suggestion to run for president."
+      },
+      {
+        "qid": "verify-14",
+        "movie_id": "tt0483726",
+        "question": "Who plays Tom Dobbs in Man of the Year?",
+        "expected_context": "full",
+        "note": "Robin Williams",
+        "supporting_chunk_ids": [
+          "test-pos-5446:1",
+          "test-neg-1408:2",
+          "test-pos-5431:1"
+        ],
+        "candidate_chunk_ids": [
+          "test-pos-5446:1",
+          "test-neg-1408:2",
+          "test-pos-5432:2",
+          "test-pos-5431:1",
+          "test-pos-5430:1"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-5431:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-5430:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-5431:1",
+              "test-pos-5430:1"
+            ],
+            "latency_ms": 235.321,
+            "audit_label": "full"
+          },
+          "verified": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-5431:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-5431:1"
+            ],
+            "latency_ms": 113.979,
+            "audit_label": "full"
+          }
+        }
+      },
+      {
+        "qid": "verify-15",
+        "movie_id": "tt0483726",
+        "question": "What annual salary did Tom Dobbs earn as a political comedian?",
+        "expected_context": "none",
+        "note": "His salary is not stated.",
+        "supporting_chunk_ids": [],
+        "candidate_chunk_ids": [
+          "test-pos-5446:1",
+          "test-pos-5431:1",
+          "test-pos-5439:1",
+          "test-neg-1418:1",
+          "test-pos-5441:1"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-5431:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-5439:1"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-5441:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-5431:1",
+              "test-pos-5439:1",
+              "test-pos-5441:1"
+            ],
+            "latency_ms": 240.304,
+            "audit_label": "unsupported_answer"
+          },
+          "verified": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-pos-5431:1"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-pos-5431:1"
+            ],
+            "latency_ms": 172.829,
+            "audit_label": "unsupported_answer"
+          }
+        }
+      },
+      {
+        "qid": "verify-16",
+        "movie_id": "tt0483726",
+        "question": "What exact model number was printed on the electronic voting machines?",
+        "expected_context": "none",
+        "note": "The machine model number is not stated.",
+        "supporting_chunk_ids": [],
+        "candidate_chunk_ids": [
+          "test-pos-5440:1",
+          "test-neg-1408:3",
+          "test-neg-1409:3",
+          "test-neg-1416:9",
+          "test-pos-5431:2"
+        ],
+        "results": {
+          "selected": {
+            "status": "answered",
+            "reason": null,
+            "findings": [
+              {
+                "source_ids": [
+                  "test-neg-1416:9"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-5431:2"
+                ]
+              },
+              {
+                "source_ids": [
+                  "test-pos-5431:2"
+                ]
+              }
+            ],
+            "gate": null,
+            "citation_ids": [
+              "test-neg-1416:9",
+              "test-pos-5431:2"
+            ],
+            "latency_ms": 257.848,
+            "audit_label": "unsupported_answer"
+          },
+          "verified": {
+            "status": "insufficient_evidence",
+            "reason": "verifier_span_unverified",
+            "findings": [],
+            "gate": null,
+            "citation_ids": [],
+            "latency_ms": 114.806,
+            "audit_label": "correct_abstention"
+          }
+        }
+      }
+    ],
+    "summary": {
+      "selected": {
+        "full": 5,
+        "partial": 1,
+        "unsupported_answer": 7,
+        "incorrect": 2,
+        "correct_abstention": 1
+      },
+      "verified": {
+        "full": 3,
+        "incorrect": 5,
+        "unsupported_answer": 3,
+        "correct_abstention": 5
+      }
+    }
+  }
+}

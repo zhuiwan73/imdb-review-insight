@@ -1,0 +1,1441 @@
+{
+  "retriever": "bm25",
+  "answer_mode": "extractive",
+  "top_k": 5,
+  "corpus": "data\\imdb_local.jsonl",
+  "questions": "data\\imdb_eval.jsonl",
+  "scope": "Top-k results are scored by distinct review ID. Retrieval averages use answerable questions only. Answerability metrics evaluate whether a response was given, not whether its claims were supported.",
+  "counts": {
+    "questions": 50,
+    "answerable": 40,
+    "unsupported": 10,
+    "answered_answerable": 40,
+    "abstained_unsupported": 0
+  },
+  "metrics": {
+    "recall_at_5": 0.548585,
+    "mrr_at_5": 0.715,
+    "answerable_response_rate": 1.0,
+    "unsupported_abstention_rate": 0.0
+  },
+  "cases": [
+    {
+      "qid": "imdb-01",
+      "movie_id": "tt0156934",
+      "question": "Did the jazzy soundtrack suit the film's mood, or did viewers find it distracting?",
+      "relevant_review_ids": [
+        "test-neg-2648",
+        "test-neg-2657",
+        "test-pos-9821",
+        "test-pos-9831",
+        "test-pos-9834"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-9821",
+        "test-pos-9831",
+        "test-neg-2648",
+        "test-pos-9824",
+        "test-pos-9834"
+      ],
+      "matched_review_ids": [
+        "test-neg-2648",
+        "test-pos-9821",
+        "test-pos-9831",
+        "test-pos-9834"
+      ],
+      "cited_review_ids": [
+        "test-pos-9821",
+        "test-pos-9831",
+        "test-neg-2648",
+        "test-pos-9824",
+        "test-pos-9834"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-02",
+      "movie_id": "tt0156934",
+      "question": "What did reviewers think the police-corruption subplot added to the central romance?",
+      "relevant_review_ids": [
+        "test-neg-2653",
+        "test-neg-2658",
+        "test-pos-9821",
+        "test-pos-9823",
+        "test-pos-9824",
+        "test-pos-9834"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-9821",
+        "test-pos-9833",
+        "test-pos-9824",
+        "test-pos-9832",
+        "test-pos-9823"
+      ],
+      "matched_review_ids": [
+        "test-pos-9821",
+        "test-pos-9823",
+        "test-pos-9824"
+      ],
+      "cited_review_ids": [
+        "test-pos-9821",
+        "test-pos-9833",
+        "test-pos-9824",
+        "test-pos-9832",
+        "test-pos-9823"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-03",
+      "movie_id": "tt0156934",
+      "question": "What detail about the seating on the crashed flight starts the plot?",
+      "relevant_review_ids": [
+        "test-pos-9833"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-2660",
+        "test-pos-9824",
+        "test-pos-9823",
+        "test-neg-2661",
+        "test-neg-2653"
+      ],
+      "matched_review_ids": [],
+      "cited_review_ids": [
+        "test-neg-2660",
+        "test-pos-9824",
+        "test-pos-9823",
+        "test-neg-2661",
+        "test-neg-2653"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-04",
+      "movie_id": "tt0156934",
+      "question": "How much did the production pay to use the airport for filming?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-neg-2661",
+        "test-neg-2654",
+        "test-pos-9826",
+        "test-neg-2663",
+        "test-pos-9823"
+      ],
+      "matched_review_ids": [],
+      "cited_review_ids": [
+        "test-neg-2661",
+        "test-neg-2654",
+        "test-pos-9826",
+        "test-neg-2663",
+        "test-pos-9823"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-05",
+      "movie_id": "tt0159365",
+      "question": "Did the farewell kiss make Ada and Inman's romance believable to the reviewers?",
+      "relevant_review_ids": [
+        "test-neg-1753",
+        "test-neg-1763",
+        "test-pos-6651",
+        "test-pos-6656",
+        "test-pos-6657"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-6657",
+        "test-pos-6656",
+        "test-neg-1753",
+        "test-pos-6662",
+        "test-pos-6650"
+      ],
+      "matched_review_ids": [
+        "test-neg-1753",
+        "test-pos-6656",
+        "test-pos-6657"
+      ],
+      "cited_review_ids": [
+        "test-pos-6657",
+        "test-pos-6656",
+        "test-neg-1753",
+        "test-pos-6662",
+        "test-pos-6650"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-06",
+      "movie_id": "tt0159365",
+      "question": "How did viewers disagree about the effectiveness of the opening Civil War battle?",
+      "relevant_review_ids": [
+        "test-neg-1760",
+        "test-neg-1765",
+        "test-pos-6653",
+        "test-pos-6664"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-1760",
+        "test-neg-1753",
+        "test-pos-6664",
+        "test-pos-6662",
+        "test-pos-6651"
+      ],
+      "matched_review_ids": [
+        "test-neg-1760",
+        "test-pos-6664"
+      ],
+      "cited_review_ids": [
+        "test-neg-1760",
+        "test-neg-1753",
+        "test-pos-6664",
+        "test-pos-6662",
+        "test-pos-6651"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-07",
+      "movie_id": "tt0159365",
+      "question": "How did reviewers react to Renée Zellweger's portrayal of Ruby?",
+      "relevant_review_ids": [
+        "test-neg-1759",
+        "test-neg-1760",
+        "test-neg-1761",
+        "test-neg-1766",
+        "test-pos-6650",
+        "test-pos-6659",
+        "test-pos-6663"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-6661",
+        "test-pos-6664",
+        "test-pos-6662",
+        "test-neg-1759",
+        "test-pos-6659"
+      ],
+      "matched_review_ids": [
+        "test-neg-1759",
+        "test-pos-6659"
+      ],
+      "cited_review_ids": [
+        "test-pos-6661",
+        "test-pos-6664",
+        "test-pos-6662",
+        "test-neg-1759",
+        "test-pos-6659"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-08",
+      "movie_id": "tt0159365",
+      "question": "What focal length was the camera lens set to for the opening battle sequence?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-neg-1760",
+        "test-pos-6664",
+        "test-pos-6662",
+        "test-pos-6650",
+        "test-pos-6653"
+      ],
+      "matched_review_ids": [],
+      "cited_review_ids": [
+        "test-neg-1760",
+        "test-pos-6664",
+        "test-pos-6662",
+        "test-pos-6650",
+        "test-pos-6653"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-09",
+      "movie_id": "tt0166924",
+      "question": "How do viewers interpret the film's origins as a rejected television pilot?",
+      "relevant_review_ids": [
+        "test-neg-2336",
+        "test-neg-2339",
+        "test-pos-8642",
+        "test-pos-8643"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-8643",
+        "test-neg-2339",
+        "test-pos-8648",
+        "test-pos-8638",
+        "test-neg-2332"
+      ],
+      "matched_review_ids": [
+        "test-neg-2339",
+        "test-pos-8643"
+      ],
+      "cited_review_ids": [
+        "test-pos-8643",
+        "test-neg-2339",
+        "test-pos-8648",
+        "test-pos-8638",
+        "test-neg-2332"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-10",
+      "movie_id": "tt0166924",
+      "question": "What did viewers suggest doing after a first viewing to make sense of the story?",
+      "relevant_review_ids": [
+        "test-pos-8636",
+        "test-pos-8639",
+        "test-pos-8643",
+        "test-pos-8646",
+        "test-pos-8647"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-2334",
+        "test-pos-8639",
+        "test-pos-8641",
+        "test-neg-2327",
+        "test-pos-8647"
+      ],
+      "matched_review_ids": [
+        "test-pos-8639",
+        "test-pos-8647"
+      ],
+      "cited_review_ids": [
+        "test-neg-2334",
+        "test-pos-8639",
+        "test-pos-8641",
+        "test-neg-2327",
+        "test-pos-8647"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-11",
+      "movie_id": "tt0166924",
+      "question": "What gave the film a Hitchcock-like quality, according to viewers who made that comparison?",
+      "relevant_review_ids": [
+        "test-pos-8641",
+        "test-pos-8644"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-2332",
+        "test-pos-8647",
+        "test-pos-8644",
+        "test-pos-8646",
+        "test-pos-8640"
+      ],
+      "matched_review_ids": [
+        "test-pos-8644"
+      ],
+      "cited_review_ids": [
+        "test-neg-2332",
+        "test-pos-8647",
+        "test-pos-8644",
+        "test-pos-8646",
+        "test-pos-8640"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-12",
+      "movie_id": "tt0166924",
+      "question": "Which acting performances did even reviewers who disliked the film single out for praise?",
+      "relevant_review_ids": [
+        "test-neg-2327",
+        "test-neg-2328",
+        "test-neg-2334"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-8647",
+        "test-neg-2341",
+        "test-neg-2325",
+        "test-neg-2328",
+        "test-neg-2333"
+      ],
+      "matched_review_ids": [
+        "test-neg-2328"
+      ],
+      "cited_review_ids": [
+        "test-pos-8647",
+        "test-neg-2341",
+        "test-neg-2325",
+        "test-neg-2328",
+        "test-neg-2333"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-13",
+      "movie_id": "tt0166924",
+      "question": "Which brand supplied the blue paint used on the key or box props?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-8647",
+        "test-pos-8648",
+        "test-pos-8641",
+        "test-neg-2327",
+        "test-pos-8645"
+      ],
+      "matched_review_ids": [],
+      "cited_review_ids": [
+        "test-pos-8647",
+        "test-pos-8648",
+        "test-pos-8641",
+        "test-neg-2327",
+        "test-pos-8645"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-14",
+      "movie_id": "tt0182576",
+      "question": "Why did some viewers enjoy the cutaway flashbacks while others felt they broke up the plot?",
+      "relevant_review_ids": [
+        "test-neg-2596",
+        "test-neg-2599",
+        "test-neg-2600",
+        "test-neg-2603",
+        "test-pos-9669",
+        "test-pos-9683"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-9683",
+        "test-pos-9682",
+        "test-pos-9681",
+        "test-neg-2596",
+        "test-neg-2606"
+      ],
+      "matched_review_ids": [
+        "test-neg-2596",
+        "test-pos-9683"
+      ],
+      "cited_review_ids": [
+        "test-pos-9683",
+        "test-pos-9682",
+        "test-pos-9681",
+        "test-neg-2596",
+        "test-neg-2606"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-15",
+      "movie_id": "tt0182576",
+      "question": "Did reviewers treat the resemblance to The Simpsons as imitation or point to a different style of humor?",
+      "relevant_review_ids": [
+        "test-neg-2598",
+        "test-neg-2603",
+        "test-pos-9668",
+        "test-pos-9674",
+        "test-pos-9678",
+        "test-pos-9683"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-9676",
+        "test-pos-9684",
+        "test-neg-2600",
+        "test-pos-9683",
+        "test-neg-2596"
+      ],
+      "matched_review_ids": [
+        "test-pos-9683"
+      ],
+      "cited_review_ids": [
+        "test-pos-9676",
+        "test-pos-9684",
+        "test-neg-2600",
+        "test-pos-9683",
+        "test-neg-2596"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-16",
+      "movie_id": "tt0182576",
+      "question": "Which parts of the show were easier and harder for the reviewer who did not speak English natively?",
+      "relevant_review_ids": [
+        "test-pos-9680"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-9680",
+        "test-neg-2596",
+        "test-pos-9682",
+        "test-neg-2606",
+        "test-pos-9671"
+      ],
+      "matched_review_ids": [
+        "test-pos-9680"
+      ],
+      "cited_review_ids": [
+        "test-pos-9680",
+        "test-neg-2596",
+        "test-pos-9682",
+        "test-neg-2606",
+        "test-pos-9671"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-17",
+      "movie_id": "tt0182576",
+      "question": "What visual criticism did some reviewers make about the supporting characters and guest stars?",
+      "relevant_review_ids": [
+        "test-neg-2600",
+        "test-neg-2605"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-2605",
+        "test-pos-9684",
+        "test-pos-9672",
+        "test-neg-2606",
+        "test-pos-9677"
+      ],
+      "matched_review_ids": [
+        "test-neg-2605"
+      ],
+      "cited_review_ids": [
+        "test-neg-2605",
+        "test-pos-9684",
+        "test-pos-9672",
+        "test-neg-2606",
+        "test-pos-9677"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-18",
+      "movie_id": "tt0187696",
+      "question": "What makes Paula suspect foul play when she begins working in the medical school's dissection lab?",
+      "relevant_review_ids": [
+        "test-neg-1832",
+        "test-neg-1835",
+        "test-neg-1836"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-1836",
+        "test-neg-1832",
+        "test-pos-6859",
+        "test-pos-6865",
+        "test-neg-1835"
+      ],
+      "matched_review_ids": [
+        "test-neg-1832",
+        "test-neg-1835",
+        "test-neg-1836"
+      ],
+      "cited_review_ids": [
+        "test-neg-1836",
+        "test-neg-1832",
+        "test-pos-6859",
+        "test-pos-6865",
+        "test-neg-1835"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-19",
+      "movie_id": "tt0187696",
+      "question": "What problems did reviewers notice in the English dub, especially with lip synchronization, voices, or tone?",
+      "relevant_review_ids": [
+        "test-neg-1827",
+        "test-pos-6853",
+        "test-pos-6856",
+        "test-pos-6860",
+        "test-pos-6865",
+        "test-pos-6867"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-6867",
+        "test-pos-6853",
+        "test-pos-6859",
+        "test-pos-6858",
+        "test-pos-6860"
+      ],
+      "matched_review_ids": [
+        "test-pos-6853",
+        "test-pos-6860",
+        "test-pos-6867"
+      ],
+      "cited_review_ids": [
+        "test-pos-6867",
+        "test-pos-6853",
+        "test-pos-6859",
+        "test-pos-6858",
+        "test-pos-6860"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-20",
+      "movie_id": "tt0187696",
+      "question": "How did reviewers differ on the film's handling of medical ethics?",
+      "relevant_review_ids": [
+        "test-neg-1833",
+        "test-pos-6856",
+        "test-pos-6864"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-6856",
+        "test-neg-1836",
+        "test-neg-1827",
+        "test-pos-6864",
+        "test-neg-1833"
+      ],
+      "matched_review_ids": [
+        "test-neg-1833",
+        "test-pos-6856",
+        "test-pos-6864"
+      ],
+      "cited_review_ids": [
+        "test-pos-6856",
+        "test-neg-1836",
+        "test-neg-1827",
+        "test-pos-6864",
+        "test-neg-1833"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-21",
+      "movie_id": "tt0187696",
+      "question": "When reviewers compared Anatomy with American slashers, what did they find derivative or distinctive?",
+      "relevant_review_ids": [
+        "test-neg-1825",
+        "test-neg-1831",
+        "test-neg-1832",
+        "test-neg-1835",
+        "test-neg-1837",
+        "test-pos-6859",
+        "test-pos-6863"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-6859",
+        "test-neg-1831",
+        "test-neg-1835",
+        "test-pos-6862",
+        "test-pos-6867"
+      ],
+      "matched_review_ids": [
+        "test-neg-1831",
+        "test-neg-1835",
+        "test-pos-6859"
+      ],
+      "cited_review_ids": [
+        "test-pos-6859",
+        "test-neg-1831",
+        "test-neg-1835",
+        "test-pos-6862",
+        "test-pos-6867"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-22",
+      "movie_id": "tt0187696",
+      "question": "How much of the production budget paid for the practical anatomy effects?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-6859",
+        "test-neg-1828",
+        "test-pos-6864",
+        "test-pos-6867",
+        "test-pos-6855"
+      ],
+      "matched_review_ids": [],
+      "cited_review_ids": [
+        "test-pos-6859",
+        "test-neg-1828",
+        "test-pos-6864",
+        "test-pos-6867",
+        "test-pos-6855"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-23",
+      "movie_id": "tt0203755",
+      "question": "Did the retelling from three points of view make the comedy more effective or more confusing?",
+      "relevant_review_ids": [
+        "test-neg-3193",
+        "test-pos-11863",
+        "test-pos-11870",
+        "test-pos-11872",
+        "test-pos-11875"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-11875",
+        "test-neg-3183",
+        "test-neg-3193",
+        "test-pos-11872",
+        "test-pos-11867"
+      ],
+      "matched_review_ids": [
+        "test-neg-3193",
+        "test-pos-11872",
+        "test-pos-11875"
+      ],
+      "cited_review_ids": [
+        "test-pos-11875",
+        "test-neg-3183",
+        "test-neg-3193",
+        "test-pos-11872",
+        "test-pos-11867"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-24",
+      "movie_id": "tt0203755",
+      "question": "Which listener hears each man's account of Jewel?",
+      "relevant_review_ids": [
+        "test-neg-3196",
+        "test-pos-11866",
+        "test-pos-11873",
+        "test-pos-11875"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-3196",
+        "test-pos-11875",
+        "test-neg-3195",
+        "test-pos-11872",
+        "test-neg-3183"
+      ],
+      "matched_review_ids": [
+        "test-neg-3196",
+        "test-pos-11875"
+      ],
+      "cited_review_ids": [
+        "test-neg-3196",
+        "test-pos-11875",
+        "test-neg-3195",
+        "test-pos-11872",
+        "test-neg-3183"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-25",
+      "movie_id": "tt0203755",
+      "question": "What material comforts does Jewel want, according to the reviewers?",
+      "relevant_review_ids": [
+        "test-neg-3183",
+        "test-neg-3195",
+        "test-pos-11861",
+        "test-pos-11864"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-11875",
+        "test-neg-3195",
+        "test-pos-11864",
+        "test-neg-3183",
+        "test-pos-11861"
+      ],
+      "matched_review_ids": [
+        "test-neg-3183",
+        "test-neg-3195",
+        "test-pos-11861",
+        "test-pos-11864"
+      ],
+      "cited_review_ids": [
+        "test-pos-11875",
+        "test-neg-3195",
+        "test-pos-11864",
+        "test-neg-3183",
+        "test-pos-11861"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-26",
+      "movie_id": "tt0203755",
+      "question": "How did reviewers react to the YMCA song cue?",
+      "relevant_review_ids": [
+        "test-neg-3191",
+        "test-neg-3195",
+        "test-pos-11868",
+        "test-pos-11869"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-11868",
+        "test-pos-11869",
+        "test-neg-3191",
+        "test-neg-3195"
+      ],
+      "matched_review_ids": [
+        "test-neg-3191",
+        "test-neg-3195",
+        "test-pos-11868",
+        "test-pos-11869"
+      ],
+      "cited_review_ids": [
+        "test-pos-11868",
+        "test-pos-11869",
+        "test-neg-3191",
+        "test-neg-3195"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-27",
+      "movie_id": "tt0264935",
+      "question": "What are the boys trying to prove by planning a murder they hope to get away with?",
+      "relevant_review_ids": [
+        "test-pos-5846",
+        "test-pos-5847",
+        "test-pos-5851",
+        "test-pos-5853",
+        "test-pos-5855",
+        "test-pos-5859",
+        "test-pos-5861"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-5846",
+        "test-pos-5856",
+        "test-pos-5859",
+        "test-pos-5851",
+        "test-pos-5847"
+      ],
+      "matched_review_ids": [
+        "test-pos-5846",
+        "test-pos-5847",
+        "test-pos-5851",
+        "test-pos-5859"
+      ],
+      "cited_review_ids": [
+        "test-pos-5846",
+        "test-pos-5856",
+        "test-pos-5859",
+        "test-pos-5851",
+        "test-pos-5847"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-28",
+      "movie_id": "tt0264935",
+      "question": "How did reviewers differ on whether Sandra Bullock was convincing as a hardened detective?",
+      "relevant_review_ids": [
+        "test-neg-1536",
+        "test-neg-1537",
+        "test-neg-1539",
+        "test-neg-1542",
+        "test-neg-1543",
+        "test-pos-5850",
+        "test-pos-5852",
+        "test-pos-5853",
+        "test-pos-5854",
+        "test-pos-5855",
+        "test-pos-5859",
+        "test-pos-5861",
+        "test-pos-5862"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-5861",
+        "test-neg-1536",
+        "test-pos-5851",
+        "test-pos-5862",
+        "test-pos-5859"
+      ],
+      "matched_review_ids": [
+        "test-neg-1536",
+        "test-pos-5859",
+        "test-pos-5861",
+        "test-pos-5862"
+      ],
+      "cited_review_ids": [
+        "test-pos-5861",
+        "test-neg-1536",
+        "test-pos-5851",
+        "test-pos-5862",
+        "test-pos-5859"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-29",
+      "movie_id": "tt0264935",
+      "question": "What past attack shapes Cassie, and how does it affect her as a detective?",
+      "relevant_review_ids": [
+        "test-pos-5853",
+        "test-pos-5855",
+        "test-pos-5861"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-5855",
+        "test-pos-5859",
+        "test-pos-5862",
+        "test-pos-5851",
+        "test-pos-5850"
+      ],
+      "matched_review_ids": [
+        "test-pos-5855"
+      ],
+      "cited_review_ids": [
+        "test-pos-5855",
+        "test-pos-5859",
+        "test-pos-5862",
+        "test-pos-5851",
+        "test-pos-5850"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-30",
+      "movie_id": "tt0264935",
+      "question": "What was the insurance premium for filming the scenes at the bluff?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-5847",
+        "test-pos-5849",
+        "test-neg-1543"
+      ],
+      "matched_review_ids": [],
+      "cited_review_ids": [
+        "test-pos-5847",
+        "test-pos-5849",
+        "test-neg-1543"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-31",
+      "movie_id": "tt0284953",
+      "question": "What did viewers miss about the TV interview format, and what did defenders like about the scripted movie?",
+      "relevant_review_ids": [
+        "test-neg-822",
+        "test-neg-825",
+        "test-neg-826",
+        "test-neg-828",
+        "test-neg-829",
+        "test-pos-3493",
+        "test-pos-3495",
+        "test-pos-3496",
+        "test-pos-3502",
+        "test-pos-3503"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-3502",
+        "test-pos-3501",
+        "test-pos-3497",
+        "test-neg-825",
+        "test-neg-818"
+      ],
+      "matched_review_ids": [
+        "test-neg-825",
+        "test-pos-3502"
+      ],
+      "cited_review_ids": [
+        "test-pos-3502",
+        "test-pos-3501",
+        "test-pos-3497",
+        "test-neg-825",
+        "test-neg-818"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-32",
+      "movie_id": "tt0284953",
+      "question": "What did David Carlton hope would happen if he backed Ali G, and how did his plan turn out?",
+      "relevant_review_ids": [
+        "test-pos-3489",
+        "test-pos-3500"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-3500",
+        "test-pos-3489",
+        "test-neg-828",
+        "test-neg-823",
+        "test-neg-825"
+      ],
+      "matched_review_ids": [
+        "test-pos-3489",
+        "test-pos-3500"
+      ],
+      "cited_review_ids": [
+        "test-pos-3500",
+        "test-pos-3489",
+        "test-neg-828",
+        "test-neg-823",
+        "test-neg-825"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-33",
+      "movie_id": "tt0284953",
+      "question": "Does Borat appear in the film, and what did reviewers say about his appearance?",
+      "relevant_review_ids": [
+        "test-pos-3490",
+        "test-pos-3491",
+        "test-pos-3492"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-3492",
+        "test-pos-3490",
+        "test-neg-828",
+        "test-neg-824",
+        "test-pos-3496"
+      ],
+      "matched_review_ids": [
+        "test-pos-3490",
+        "test-pos-3492"
+      ],
+      "cited_review_ids": [
+        "test-pos-3492",
+        "test-pos-3490",
+        "test-neg-828",
+        "test-neg-824",
+        "test-pos-3496"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-34",
+      "movie_id": "tt0284953",
+      "question": "How large was the Parliament set used for the political scenes?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-3501",
+        "test-pos-3500",
+        "test-pos-3504",
+        "test-pos-3498",
+        "test-neg-830"
+      ],
+      "matched_review_ids": [],
+      "cited_review_ids": [
+        "test-pos-3501",
+        "test-pos-3500",
+        "test-pos-3504",
+        "test-pos-3498",
+        "test-neg-830"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-35",
+      "movie_id": "tt0340874",
+      "question": "What negative and positive reactions to the Northfork cinematography appear in the reviews?",
+      "relevant_review_ids": [
+        "test-neg-3003",
+        "test-pos-11219",
+        "test-pos-11227"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-11220",
+        "test-neg-3009",
+        "test-pos-11230",
+        "test-pos-11229",
+        "test-neg-3003"
+      ],
+      "matched_review_ids": [
+        "test-neg-3003"
+      ],
+      "cited_review_ids": [
+        "test-pos-11220",
+        "test-neg-3009",
+        "test-pos-11230",
+        "test-pos-11229",
+        "test-neg-3003"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-36",
+      "movie_id": "tt0340874",
+      "question": "Why is the town being evacuated in Northfork?",
+      "relevant_review_ids": [
+        "test-neg-2996",
+        "test-pos-11223",
+        "test-pos-11228",
+        "test-pos-11233"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-2996",
+        "test-pos-11233",
+        "test-pos-11232",
+        "test-pos-11230",
+        "test-pos-11231"
+      ],
+      "matched_review_ids": [
+        "test-neg-2996",
+        "test-pos-11233"
+      ],
+      "cited_review_ids": [
+        "test-neg-2996",
+        "test-pos-11233",
+        "test-pos-11232",
+        "test-pos-11230",
+        "test-pos-11231"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-37",
+      "movie_id": "tt0340874",
+      "question": "When Northfork played at Cannes, did the reviewer who called it very slow also find it boring?",
+      "relevant_review_ids": [
+        "test-pos-11232"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-11232",
+        "test-pos-11220",
+        "test-pos-11222",
+        "test-pos-11223",
+        "test-pos-11230"
+      ],
+      "matched_review_ids": [
+        "test-pos-11232"
+      ],
+      "cited_review_ids": [
+        "test-pos-11232",
+        "test-pos-11220",
+        "test-pos-11222",
+        "test-pos-11223",
+        "test-pos-11230"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-38",
+      "movie_id": "tt0340874",
+      "question": "Which camera make and model was used for the widescreen cinematography in Northfork?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-11219",
+        "test-neg-3003",
+        "test-pos-11230",
+        "test-pos-11224",
+        "test-pos-11229"
+      ],
+      "matched_review_ids": [],
+      "cited_review_ids": [
+        "test-pos-11219",
+        "test-neg-3003",
+        "test-pos-11230",
+        "test-pos-11224",
+        "test-pos-11229"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-39",
+      "movie_id": "tt0435687",
+      "question": "Did reviewers want more of the familiar television characters, or did some like the smaller set of main characters?",
+      "relevant_review_ids": [
+        "test-neg-1185",
+        "test-neg-1196",
+        "test-pos-4885",
+        "test-pos-4887"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-4894",
+        "test-neg-1186",
+        "test-neg-1196",
+        "test-pos-4891",
+        "test-pos-4892"
+      ],
+      "matched_review_ids": [
+        "test-neg-1196"
+      ],
+      "cited_review_ids": [
+        "test-pos-4894",
+        "test-neg-1186",
+        "test-neg-1196",
+        "test-pos-4891",
+        "test-pos-4892"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-40",
+      "movie_id": "tt0435687",
+      "question": "What made Geoff a comic standout even for a reviewer who disliked much of the movie?",
+      "relevant_review_ids": [
+        "test-neg-1193",
+        "test-pos-4886"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-4891",
+        "test-pos-4896",
+        "test-pos-4894",
+        "test-neg-1194",
+        "test-pos-4886"
+      ],
+      "matched_review_ids": [
+        "test-pos-4886"
+      ],
+      "cited_review_ids": [
+        "test-pos-4891",
+        "test-pos-4896",
+        "test-pos-4894",
+        "test-neg-1194",
+        "test-pos-4886"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-41",
+      "movie_id": "tt0435687",
+      "question": "What did fans say about how funny the film was compared with the three television series?",
+      "relevant_review_ids": [
+        "test-neg-1184",
+        "test-neg-1189",
+        "test-pos-4891",
+        "test-pos-4898"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-1196",
+        "test-pos-4891",
+        "test-neg-1189",
+        "test-pos-4895",
+        "test-pos-4894"
+      ],
+      "matched_review_ids": [
+        "test-neg-1189",
+        "test-pos-4891"
+      ],
+      "cited_review_ids": [
+        "test-neg-1196",
+        "test-pos-4891",
+        "test-neg-1189",
+        "test-pos-4895",
+        "test-pos-4894"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-42",
+      "movie_id": "tt0435687",
+      "question": "What focal length was used to film the medieval scenes in The League of Gentlemen's Apocalypse?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-4891",
+        "test-pos-4893",
+        "test-pos-4897",
+        "test-pos-4895",
+        "test-neg-1196"
+      ],
+      "matched_review_ids": [],
+      "cited_review_ids": [
+        "test-pos-4891",
+        "test-pos-4893",
+        "test-pos-4897",
+        "test-pos-4895",
+        "test-neg-1196"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-43",
+      "movie_id": "tt0808151",
+      "question": "Which CERN director from the novel is missing in the film, and what does he do at the beginning of the book?",
+      "relevant_review_ids": [
+        "test-neg-412",
+        "test-neg-415",
+        "test-neg-420"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-421",
+        "test-neg-412",
+        "test-pos-1628",
+        "test-neg-415",
+        "test-neg-420"
+      ],
+      "matched_review_ids": [
+        "test-neg-412",
+        "test-neg-415",
+        "test-neg-420"
+      ],
+      "cited_review_ids": [
+        "test-neg-421",
+        "test-neg-412",
+        "test-pos-1628",
+        "test-neg-415",
+        "test-neg-420"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-44",
+      "movie_id": "tt0808151",
+      "question": "How did views differ about the film's visual depiction of Rome and the Vatican?",
+      "relevant_review_ids": [
+        "test-neg-421",
+        "test-pos-1627"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-1624",
+        "test-neg-417",
+        "test-neg-421",
+        "test-pos-1635",
+        "test-pos-1634"
+      ],
+      "matched_review_ids": [
+        "test-neg-421"
+      ],
+      "cited_review_ids": [
+        "test-pos-1624",
+        "test-neg-417",
+        "test-neg-421",
+        "test-pos-1635",
+        "test-pos-1634"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-45",
+      "movie_id": "tt0808151",
+      "question": "Was the music in Angels & Demons praised, or did it make the action harder to take in?",
+      "relevant_review_ids": [
+        "test-neg-417",
+        "test-pos-1627",
+        "test-pos-1628"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-414",
+        "test-pos-1635",
+        "test-pos-1633",
+        "test-neg-410",
+        "test-pos-1623"
+      ],
+      "matched_review_ids": [],
+      "cited_review_ids": [
+        "test-neg-414",
+        "test-pos-1635",
+        "test-pos-1633",
+        "test-neg-410",
+        "test-pos-1623"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-46",
+      "movie_id": "tt0808151",
+      "question": "Who coordinated the vehicle stunts for the sequences racing across Rome?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-1621",
+        "test-neg-417",
+        "test-pos-1623",
+        "test-pos-1629",
+        "test-pos-1634"
+      ],
+      "matched_review_ids": [],
+      "cited_review_ids": [
+        "test-pos-1621",
+        "test-neg-417",
+        "test-pos-1623",
+        "test-pos-1629",
+        "test-pos-1634"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-47",
+      "movie_id": "tt0956038",
+      "question": "Did reviewers find Diane Lane and Richard Gere believable as a couple?",
+      "relevant_review_ids": [
+        "test-neg-871",
+        "test-neg-872",
+        "test-pos-3737",
+        "test-pos-3741"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-3737",
+        "test-pos-3736",
+        "test-pos-3734",
+        "test-neg-873",
+        "test-pos-3741"
+      ],
+      "matched_review_ids": [
+        "test-pos-3737",
+        "test-pos-3741"
+      ],
+      "cited_review_ids": [
+        "test-pos-3737",
+        "test-pos-3736",
+        "test-pos-3734",
+        "test-neg-873",
+        "test-pos-3741"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-48",
+      "movie_id": "tt0956038",
+      "question": "What did reviewers say was missing from the buildup to the central romance?",
+      "relevant_review_ids": [
+        "test-neg-875",
+        "test-neg-884",
+        "test-neg-885"
+      ],
+      "retrieved_review_ids": [
+        "test-neg-878",
+        "test-neg-879",
+        "test-neg-881",
+        "test-neg-885",
+        "test-neg-874"
+      ],
+      "matched_review_ids": [
+        "test-neg-885"
+      ],
+      "cited_review_ids": [
+        "test-neg-878",
+        "test-neg-879",
+        "test-neg-881",
+        "test-neg-885",
+        "test-neg-874"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-49",
+      "movie_id": "tt0956038",
+      "question": "What made the beach house look implausible to one reviewer?",
+      "relevant_review_ids": [
+        "test-neg-882"
+      ],
+      "retrieved_review_ids": [
+        "test-pos-3735",
+        "test-pos-3741",
+        "test-neg-872",
+        "test-neg-878",
+        "test-neg-882"
+      ],
+      "matched_review_ids": [
+        "test-neg-882"
+      ],
+      "cited_review_ids": [
+        "test-pos-3735",
+        "test-pos-3741",
+        "test-neg-872",
+        "test-neg-878",
+        "test-neg-882"
+      ],
+      "status": "answered"
+    },
+    {
+      "qid": "imdb-50",
+      "movie_id": "tt0956038",
+      "question": "Which specific street address was used to film the inn's interior scenes?",
+      "relevant_review_ids": [],
+      "retrieved_review_ids": [
+        "test-pos-3734",
+        "test-pos-3733",
+        "test-neg-870",
+        "test-pos-3744",
+        "test-neg-882"
+      ],
+      "matched_review_ids": [],
+      "cited_review_ids": [
+        "test-pos-3734",
+        "test-pos-3733",
+        "test-neg-870",
+        "test-pos-3744",
+        "test-neg-882"
+      ],
+      "status": "answered"
+    }
+  ]
+}
